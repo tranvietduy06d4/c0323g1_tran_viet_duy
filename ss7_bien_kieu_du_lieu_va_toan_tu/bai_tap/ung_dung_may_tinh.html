@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập ứng dụng máy tính</title>
+</head>
+<body>
+<table>
+    <thead>Caculator</thead>
+    <tr>
+        <td><input type="number" id="n1"/></td>
+        <td><input type="number" id="n2"/></td>
+    </tr><br>
+    <button type="button" onclick="addition()">Addition(+)</button>
+    <button type="button" onclick="subtraction()">Subtraction(-)</button>
+    <button type="button" onclick="multiplication()">Multiplication(x)</button>
+    <button type="button" onclick="division()">Division(/)</button>
+    <p id= "result"> </p>
+</table>
+<script>
+
+
+    function addition()
+        {   let x = document.getElementById("n1").value;
+            let x1 = parseInt(x);
+            let y = document.getElementById("n2").value;
+            let y1 = parseInt(y);
+            let add = x1 + y1;
+            document.getElementById("result").innerHTML = 'Kết quả phép tính là:' +add;
+        }
+    function subtraction()
+        {   let x = document.getElementById("n1").value;
+            let y = document.getElementById("n2").value;
+            let sub = x-y;
+            document.getElementById("result").innerHTML = 'Kết quả phép tính là:' +sub;
+        }
+    function multiplication()
+        {   let x = document.getElementById("n1").value;
+            let y = document.getElementById("n2").value;
+            let mul = x*y;
+            document.getElementById("result").innerHTML = "Kết quả phép tính là:" +mul;
+        }
+    function division()
+        {   let x = document.getElementById("n1").value;
+            let y = document.getElementById("n2").value;
+            let divi = x/y;
+            document.getElementById("result").innerHTML = divi;
+        }
+
+</script>
+</body>
+</html>
