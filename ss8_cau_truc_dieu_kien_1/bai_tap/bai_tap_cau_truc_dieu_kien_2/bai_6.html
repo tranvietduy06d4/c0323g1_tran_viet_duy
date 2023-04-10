@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập tính tiền hoa hồng</title>
+</head>
+<body>
+<script>
+    let earnMoney = parseInt(prompt("Please enter your money your earned this month: "));
+    let tipMoney;
+    if (earnMoney >= 500000000) {
+        tipMoney = earnMoney * 5 / 100;
+    } else if (earnMoney >= 400000000) {
+        tipMoney = earnMoney * 4 / 100;
+    } else if (earnMoney >= 200000000) {
+        tipMoney = earnMoney * 2 / 100;
+    } else {
+        tipMoney = earnMoney / 100;
+    }
+    alert("Số tiền hoa hồng bạn nhận được là: " + tipMoney);
+</script>
+
+</body>
+</html>

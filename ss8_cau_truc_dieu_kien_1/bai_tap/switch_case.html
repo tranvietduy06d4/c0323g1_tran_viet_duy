@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập switch case</title>
+</head>
+<body>
+<input id="month" type="number"/>
+<button type=button onClick="countDay()">Tính số ngày trong tháng:</button>
+<script>
+    function countDay() {
+        let month = document.getElementById("month").value;
+        switch (month) {
+            case "1":
+            case "3":
+            case "5":
+            case "7":
+            case "8":
+            case "10":
+            case "12": {
+                alert("Số ngày trong tháng là: 31 ngày");
+                break;
+            }
+            case "2": {
+                alert("Số ngày trong tháng là: 28 ngày");
+                break;
+            }
+            default: {
+                alert("Số ngày trong tháng là: 30 ngày");
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

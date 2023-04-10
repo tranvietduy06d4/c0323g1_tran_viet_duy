@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất trong 3 số</title>
+</head>
+<body>
+<script>
+  let a = parseInt(prompt("Please enter value of a = "));
+  let b = parseInt(prompt("Please enter value of b = "));
+  let c = parseInt(prompt("Please enter value of c = "));
+  let max;
+  if(a>b && a>c) {
+    max = b;
+  } else if (b>c) {
+    max = b;
+  } else {max = c;
+  }
+  alert("Số lớn nhất trong 3 số là " +max);
+</script>
+</body>
+</html>

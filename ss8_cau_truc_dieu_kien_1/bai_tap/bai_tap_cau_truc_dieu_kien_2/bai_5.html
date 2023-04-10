@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập xếp hạng học lực</title>
+</head>
+<body>
+<script>
+  let testScore = parseInt(prompt("Please enter score of your test: "));
+  let midScore = parseInt(prompt("Please enter score of your middle test: "));
+  let endScore = parseInt(prompt("Please enter score of your end test: "));
+  let average = (testScore + midScore + endScore)/3;
+  if (average>=9) {
+    alert("Bạn đạt loại Xuất sắc");
+  } else if (average>=8) {
+    alert("Bạn đạt loại Giỏi");
+  } else if (average>=7) {
+    alert("Bạn đạt loại Khá");
+  } else if (average>=5) {
+    alert("Bạn đạt loại Trung Bình");
+  } else if (average>=4) {
+    alert("Bạn đạt loại Yếu");
+  } else {
+    alert("Bạn đạt loại kém");
+  }
+</script>
+</body>
+</html>
