@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12 - Tính tiền lãi vay ngân hàng</title>
+</head>
+<body>
+<script>
+    let loanMoney = parseInt(prompt("Please enter amount of money that you want to loan: "));
+    let interestRate = parseFloat(prompt("Please enter interest rate (%): ")) / 12;
+    let loanPeriod = parseInt(prompt("Please enter loan period (months): "));
+    if (loanMoney > 0 && interestRate > 0 && loanPeriod > 0) {
+        let interest = loanMoney * Math.pow(1 + interestRate, loanPeriod) - loanMoney;
+        alert("Your total interest money is about: " + interest + " VND");
+    } else {
+        alert("Wrong. Please enter your loan money, interest rate and loan period again. Remember: These value must bigger than 0");
+    }
+</script>
+</body>
+</html>

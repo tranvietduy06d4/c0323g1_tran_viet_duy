@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10 - Tính tiền điện</title>
+</head>
+<body>
+<script>
+    let kwhNumber = parseInt(prompt("Please enter your electric consumption (kwh): "));
+    let electricityBill;
+    if (kwhNumber < 51) {
+        electricityBill = kwhNumber * 1678;
+    } else if (kwhNumber < 101) {
+        electricityBill = 50 * 1678 + (kwhNumber - 50) * 1734;
+    } else if (kwhNumber < 201) {
+        electricityBill = 50 * (1678 + 1734) + (kwhNumber - 100) * 2014;
+    } else if (kwhNumber < 301) {
+        electricityBill = 50 * (1678 + 1734) + 100 * 2014 + (kwhNumber - 200) * 2536;
+    } else if (kwhNumber < 401) {
+        electricityBill = 50 * (1678 + 1734) + 100 * 2014 + 100 * 2536 + (kwhNumber - 300) * 2834;
+    } else {
+        electricityBill = 50 * (1678 + 1734) + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kwhNumber - 400) * 2927;
+    }
+    alert("Your electricity bill is " + electricityBill + " VND");
+</script>
+</body>
+</html>

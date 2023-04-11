@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7 - Giải phương trình bậc 2</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Please enter the value of a = "));
+    if (a == 0) {
+        alert("Please enter value of a again. Note: a can not be equal 0");
+    } else {
+        let b = parseInt(prompt("Please enter the value of b= "));
+        let c = parseInt(prompt("Please enter the value of c= "));
+        let x1, x2;
+        let delta = b * b - 4 * a * c;
+        if (delta < 0) {
+            alert("Phương trình vô nghiệm");
+        } else if (delta == 0) {
+            x1 = x2 = -b / (2 * a);
+            alert("Phương trình có nghiệm kép x1 = x2 = " + x1);
+        } else {
+            x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            alert("Phương trình có nghiệm x1 = " + x1 + " x2=" + x2);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9 - Kiểm tra 3 số thực nhập vào có phải 3 cạnh của 1 tam giác</title>
+</head>
+<body>
+<script>
+    let side1 = parseInt(prompt("Please enter the value of side 1 = "));
+    let side2 = parseInt(prompt("Please enter the value of side 2 = "));
+    let side3 = parseInt(prompt("Please enter the value of side 3 = "));
+    let add1 = side1 + side2 - side3;
+    let add2 = side2 + side3 - side1;
+    let add3 = side1 + side3 - side2;
+
+    if (side1 > 0 && side2 > 0 && side3 > 0) {
+
+        if (add1 > 0 && add2 > 0 && add3 > 0) {
+            alert("Right. There are 3 sides of triangle");
+        } else {
+            alert("Wrong. There are not 3 sides of triangle");
+        }
+    } else {
+        alert("Wrong. There are not 3 sides of triangle");
+    }
+
+</script>
+</body>
+</html>
