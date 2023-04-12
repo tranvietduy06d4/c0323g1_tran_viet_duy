@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 - Kiểm tra thông tin nhập dữ liệu nhiệt độ</title>
+</head>
+<body>
+<script>
+    do {
+        let temperature = +prompt("Please enter value of temperature: ");
+        if (temperature > 100) {
+            temperature = +prompt("Please decrease your temperature: ");
+        } else if (temperature < 20) {
+            temperature = +prompt("Please increase your temperature: ");
+        }
+    }
+    while (temperature > 100 || temperature < 20)
+</script>
+</body>
+</html>

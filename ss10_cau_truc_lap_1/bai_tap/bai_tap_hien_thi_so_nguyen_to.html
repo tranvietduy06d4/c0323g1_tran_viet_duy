@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập hiển thị số nguyên tố</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Please enter number of prime number that you want to display: "));
+    let count = 0;
+    let N = 2;
+    while (count < number) {
+        let flag = true;
+        for (let i = 2; i < N; i++) {
+            if (N % i == 0) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag == true) {
+            document.write(N);
+            count++;
+        }
+        N++;
+    }
+
+
+</script>
+</body>
+</html>

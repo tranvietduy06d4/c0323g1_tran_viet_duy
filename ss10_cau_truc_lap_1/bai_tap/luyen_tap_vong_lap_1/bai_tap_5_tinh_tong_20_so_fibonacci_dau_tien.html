@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 5 - Tính tổng 20 số fibonacci đầu tiên</title>
+</head>
+<body>
+<script>
+    let i = 0;
+    let j = 1;
+    let fibonacci;
+    let result = 1;
+    for (let count = 0; count < 18; count++) {
+        fibonacci = i + j;
+        i = j;
+        j = fibonacci;
+        result = result + fibonacci;
+    }
+    document.write(result);
+</script>
+</body>
+</html>

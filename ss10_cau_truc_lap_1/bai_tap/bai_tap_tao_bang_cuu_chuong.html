@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập tạo bảng cửu chương</title>
+</head>
+<body>
+<h1>BẢNG CỬU CHƯƠNG</h1>
+<table style="border-collapse: collapse">
+    <script>
+        let i, j;
+        for (j = 1; j < 10; j++) {
+            document.write("<tr style='border: 1px solid black'>");
+            for (i = 2; i < 10; i++) {
+                let result = i * j;
+                document.write("<td style = 'border: 1px solid black' width ='120px' height='10px' align='center'>");
+                document.write(i + " x " + j + "=" + result);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+
+    </script>
+</table>
+</body>
+</html>

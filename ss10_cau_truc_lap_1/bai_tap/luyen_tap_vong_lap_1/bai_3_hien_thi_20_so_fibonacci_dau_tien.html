@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 3 - Hiển thị 20 số fibonacci đầu tiên</title>
+</head>
+<body>
+<script>
+    document.write("0<br/>1<br/>");
+    let number = +prompt("Please enter how many number you want to display: ");
+    let i = 0;
+    let j = 1;
+    let fibonacci;
+    for (let count = 0; count < number-2; count++) {
+        fibonacci = i + j;
+        i = j;
+        j = fibonacci;
+        document.write(fibonacci + "<br/>");
+    }
+
+</script>
+</body>
+</html>
