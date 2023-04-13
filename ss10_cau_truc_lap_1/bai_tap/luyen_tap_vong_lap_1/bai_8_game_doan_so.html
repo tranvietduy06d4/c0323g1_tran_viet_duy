@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8 - Game đoán số</title>
+</head>
+<body>
+<button type="button" onclick="game()">Start game</button>
+;
+<script>
+    function game() {
+        let range = +prompt("Please enter the maximum value that you want to check: ");
+        let numberRandom = Math.floor(Math.random() * range);
+        let numberIn = +prompt("Please enter number that you guess: ");
+        for (let count = 0; count < 3; count++) {
+            if (numberIn === numberRandom) {
+                alert("The number you guess is right. Congratulation!!!");
+                return;
+            } else if (numberIn < numberRandom) {
+                numberIn = +prompt("Your number is smaller than answer. Please enter number that you guess again: ");
+            } else {
+                numberIn = +prompt("Your number is bigger than answer. Please enter number that you guess again: ");
+            }
+        }
+        alert("You guess over 3 times. See you again");
+    }
+</script>
+</body>
+</html>

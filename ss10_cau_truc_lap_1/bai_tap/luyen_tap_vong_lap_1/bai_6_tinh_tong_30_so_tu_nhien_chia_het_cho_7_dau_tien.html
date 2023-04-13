@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 6 - Tính tổng 30 số tự nhiên đầu tiên chia hết cho 7 </title>
+</head>
+<body>
+<script>
+    let number = +prompt("Please enter how many number that you want to display: ");
+    let count = 0;
+    let total = 0;
+    for (let N = 0; N % 7 == 0; N = N + 7) {
+        total = total + N;
+        count++;
+        if (count == number) {
+            document.write(total);
+            break;
+        }
+    }
+</script>
+</body>
+</html>
