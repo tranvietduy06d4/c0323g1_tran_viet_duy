@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bài 6 - Khởi tạo mảng, nhập vào phần tử V và kiểm tra V có thuộc mảng không? </title>
+    <title>Nhập, kiểm tra phần tử, xóa phần tử khỏi mảng</title>
 </head>
 <body>
 <script>
@@ -11,18 +11,14 @@
     for (let i = 0; i < N; i++) {
         integer[i] = +prompt("Please enter your number: ");
     }
-    let flag = false;
     let V = +prompt("Please enter number that you want add in your array: ");
     integer.push(V);
     for (let i = 0; i < integer.length - 1; i++) {
         if (integer[i] === V) {
-            flag = true;
             alert("V is in the array");
+            integer.pop();
             break;
         }
-    }
-    if (flag === false) {
-        alert("V is not in the array");
     }
 </script>
 </body>
