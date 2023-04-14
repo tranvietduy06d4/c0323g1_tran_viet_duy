@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4 - Nhập/Khởi tạo 1 mảng số nguyên và đảo ngược các phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let N = +prompt("Please enter how many number you want in your array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        integer[i] = +prompt("Please enter your number: ");
+    }
+    integer.reverse();
+    document.write("Thứ tự các phần tử trong mảng sau khi đảo ngược như sau: " + integer);
+</script>
+</body>
+</html>

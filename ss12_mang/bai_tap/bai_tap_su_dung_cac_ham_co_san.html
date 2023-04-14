@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập sử dụng các hàm có sẵn với mảng</title>
+</head>
+<body>
+<script>
+    // Bài tập số 1
+    myColor = ["Red", "Green", "White", "Black"];
+    document.write(myColor.toString() + "<br/>");
+    document.write(myColor.join() + "<br/>");
+    document.write(myColor.join('+') + "<br/>");
+
+    // Bài tập số 2
+    // let num = window.prompt();
+    // let str = num.toString();
+    // let result = [str[0]];
+    // for (let x = 1; x < str.length; x++) {
+    //     if (str[x - 1] % 2 === 0 && str[x] % 2 === 0) {
+    //         result.push('-', str[x]);
+    //     } else {
+    //         result.push(str[x]);
+    //     }
+    // }
+    // document.write(result.join(''));
+
+    // Bài tập số 3
+    let str = window.prompt("Please type the text you want to convert: ");
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if (UPPER.indexOf(str[i]) !== -1) {
+            result.push(str[i].toLowerCase());
+        } else if (LOWER.indexOf(str[i]) !== -1) {
+            result.push(str[i].toUpperCase());
+        } else {
+            result.push(str[i]);
+        }
+    }
+    document.write(result.join(''));
+</script>
+</body>
+</html>

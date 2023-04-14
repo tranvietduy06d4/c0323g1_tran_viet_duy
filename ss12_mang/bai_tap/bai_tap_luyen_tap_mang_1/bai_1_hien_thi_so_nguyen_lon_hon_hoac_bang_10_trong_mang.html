@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 1 - Hiển thị các số nguyên lớn hơn hoặc bằng 10 trong mảng</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let N = +prompt("Please enter how many number you want in your array: (it means the length of your array): ");
+    let count = 0;
+    for (let i = 0; i < N; i++) {
+        integer[i] = +prompt("Please enter your number: ");
+    }
+    for (let i in integer) {
+        if (integer[i] >= 10) {
+            count++;
+        }
+    }
+    document.write("We have the answer: " + count);
+</script>
+
+</body>
+</html>

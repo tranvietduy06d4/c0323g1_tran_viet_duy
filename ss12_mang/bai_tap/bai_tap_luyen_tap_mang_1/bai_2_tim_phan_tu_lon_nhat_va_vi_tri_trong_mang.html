@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2 - Hiển thị phần tử có giá trị lớn nhất trong mảng và vị trí của nó</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let maxNumber;
+    let N = +prompt("Please enter how many number you want in your array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        integer[i] = +prompt("Please enter your number: ");
+    }
+    for (let i = 1; i < integer.length; i++) {
+        maxNumber = integer[0];
+        if (integer[i] > maxNumber) {
+            maxNumber = integer[i];
+        }
+    }
+    document.write("We have the maximum number is: " + maxNumber + "<br/>");
+    document.write("We have index of maximum number in array is: " + (integer.indexOf(maxNumber)));
+</script>
+</body>
+</html>

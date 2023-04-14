@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Hiển thị số lớn nhất trong mảng và in ra giá trịnh trung bình cộng của các phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let maxNumber;
+    let total = 0;
+    let average;
+    let N = +prompt("Please enter how many number you want in your array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        integer[i] = +prompt("Please enter your number: ");
+        total = total + integer[i];
+    }
+    average = total / integer.length;
+    for (let i = 1; i < integer.length; i++) {
+        maxNumber = integer[0];
+        if (integer[i] > maxNumber) {
+            maxNumber = integer[i];
+        }
+    }
+    document.write("We have the maximum number is: " + maxNumber + "<br/>");
+    document.write("We have the average value of all elements in array is: " + average);
+</script>
+</body>
+</html>

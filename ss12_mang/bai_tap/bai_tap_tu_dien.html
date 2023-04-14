@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập lập Từ điển Anh - Việt đơn giản</title>
+</head>
+<body>
+<script>
+    let englishArray = ["banana", "apple", "orange", "grape"];
+    let vietnameseArray = ["chuối", "táo", "cam", "nho"];
+    let englishInput = window.prompt("Please type your english word that you want to translate: ");
+    for (let i = 0; i < englishArray.length; i++) {
+        if (englishInput === englishArray[i]) {
+            document.write("Từ tiếng Việt tương ứng là: " + vietnameseArray[i]);
+        }
+    }
+</script>
+</body>
+</html>

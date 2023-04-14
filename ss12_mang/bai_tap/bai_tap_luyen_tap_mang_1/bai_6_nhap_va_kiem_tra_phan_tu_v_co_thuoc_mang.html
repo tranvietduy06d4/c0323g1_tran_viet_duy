@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 - Khởi tạo mảng, nhập vào phần tử V và kiểm tra V có thuộc mảng không? </title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let N = +prompt("Please enter how many number you want in your array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        integer[i] = +prompt("Please enter your number: ");
+    }
+    let V = +prompt("Please enter number that you want add in your array: ");
+    integer.push(V);
+    for (let i = 0; i < integer.length - 1; i++) {
+        if (integer[i] === V) {
+            alert("V is in the array");
+            break;
+        }
+    }
+</script>
+</body>
+</html>
