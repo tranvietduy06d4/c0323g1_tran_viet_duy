@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8 - Sắp xếp mảng theo thứ tự giảm dần</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let N = +prompt("Please enter how many number you want in your array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        integer[i] = +prompt("Please enter your number: ");
+    }
+    integer.sort(function (a, b) {
+        return b - a;
+    });
+    document.write("Your array after sorting: " + integer);
+</script>
+</body>
+</html>
