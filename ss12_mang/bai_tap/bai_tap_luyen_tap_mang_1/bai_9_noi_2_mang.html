@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9 - Nối 2 mảng số nguyên a và ba thành mảng c và hiển thị mảng c</title>
+</head>
+<body>
+<script>
+    let integerA = [];
+    let integerB = [];
+    let N = +prompt("Please enter how many number you want in your input array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        integerA[i] = +prompt("Please enter your number: ");
+    }
+    for (let j = 0; j < N; j++) {
+        integerB[j] = +prompt("Please enter your number: ");
+    }
+    let integerC = integerA.concat(integerB);
+    document.write("Your new array is: " + integerC);
+</script>
+</body>
+</html>

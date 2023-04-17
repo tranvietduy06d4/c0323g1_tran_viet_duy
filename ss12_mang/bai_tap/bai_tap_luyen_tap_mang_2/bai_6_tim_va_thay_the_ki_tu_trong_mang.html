@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 - Tìm và thay thế kí tự "-" trong mảng kí tự bằng kí tự "_"</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let N = +prompt("Please enter how many characters you want in your array: (it means the length of your array): ");
+    for (let i = 0; i < N; i++) {
+        array[i] = prompt("Please enter your character: " + (i + 1));
+        if (array[i].length !== 1) {
+            array[i] = prompt("Please enter your character again: " + i);
+        }
+    }
+    for (let j = 0; j < array.length; j++) {
+        if (array[j] === '-') {
+            array[j] = '_';
+        }
+    }
+    document.write("Mảng sau khi thay đổi như sau: " + array);
+</script>
+</body>
+</html>

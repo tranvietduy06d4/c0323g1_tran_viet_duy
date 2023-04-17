@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình đếm số ký tự số trong mảng</title>
+</head>
+<body>
+<script>
+    let array = ['a', 0, 'b', 1, 2, 'c', 3];
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[i] === 'number') {
+            count++;
+        }
+    }
+    document.write("Số lượng số có trong mảng là: " + count);
+</script>
+</body>
+</html>
