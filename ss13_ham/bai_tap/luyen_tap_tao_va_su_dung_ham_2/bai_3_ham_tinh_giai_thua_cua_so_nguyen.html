@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm tính giai thừa của 1 số nguyên dương bất kì</title>
+</head>
+<body>
+<script>
+    function calculateFactorial(number) {
+        if (!isNaN(number) && number > 0) {
+            let result = 1;
+            for (let i = 1; i <= number; i++) {
+                result = result * i;
+            }
+            document.write("Result of factorial calculation is: " + result);
+        } else {
+            document.write("That is not a number or this number is not bigger than 0. Please reload your web and enter number again");
+        }
+    }
+
+    let number = +prompt("Please enter your number that you want to calculate factorial of it: ");
+    calculateFactorial(number);
+</script>
+</body>
+</html>

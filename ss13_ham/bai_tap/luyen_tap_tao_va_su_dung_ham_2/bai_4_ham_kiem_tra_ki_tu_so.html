@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5 - Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số</title>
+</head>
+<body>
+<script>
+    function checkNumber(text) {
+        if (!isNaN(text)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let text = prompt("Please enter your character to check ( it is a number or not) ");
+    let result = checkNumber(text);
+    document.write("Result is: " + result);
+</script>
+</body>
+</html>

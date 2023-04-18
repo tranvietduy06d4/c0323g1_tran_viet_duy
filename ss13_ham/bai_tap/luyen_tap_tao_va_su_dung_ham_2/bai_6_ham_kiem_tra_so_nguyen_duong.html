@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 - Viết hàm kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+    function checkPositiveInteger() {
+        let number = prompt("Please enter number that you want to check: ");
+        let numberCheck = parseInt(number);
+        while (numberCheck != number) {
+            number = prompt("It is not a integer. Please enter your number again: ");
+            numberCheck = parseInt(number);
+        }
+        if (number > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let result = checkPositiveInteger();
+    document.write("The result is: " + result);
+</script>
+</body>
+</html>

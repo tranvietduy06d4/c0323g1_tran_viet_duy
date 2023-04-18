@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Tạo hàm nhập vào 2 tham số, kiểm tra 2 tham số và tính tổng 2 tham số</title>
+</head>
+<body>
+<script>
+    function checkArgument(number1, number2) {
+        if (number1 > number2) {
+            alert("Number 1 is bigger than number 2");
+        } else {
+            total = number1 + number2;
+            document.write("Total of number 1 and number 2 is: " + total);
+        }
+    }
+
+    let number1 = +prompt("Please enter your number 1:");
+    let number2 = +prompt("Please enter your number 2:");
+    checkArgument(number1, number2);
+</script>
+</body>
+</html>

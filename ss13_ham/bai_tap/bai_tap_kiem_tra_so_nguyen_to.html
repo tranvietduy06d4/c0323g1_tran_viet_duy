@@ -6,14 +6,12 @@
 </head>
 <body>
 <script>
-
-
     function isPrime() {
         let flag = true;
         for (let N = 2; N < 10000; N++) {
-            for (let i = 2; i <= N/2; i++) {
+            for (let i = 2; i <= N / 2; i++) {
                 flag = true;
-                if (N % i=== 0) {
+                if (N % i === 0) {
                     flag = false;
                     break;
                 }

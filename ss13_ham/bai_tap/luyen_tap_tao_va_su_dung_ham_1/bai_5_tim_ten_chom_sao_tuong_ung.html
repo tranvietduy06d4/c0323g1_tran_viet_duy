@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 - Tìm tên chòm sao tương ứng với tên ngôi sao người dùng nhập vào</title>
+</head>
+<body>
+<script>
+    function checkNameOfConstellation(nameOfStar) {
+        let starName = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let constellationName = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+        let flag = false;
+        for (let i = 0; i < starName.length; i++) {
+            if (starName[i] === nameOfStar) {
+                document.write("Constellation name is: " + constellationName[i]);
+                flag = true;
+                return;
+            }
+        }
+        if (flag === false) {
+            document.write("Your star name is not in our list. We will update soon. See you again");
+        }
+    }
+
+    let nameOfStar = prompt("Please enter the star name that you want to check: ");
+    checkNameOfConstellation(nameOfStar);
+</script>
+</body>
+</html>

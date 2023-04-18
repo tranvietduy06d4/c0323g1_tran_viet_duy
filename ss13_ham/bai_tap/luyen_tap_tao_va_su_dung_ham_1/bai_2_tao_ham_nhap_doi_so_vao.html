@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 - Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi
+        hàm</title>
+</head>
+<body>
+<script>
+    function increaseArgument(number) {
+        number++;
+        document.write("Your number after changing is: " + number);
+        return number;
+    }
+
+    let number = +prompt("Please enter your number: ");
+    if (!isNaN(number)) {
+        increaseArgument(number);
+    } else {
+        number = +prompt("That is not a number. Please enter your number again: ");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 - Viết hàm nhập vào 3 số nguyên bất kì và hiển thị số nguyên nhỏ nhất</title>
+</head>
+<body>
+<script>
+    function checkMinimumNumber(number1, number2, number3) {
+
+        let min = number1;
+        if (number2 < number1) {
+            min = number2;
+            if (number3 < number2) {
+                min = number3;
+            } else {
+                min = number2;
+            }
+        }
+        document.write("Minimum number is: " + min);
+    }
+
+    let number1 = +prompt("Please enter value of number 1: ");
+    while (isNaN(number1)) {
+        number1 = +prompt("It is not a number. Please enter value of number 1 again: ");
+    }
+    let number2 = +prompt("Please enter value of number 2: ");
+    while (isNaN(number2)) {
+        number2 = +prompt("It is not a number. Please enter value of number 2 again: ");
+    }
+    let number3 = +prompt("Please enter value of number 3: ");
+    while (isNaN(number3)) {
+        number3 = +prompt("It is not a number. Please enter value of number 3 again: ");
+    }
+    checkMinimumNumber(number1, number2, number3);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm tính diện tích, hàm tính chu vi hình tròn</title>
+</head>
+<body>
+<script>
+    const pi = 3.14
+
+    function calculateAcreageOfCircle(radius) {
+        let circleAcreage = pi * radius * radius;
+        document.write("The acreage of circle is: " + circleAcreage + "<br/>");
+    }
+
+    function calculateCircumference(radius) {
+        let circleCircumference = 2 * pi * radius;
+        document.write("The circumference of circle is: " + circleCircumference);
+    }
+
+    let radius = +prompt("Please enter radius of circle that you want to calculate acreage and circumference: ");
+    if (!isNaN(radius) && radius > 0) {
+        calculateAcreageOfCircle(radius);
+        calculateCircumference(radius);
+    } else {
+        document.write("This is not a number. Please reload your web and try again. Thanks you");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8 - Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó </title>
+</head>
+<body>
+<script>
+    function createAndReverseArray() {
+        let N = +prompt("Please enter the length of your array: ");
+        let integerArray = [];
+        for (let i = 0; i < N; i++) {
+            integerArray[i] = prompt("Please enter value of number " + (i + 1));
+            let integerCheck = parseInt(integerArray[i]);
+            while (integerCheck != integerArray[i]) {
+                integerArray[i] = prompt("It is not integer number. Please enter value of number " + (i + 1) + " again");
+                integerCheck = parseInt(integerArray[i]);
+            }
+        }
+        integerArray.reverse();
+        document.write("Your array after reversing is: " + integerArray);
+    }
+
+    createAndReverseArray();
+</script>
+</body>
+</html>
