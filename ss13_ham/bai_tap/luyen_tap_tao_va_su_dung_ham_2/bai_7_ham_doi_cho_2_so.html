@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7 - Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó</title>
+</head>
+<body>
+<script>
+    let array1 = [];
+    let array2 = [];
+    array1[0] = +prompt("Nhập số a ");
+    array2[0] = +prompt("Nhập số b ");
+
+    function swap(a, b) {
+        let temp = a[0];
+        a[0] = b[0];
+        b[0] = temp;
+    }
+
+    swap(array1, array2);
+    alert("a= " + array1 + "b= " + array2);
+
+</script>
+</body>
+</html>

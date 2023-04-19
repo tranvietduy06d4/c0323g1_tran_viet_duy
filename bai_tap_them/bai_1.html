@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1 - Kiểm tra các phần tử trong mảng chia hết cho index của nó</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let n = +prompt("Please enter the length of your array: ");
+    for (let i = 0; i < n; i++) {
+        array[i] = +prompt("Please enter your number " + (i + 1));
+    }
+    document.write("Your array is: " + array);
+    let flag = "OK";
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] % i !== 0) {
+            flag = "NO";
+            break
+        }
+    }
+    document.write("Result is: " + flag);
+</script>
+</body>
+</html>

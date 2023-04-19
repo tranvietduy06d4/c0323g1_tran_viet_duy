@@ -7,9 +7,16 @@
 <body>
 <script>
     let text = prompt("Please enter your string to test: ");
-    let newText = text.split(' ');
-    let count = newText.length;
-    document.write("Số từ có trong chuỗi đó là: " + count);
+    // let newText = text.split(' ');
+    // let count = newText.length;
+    // document.write("Số từ có trong chuỗi đó là: " + count);
+    let count = 1;
+    for (let i of text) {
+        if (i === " ") {
+            count++;
+        }
+    }
+    document.write("Số từ có trong chuỗi là: " +count);
 </script>
 </body>
 </html>

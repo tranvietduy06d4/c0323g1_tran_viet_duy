@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2</title>
+</head>
+<body>
+<script>
+    function checkFraction() {
+        number = prompt("Please enter your fraction to check: ");
+        let tempArray = number.split('/');
+        if (tempArray[tempArray.length - 1] == 0 || tempArray[tempArray.length - 1] == "") {
+            alert("It is not fraction")
+            return;
+        }
+        for (let i = 0; i < tempArray.length; i++) {
+            if (tempArray[i] != parseInt(tempArray[i])) {
+                alert("It is not fraction")
+                return;
+            }
+        }
+    }
+
+    checkFraction();
+</script>
+</body>
+</html>
