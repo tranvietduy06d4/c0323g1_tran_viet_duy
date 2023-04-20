@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập - Xây dựng class mô tả Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(temp) {
+            this.temperature = temp;
+        }
+
+        convertToF() {
+            let resultF = this.temperature * 9 / 5 + 32;
+            document.write("Value convert to Fahrenheit: " + resultF + "<br/>");
+        }
+
+        convertToK() {
+            let resultK = this.temperature + 273.15;
+            document.write("Value convert to Kelvin: " + resultK);
+        }
+    }
+
+    let temperature1 = new Temperature(25);
+    temperature1.convertToF();
+    temperature1.convertToK();
+</script>
+</body>
+</html>

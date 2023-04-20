@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="DemoCanvas" width="500" height="600"></canvas>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        calculateAcreage() {
+            let acreage = this.width * this.height;
+            document.write("Acreage of rectangle is : " + acreage);
+        }
+
+        calculatePerimeter() {
+            let perimeter = 2 * this.width * this.height;
+            document.write("Perimeter of rectangle is: " + perimeter);
+        }
+
+        drawRectangle() {
+            let canvas = document.getElementById("DemoCanvas");
+            let ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#fa2a95';
+            ctx.fillRect(50, 50, this.width, this.height)
+
+        }
+    }
+
+    let myRectangle = new Rectangle(200, 100);
+    myRectangle.calculateAcreage();
+    myRectangle.calculatePerimeter();
+    myRectangle.drawRectangle();
+</script>
+</body>
+</html>
