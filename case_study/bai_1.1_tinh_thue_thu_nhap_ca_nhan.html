@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1 - Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<script>
+    let salary = +prompt("Please enter your salary: ");
+    let tax;
+    let realSalary;
+    if (salary < 7000000) {
+        tax = salary * 0.05;
+    } else if (salary <= 15000000) {
+        tax = salary * 0.1;
+    } else {
+        tax = salary * 0.2;
+    }
+    realSalary = salary - tax;
+    document.write("Your real salary is about: " + realSalary);
+</script>
+</body>
+</html>

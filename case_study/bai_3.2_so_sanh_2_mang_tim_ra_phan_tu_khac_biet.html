@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3.2 - So sánh 2 mang, tìm ra phần tử khác biệt và tạo thành 1 mảng mới</title>
+</head>
+<body>
+<script>
+    let N1 = +prompt("Please enter the length of your array A: ");
+    let arrayA = [];
+    let arrayB = [];
+    let arrayC = [];
+    for (let i = 0; i < N1; i++) {
+        arrayA[i] = +prompt("Please enter your number " + (i + 1) + " in your array A: ");
+    }
+    let N2 = +prompt("Please enter the length of your array B: ");
+    for (let i = 0; i < N2; i++) {
+        arrayB[i] = +prompt("Please enter your number " + (i + 1) + " in your array B: ");
+    }
+    for (let i = 0; i < arrayA.length; i++) {
+        let flag = true;
+        for (let j = 0; j < arrayB.length; j++) {
+            if (arrayB[j] === arrayA[i]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag === true) {
+            arrayC.push(arrayA[i]);
+        }
+    }
+    for (let i = 0; i < arrayB.length; i++) {
+        let flag = true;
+        for (let j = 0; j < arrayA.length; j++) {
+            if (arrayB[i] === arrayA[j]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag === true) {
+            arrayC.push(arrayB[i]);
+        }
+    }
+    document.write("Your new array is: " + arrayC);
+</script>
+</body>
+</html>

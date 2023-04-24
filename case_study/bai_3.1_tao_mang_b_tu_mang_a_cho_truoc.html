@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3.1 - Tạo mảng b từ mảng a cho trước theo quy luật</title>
+</head>
+<body>
+<script>
+    let N = +prompt("Please enter the length of your array: ");
+    let a = [];
+    let b = [];
+    let sum = 0;
+    for (let i = 0; i < N; i++) {
+        a[i] = +prompt("Please enter your number " + (i + 1) + " in your array: ");
+        sum = sum + a[i];
+        b[i] = sum;
+    }
+    document.write("Your array is: " + b);
+</script>
+</body>
+</html>

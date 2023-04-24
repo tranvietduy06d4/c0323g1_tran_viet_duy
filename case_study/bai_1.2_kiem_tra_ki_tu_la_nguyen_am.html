@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1.2 - Kiểm tra kí tự nhập vào có phải nguyên âm không?</title>
+</head>
+<body>
+<script>
+    let vowelArray = ['o', 'u', 'i', 'a', 'e', 'O', 'U', 'I', 'A', 'E'];
+    let character = prompt("Please enter your character to check: ");
+
+    if (character.length !== 1) {
+        document.write("Wrong. It is NOT a character. Please reload your browser and try again");
+    } else if (isNaN(character)) {
+        let flag = false;
+        for (let i = 0; i < vowelArray.length; i++) {
+            if (vowelArray[i] === character) {
+                flag = true;
+            }
+        }
+        if (flag === true) {
+            document.write("Your character is a vowel");
+        } else {
+            document.write("Your character is NOT a vowel. It is a consonants");
+        }
+    } else {
+        document.write("Wrong. It is not a character in English Alphabet. Please reload your browser and try again");
+    }
+
+
+</script>
+</body>
+</html>

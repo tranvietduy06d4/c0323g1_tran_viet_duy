@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3.4 - Chương trình cho khác đặt order thức uống</title>
+</head>
+<body>
+<script>
+    document.write("Hướng dẫn order thức uống: " + "<br/>");
+    let quantity;
+    let cost = 0;
+    let cost1 = 0;
+    let cost2 = 0;
+    let cost3 = 0;
+    let cost4 = 0;
+    let cost5 = 0;
+    let cost6 = 0;
+    let orderNumber;
+    do {
+        orderNumber = +prompt("Vui lòng nhập số 1 để gọi Cafe\n" + "Nhập số 2 để gọi Cam vắt.\n" + "Nhập số 3 để gọi Nước ép cà rốt.\n" + "Nhập số 4 để gọi Nước ép cà chua.\n" + "Nhập số 5 để gọi Nước lọc.\n" + "Nhập số 6 để gọi Nước dừa\n");
+        switch (orderNumber) {
+            case 1:
+                document.write("Giá Cafe của bạn là 12000 VNĐ/ sản phẩm. ");
+                quantity = +prompt("Vui lòng nhập vào số lượng sản phẩm bạn muốn order: ");
+                cost1 = 12000 * quantity;
+                document.write("Order Cafe của bạn hết: " + cost1 + " VNĐ. " + "<br/>");
+                break;
+            case 2:
+                document.write("Giá Cam vắt của bạn là 20000 VNĐ/ sản phẩm. ");
+                quantity = +prompt("Vui lòng nhập vào số lượng sản phẩm bạn muốn order: ");
+                cost2 = 20000 * quantity;
+                document.write("Order Cam vắt của bạn hết: " + cost2 + " VNĐ. " + "<br/>");
+                break;
+            case 3:
+                document.write("Giá Nước ép cà rốt của bạn là 22000 VNĐ/ sản phẩm. ");
+                quantity = +prompt("Vui lòng nhập vào số lượng sản phẩm bạn muốn order: ");
+                cost3 = 22000 * quantity;
+                document.write("Order Nước ép cà rốt của bạn hết: " + cost3 + " VNĐ. " + "<br/>");
+                break;
+            case 4:
+                document.write("Giá Nước ép cà chua của bạn là 18000 VNĐ/ sản phẩm. ");
+                quantity = +prompt("Vui lòng nhập vào số lượng sản phẩm bạn muốn order: ");
+                cost4 = 18000 * quantity;
+                document.write("Order Nước ép cà chua của bạn hết: " + cost4 + " VNĐ. " + "<br/>");
+                break;
+            case 5:
+                document.write("Giá Nước lọc của bạn là 10000 VNĐ/ sản phẩm. ");
+                quantity = +prompt("Vui lòng nhập vào số lượng sản phẩm bạn muốn order: ");
+                cost5 = 10000 * quantity;
+                document.write("Order Nước lọc của bạn  hết: " + cost5 + " VNĐ. " + "<br/>");
+                break;
+            case 6:
+                document.write("Giá Nước dừa của bạn là 19000 VNĐ/ sản phẩm. ");
+                quantity = +prompt("Vui lòng nhập vào số lượng sản phẩm bạn muốn order: ");
+                cost6 = 19000 * quantity;
+                document.write("Order Nước dừa của bạn hết: " + cost6 + " VNĐ. " + "<br/>");
+                break;
+            case 7:
+                document.write("Bạn đã thoát khỏi chương trình order thức uống. ");
+                break;
+            default :
+                document.write("Không hợp lệ. Vui lòng chọn số sản phẩm từ 1 đến 6");
+                break;
+        }
+    }
+    while (orderNumber !== 7);
+    cost = cost1 + cost2 + cost3 + cost4 + cost5 + cost6;
+    document.write("Tổng đơn Order của bạn hết tổng cộng: " + cost + " VNĐ");
+
+
+</script>
+</body>
+</html>

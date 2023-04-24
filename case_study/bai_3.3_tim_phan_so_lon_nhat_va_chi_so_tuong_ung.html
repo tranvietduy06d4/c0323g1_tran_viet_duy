@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3.3 - Tìm phân số lớn nhất và chỉ số tương ứng</title>
+</head>
+<body>
+<script>
+    let N = +prompt("Please enter the length of your array A and array B: ");
+    let arrayA = [];
+    let arrayB = [];
+    for (let i = 0; i < N; i++) {
+        arrayA[i] = +prompt("Please enter your number " + (i + 1) + " in your array A: ");
+    }
+    for (let i = 0; i < N; i++) {
+        arrayB[i] = +prompt("Please enter your number " + (i + 1) + " in your array B: ");
+    }
+    let max = arrayA[0] / arrayB[0];
+    let index = 0;
+    for (let i = 0; i < N; i++) {
+        if (arrayA[i] / arrayB[i] > max) {
+            max = arrayA[i] / arrayB[i];
+            index = i;
+        }
+    }
+    document.write("Max of Fraction is: " + max + " at index number " + index);
+</script>
+</body>
+</html>

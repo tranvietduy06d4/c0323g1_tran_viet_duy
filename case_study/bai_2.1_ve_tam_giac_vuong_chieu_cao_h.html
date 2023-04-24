@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2.1 - Vẽ tam giác vuông có chiều cao h</title>
+</head>
+<body>
+<script>
+    let h = +prompt("Please enter the height of your rectangle");
+    for (let i = 0; i < h; i++) {
+        for (let j = 0; j < h; j++) {
+            if (j === 0 || j === i || i === (h - 1)) {
+                document.write("*");
+            } else {
+                document.write("&nbsp&nbsp");
+            }
+        }
+        document.write("<br/>");
+    }
+</script>
+</body>
+</html>
