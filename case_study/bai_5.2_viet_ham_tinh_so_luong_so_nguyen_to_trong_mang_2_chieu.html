@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5.2 - Viết hàm tính liệt kê các số nguyên tố trong mảng 2 chiều, đếm các số nguyên tố có trong mảng
+        đó</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Please enter length of your array: ");
+    let n = +prompt("Please enter length of your element in array: ");
+    let array = [];
+    let integerArray = [];
+    let sumInteger = 0;
+    for (let i = 0; i < m; i++) {
+        array[i] = [];
+        for (let j = 0; j < n; j++) {
+            array[i][j] = +prompt("Please enter your element number: " + i + j);
+        }
+    }
+
+    function findPrime(array) {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                let result = isPrime(array[i][j]);
+                if (result === true) {
+                    integerArray.push(array[i][j])
+                    sumInteger = sumInteger + array[i][j];
+                }
+            }
+        }
+        document.write("List of integer in your array: " + integerArray + "<br/>");
+        document.write("Number of interger number in your array is: " + integerArray.length + "<br/>");
+        document.write("Sum of all integer number in your array is: " + sumInteger + "<br/>");
+    }
+
+    function isPrime(x) {
+        let flag = true;
+        for (let i = 2; i < x; i++) {
+            if (x % i === 0) {
+                flag = false
+                return false;
+            }
+        }
+        if (flag === true) {
+            return true;
+        }
+    }
+
+    findPrime(array);
+
+</script>
+</body>
+</html>

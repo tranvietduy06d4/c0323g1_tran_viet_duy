@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5.1 - Tính tổng các số chẵn có trong mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Please enter length of your array: ");
+    let n = +prompt("Please enter length of your element in array: ");
+    let array = [];
+    let sum = 0;
+    for (let i = 0; i < m; i++) {
+        array[i] = [];
+        for (let j = 0; j < n; j++) {
+            array[i][j] = +prompt("Please enter your element number: " + i + j);
+            if (array[i][j] % 2 === 0) {
+                sum = sum + array[i][j];
+            }
+        }
+    }
+    document.write("Result is: " + sum);
+</script>
+</body>
+</html>

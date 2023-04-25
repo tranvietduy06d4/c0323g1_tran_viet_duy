@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5.3 - Viết hàm tìm min, max trong mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Please enter length of your array: ");
+    let n = +prompt("Please enter length of your element in array: ");
+    let array = [];
+    for (let i = 0; i < m; i++) {
+        array[i] = [];
+        for (let j = 0; j < n; j++) {
+            array[i][j] = +prompt("Please enter your element number: " + i + j);
+        }
+    }
+
+    function findMinMax(array) {
+        let min = array[0][0];
+        let max = array[0][0];
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j] < min) {
+                    min = array[i][j];
+                }
+                if (array[i][j] > max) {
+                    max = array[i][j];
+                }
+            }
+        }
+        document.write("Min of your elements in array is: " + min + "<br/>");
+        document.write("Max of your elements in array is: " + max + "<br/>");
+    }
+
+    findMinMax(array);
+
+</script>
+</body>
+</html>

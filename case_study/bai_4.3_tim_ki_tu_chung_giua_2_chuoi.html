@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4.3 - Tìm kí tự chung giữa 2 chuỗi kí tự cho trước</title>
+</head>
+<body>
+<script>
+    let stringA = "aabcc";
+    let stringB = "adcaa";
+    let newArray = [];
+    stringA = stringA.split("");
+    stringB = stringB.split("");
+    for (let i = 0; i < stringA.length; i++) {
+        for (let j = 0; j < stringB.length; j++) {
+            if (stringA[i] === stringB[j]) {
+                newArray.push(stringB.splice(j, 1));
+                break;
+            }
+        }
+    }
+    document.write("Số kí tự trùng nhau là:" + newArray.length);
+</script>
+</body>
+</html>
