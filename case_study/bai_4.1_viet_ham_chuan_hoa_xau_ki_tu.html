@@ -6,18 +6,35 @@
 </head>
 <body>
 <script>
-    let string = prompt("Please enter your text to check: ");
-    let newString = [];
-    string = string.split(" ");
+    let string = prompt("Vui lòng nhập vào chuỗi kí tự để check: ");
+    document.write("Chuỗi kí tự ban đầu bạn nhập vào là: " + string);
 
-    for (let i = 0; i < string.length; i++) {
-        if(string[i] !== "") {
-            newString.push(string[i]);
+    function remakeString(string) {
+        let newString = [];
+        string = string.split(" ");
+        // document.write("Mảng string: " + string + "<br/>");
+
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] !== "" && string[i] !== " ") {
+                newString.push(string[i]);
+            }
         }
+
+        for (let i = 0; i < newString.length; i++) {
+            newString[i] = newString[i][0].toUpperCase() + newString[i].substr(1).toLowerCase();
+        }
+        let longestString = newString[0];
+        for (let i = 1; i < newString.length; i++) {
+            if (newString[i].length > longestString.length) {
+                longestString = newString[i];
+            }
+        }
+        document.write("Từ dài nhất trong chuỗi của bạn là: " + longestString);
+        string = newString.join(' ');
+        document.write("Chuỗi của bạn sau khi chuẩn hóa là: " + string);
     }
-    
 
-
+    remakeString(string);
 
 
 </script>

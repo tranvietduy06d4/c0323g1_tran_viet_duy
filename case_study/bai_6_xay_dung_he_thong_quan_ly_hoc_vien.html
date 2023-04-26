@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 - Xây dựng hệ thống quản lý học viên</title>
+</head>
+<body>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent(studentArray)">Sửa thông tin học viên</button>
+<button onclick="deleteStudent(studentArray)">Xóa học viên</button>
+<p id="result"></p>
+
+<script>
+
+    class Student {
+        constructor(id, name, grade, email, birthDay, module) {
+            this.id = id;
+            this.name = name;
+            this.grade = grade;
+            this.email = email;
+            this.birthDay = birthDay;
+            this.module = module;
+        }
+
+        getId() {
+            return this.id
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getGrade() {
+            return this.grade;
+        }
+
+        setGrade(grade) {
+            this.grade = grade;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getBirthDay() {
+            return this.birthDay;
+        }
+
+        setBirthDay(birthDay) {
+            this.birthDay = birthDay;
+        }
+
+        getModule() {
+            return this.module;
+        }
+
+        setModule(module) {
+            this.module = module;
+        }
+    }
+
+    let student1 = new Student('HV-0001', 'Trần Văn A', 'C0323G1', 'tranvana@gmail.com', '22/01/1998', 1);
+    let student2 = new Student('HV-0002', 'Trần Văn B', 'C0223G1', 'tranvanb@gmail.com', '10/02/2000', 3);
+    let studentArray = [];
+    studentArray.push(student1);
+    studentArray.push(student2);
+
+    function addStudent() {
+
+        let id = prompt("Please enter your id: ");
+        if (id === "") {
+            alert("Wrong. You must fill ìd. Please try again ");
+            return;
+        } else {
+            let name = prompt("Please enter your name: ");
+            let grade = prompt("Please enter your grade: ");
+            let email = prompt("Please enter your email: ");
+            let birthDay = prompt("Please enter your birthday: ");
+            let module = prompt("Please enter your module: ");
+            let studentNew = new Student(id, name, grade, email, birthDay, module);
+            studentArray.push(studentNew);
+        }
+        display();
+    }
+
+    function editStudent(studentArray) {
+        let id = prompt("Please enter your id to edit:");
+        for (let i = 0; i < studentArray.length; i++) {
+            if (studentArray[i].getId() === id) {
+                studentArray[i].setId(id);
+                let name = prompt("Please edit your name: ");
+                studentArray[i].setName(name);
+                let grade = prompt("Please edit your grade: ");
+                studentArray[i].setGrade(grade);
+                let email = prompt("Please edit your email: ");
+                studentArray[i].setEmail(email);
+                let birthday = prompt("Please edit your birthday: ");
+                studentArray[i].setBirthDay(birthday);
+                let module = prompt("Please edit your module: ");
+                studentArray[i].setModule(module);
+            }
+        }
+        display();
+    }
+
+    function deleteStudent(studentArray) {
+        let id = prompt("Please enter your id to edit:");
+        for (let i = 0; i < studentArray.length; i++) {
+            if (studentArray[i].getId() === id) {
+                studentArray.splice(i,1);
+            }
+        }
+        display();
+    }
+
+    function display() {
+        let tableString = '<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <th>Mã Học viên</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>Lớp</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Ngày sinh</th>\n' +
+            '    </tr>'
+        for (let i = 0; i < studentArray.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + studentArray[i].getId() + '</td>\n' +
+                '        <td>' + studentArray[i].getName() + '</td>\n' +
+                '        <td>' + studentArray[i].getGrade() + '</td>\n' +
+                '        <td>' + studentArray[i].getEmail() + '</td>\n' +
+                '        <td>' + studentArray[i].getBirthDay() + '</td>\n' +
+                '    </tr>'
+        }
+        tableString += "</table>";
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+    display();
+
+
+</script>
+</body>
+</html>
