@@ -74,8 +74,7 @@
     let student1 = new Student('HV-0001', 'Trần Văn A', 'C0323G1', 'tranvana@gmail.com', '22/01/1998', 1);
     let student2 = new Student('HV-0002', 'Trần Văn B', 'C0223G1', 'tranvanb@gmail.com', '10/02/2000', 3);
     let studentArray = [];
-    studentArray.push(student1);
-    studentArray.push(student2);
+    studentArray.push(student1, student2);
 
     function addStudent() {
 
@@ -119,7 +118,7 @@
         let id = prompt("Please enter your id to edit:");
         for (let i = 0; i < studentArray.length; i++) {
             if (studentArray[i].getId() === id) {
-                studentArray.splice(i,1);
+                studentArray.splice(i, 1);
             }
         }
         display();

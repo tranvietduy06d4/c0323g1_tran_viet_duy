@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập Quản lý học viên</title>
+</head>
+<body>
+<input id="id" type="text" placeholder="Enter Id">
+<input id="name" type="text" placeholder="Enter Name">
+<input id="grade" type="text" placeholder="Enter Grade"> <br>
+<input id="email" type="text" placeholder="Enter Email">
+<input id="birthDay" type="date" placeholder="Enter BirthDay">
+<input id="module" type="number" max="6" min="1" placeholder="Enter Module">
+<button id="btn-add" onclick="addStudent(studentList)">Add</button>
+<button id="btn-edit" onclick="editStudent(studentList)">Edit</button>
+<button id="btn-delete" onclick="deleteStudent(studentList)">Delete</button>
+<p id="result"></p>
+
+<script>
+    class Student {
+        constructor(id, name, grade, email, birthDay, module) {
+            this.id = id;
+            this.name = name;
+            this.grade = grade;
+            this.email = email;
+            this.birthDay = birthDay;
+            this.module = module;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getGrade() {
+            return this.grade;
+        }
+
+        setGrade(grade) {
+            this.grade = grade;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getBirthDay() {
+            return this.birthDay;
+        }
+
+        setBirthDay(birthDay) {
+            this.birthDay = birthDay;
+        }
+
+        getModule() {
+            return this.module;
+        }
+
+        setModule(module) {
+            this.module = module;
+        }
+    }
+
+    let studentList = [];
+    let student1 = new Student('HV-0001', 'Tran Van A', 'C0323G1', 'tranvana@gmail.com', '01/01/2000', 1);
+    let student2 = new Student('HV-0002', 'Tran Van B', 'C0223G1', 'tranvana@gmail.com', '01/01/2001', 1);
+    let student3 = new Student('HV-0003', 'Tran Van C', 'C0123G1', 'tranvana@gmail.com', '01/01/2002', 1);
+    studentList.push(student1, student2, student3);
+    display(studentList);
+
+    function addStudent(studentList) {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let grade = document.getElementById("grade").value;
+        let email = document.getElementById("email").value;
+        let birthDay = document.getElementById("birthDay").value;
+        let module = document.getElementById("module").value;
+        if (id === "" || name === "") {
+            alert("Wrong. You must fill in all of information: id, name,grade,email,birthDay,module. Please try again");
+            return;
+        } else {
+            for (let i = 0; i < studentList.length; i++) {
+                if (id === studentList[i].getId()) {
+                    alert("Wrong. This id exits in our system. Please type another id");
+                    return;
+                }
+            }
+            let studentNew = new Student(id, name, grade, email, birthDay, module);
+            studentList.push(studentNew);
+        }
+        refillData();
+        display(studentList);
+    }
+
+    function editStudent(studentList) {
+        let id = document.getElementById("id").value;
+        for (let i = 0; i < studentList.length; i++) {
+            if (id === studentList[i].getId()) {
+                let name = document.getElementById("name").value;
+                let grade = document.getElementById("grade").value;
+                let email = document.getElementById("email").value;
+                let birthDay = document.getElementById("birthDay").value;
+                let module = document.getElementById("module").value;
+                studentList[i].setName(name);
+                studentList[i].setGrade(grade);
+                studentList[i].setEmail(email);
+                studentList[i].setBirthDay(birthDay);
+                studentList[i].setModule(module);
+            }
+        }
+        display(studentList);
+        refillData();
+    }
+
+    function deleteStudent(studentList) {
+        let id = document.getElementById("id").value;
+        for (let i = 0; i < studentList.length; i++) {
+            if (id === studentList[i].getId()) {
+                let conf = confirm("Are you sure to delete student name " +studentList[i].getName() + "?");
+                if (conf) {
+                    studentList.splice(i, 1);
+                }
+            }
+        }
+        display(studentList);
+        refillData();
+    }
+
+    function display(studentList) {
+        let tableString = "";
+        tableString += '<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <th>Id</th>\n' +
+            '        <th>Name</th>\n' +
+            '        <th>Grade</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>BirthDay</th>\n' +
+            '        <th>Module</th>\n' +
+            '    </tr>\n'
+        for (let i = 0; i < studentList.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + studentList[i].getId() + '</td>\n' +
+                '        <td>' + studentList[i].getName() + '</td>\n' +
+                '        <td>' + studentList[i].getGrade() + '</td>\n' +
+                '        <td>' + studentList[i].getEmail() + '</td>\n' +
+                '        <td>' + studentList[i].getBirthDay() + '</td>\n' +
+                '        <td>' + studentList[i].getModule() + '</td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>';
+        document.getElementById("result").innerHTML = tableString;
+    }
+    function refillData() {
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("grade").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("birthDay").value = "";
+        document.getElementById("module").value = "";
+    }
+
+</script>
+</body>
+</html>

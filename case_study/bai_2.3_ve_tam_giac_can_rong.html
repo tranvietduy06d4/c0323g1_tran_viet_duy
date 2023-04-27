@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bài 2.2 - Vẽ tam giác cân chiều cao h</title>
+    <title>Bài tập 2.3 - Vẽ tam giác cân rỗng có chiều cao h</title>
 </head>
 <body>
 <script>
     let h = +prompt("Please enter the height of your rectangle: ");
     for (let i = 0; i < h; i++) {
         for (let j = -h; j <= h; j++) {
-            if (j >= -i && j <= i) {
+            if (j === -i || j === i || (i === h - 1 && j > -i && j < i)) {
                 document.write("*");
             } else {
                 document.write("&nbsp&nbsp");
