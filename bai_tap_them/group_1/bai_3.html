@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - </title>
+</head>
+<body>
+<script>
+
+    let x = +prompt("Please enter value of x = ");
+    let y = +prompt("Please enter value of y = ");
+    let z = +prompt("Please enter value of z = ");
+    while (isNaN(x) || isNaN(y) || isNaN(z)) {
+        alert("Wrong. It is not a number. Please enter your number again")
+        x = +prompt("Please enter value of x = ");
+        y = +prompt("Please enter value of y = ");
+        z = +prompt("Please enter value of z = ");
+    }
+
+    function checkTriangle(x, y, z) {
+        if ((x + y) > z && (x + z) > y && (y + z) > x) {
+            if (x * x === y * y + z * z || y * y === x * x + z * z || z * z === x * x + y * y) {
+                document.write("This is 3 slide of right triangle");
+            } else {
+                document.write("This is just 3 slide of normal triangle");
+            }
+        } else {
+            document.write("This is NOT 3 slides of a triangle");
+        }
+    }
+
+    checkTriangle(x, y, z);
+
+</script>
+</body>
+</html>

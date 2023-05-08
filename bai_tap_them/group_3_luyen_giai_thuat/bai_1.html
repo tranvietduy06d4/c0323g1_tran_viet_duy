@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1 - Tạo khối chữ nhật bằng kí tự *</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Please enter the height of your rectangle: ");
+    while (isNaN(n) || n === 0) {
+        n = +prompt("Wrong. It is not a Number. Please enter the hight of your rectangle: ");
+    }
+    for (let i = 0; i < n; i++) {
+        document.write("*****" + "<br/>");
+
+    }
+</script>
+</body>
+</html>

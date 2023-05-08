@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 1 - </title>
+</head>
+<body>
+<script>
+    let integerArray = [];
+    let count = 0;
+    let sum = 0;
+    let average;
+    let n = +prompt("Please enter length of your array: ");
+    while (isNaN(n) || n > 50) {
+        n = +prompt("Wrong. Please enter length of your array again. Remember it is a NUMBER and must be from 1 to 50")
+    }
+    for (let i = 0; i < n; i++) {
+        integerArray[i] = +prompt("Please enter value of element number " + (i + 1));
+    }
+    document.write("Your array is: " + integerArray + "<br/>");
+    for (let i = 0; i < integerArray.length; i++) {
+        if (integerArray[i] % 5 === 0 && i % 3 === 0) {
+            sum += integerArray[i];
+            count++;
+        }
+    }
+    average = sum / count;
+    document.write("The average is: " + average);
+</script>
+</body>
+</html>

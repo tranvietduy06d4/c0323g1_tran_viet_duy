@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let string = prompt("Please enter your string to test: ");
+    let array = [];
+    let newArray = [];
+    let newString = "";
+
+    function remakeString(string) {
+        array = string.split(" ");
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] !== "" && array[i] !== " ") {
+                newArray.push(array[i])
+            }
+        }
+        if (newArray.length === 1) {
+            alert("This string just have 1 word, so we do not need to remake it");
+        } else {
+            for (let i = 0; i < newArray.length; i++) {
+                newString += newArray[i][0].toUpperCase();
+            }
+            document.write("Your string after remake is: " + newString);
+        }
+    }
+
+    remakeString(string)
+</script>
+</body>
+</html>

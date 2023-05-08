@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Vui lòng nhập số nguyên dương vào để kiểm tra: ");
+    while (isNaN(n) || n > 500 || n === 0) {
+        n = +prompt("Sai.Vui lòng nhập lại số nguyên dương để kiểm tra: ");
+    }
+    let sum = 0;
+    let count = 0;
+    let average;
+    let arrayA = [];
+    let arrayB = [];
+    for (let i = 1; i <= n; i++) {
+        if (n % i === 0) {
+            arrayA.push(i);
+            if (i % 2 !== 0) {
+                arrayB.push(i);
+                sum += i;
+                count++;
+            }
+        }
+    }
+    average = sum / count;
+    document.write("Các ước số của " + n + " là: " + arrayA + "<br/>");
+    document.write("Các ước số lẻ của " + n + " là: " + arrayB + "<br/>");
+    document.write("Trung bình cộng của các ước số lẻ là: " + average);
+</script>
+</body>
+</html>

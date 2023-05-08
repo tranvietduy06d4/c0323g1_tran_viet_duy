@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11</title>
+</head>
+<body>
+<script>
+    let N = +prompt("Please enter your array length: ");
+    let arrayA = [];
+    let sumPositiveInteger = 0;
+    let sumPrime = 0;
+
+    for (let i = 0; i < N; i++) {
+        arrayA[i] = +prompt("Please enter your element number " + (i + 1));
+        while (arrayA[i] % 1 !== 0) {
+            arrayA[i] = +prompt("Wrong. It must be integer. Please enter again your element number " + (i + 1));
+        }
+        if (arrayA[i] > 0 && arrayA[i] % 2 !== 0) {
+            sumPositiveInteger += arrayA[i];
+        }
+    }
+    document.write("Mảng a nhập vào như sau: " + arrayA + "<br/>");
+    document.write("Tổng các phần tử dương lẻ trong mảng a là: " + sumPositiveInteger + "<br/>");
+
+    for (let i = 0; i < arrayA.length; i = i + 2) {
+        if (isPrime(arrayA[i])) {
+            sumPrime += arrayA[i];
+        }
+    }
+    document.write("Tổng các số nguyên tố nằm ở vị trí chẵn trong mảng là: " + sumPrime + "<br/>");
+
+    function isPrime(x) {
+        let flag = true;
+        for (let i = 2; i < x; i++) {
+            if (x % i === 0) {
+                flag = false
+                return false;
+            }
+        }
+        if (flag === true) {
+            return true;
+        }
+    }
+
+    let k = +prompt("Vui lòng nhập vào giá trị của k để check k có nằm trong mảng không? ");
+    let index = arrayA.indexOf(k);
+    if (index === -1) {
+        document.write("Số k mà bạn nhập vào không có trong mảng a" + "<br/>");
+    } else {
+        document.write("Phần tử " + k + " bạn nhập vào nằm ở vị trí " + index + " trong mảng a" + "<br/>");
+    }
+
+    arrayA.sort();
+
+    let p = +prompt("Vui lòng nhập vào phần tử p để chèn vào mảng a");
+
+    console.log(arrayA);
+
+</script>
+</body>
+</html>

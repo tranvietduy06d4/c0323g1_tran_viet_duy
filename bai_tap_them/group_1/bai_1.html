@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 1 - Nhập mảng có n phần tử ( với n phải là số chẵn) </title>
+</head>
+<body>
+<!--Bài tập 1 - Nhập mảng có n phần tử ( với n phải là số chẵn).-->
+<!--Kiểm tra nếu tất cả cặp phần tử liền kề nhau trong mảng thỏa điều kiện (phần tử n + 1 > phần tử n) thì xuất OK. Ngược lại xuất NO-->
+
+<script>
+    let n = +prompt("Please enter your array length: ")
+    let array = [];
+    if (n % 2 !== 0) {
+        alert("Wrong. Your number length must divisible by 2. Please reload your browser and try again");
+    } else {
+        for (let i = 0; i < n; i++) {
+            array[i] = +prompt("Please enter your element " + (i + 1));
+        }
+        document.write("Your array is: " + array + "<br/>");
+        let flag = true;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i + 1] <= array[i]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            document.write("OK");
+        } else {
+            document.write("NO");
+        }
+    }
+</script>
+</body>
+</html>

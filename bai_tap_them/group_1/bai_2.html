@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 - Viết hàm kiểm tra kí tự nguyên âm trong chuỗi và xuất thành mảng mới</title>
+</head>
+<body>
+<script>
+    let str = "aHnsAhaEijuUe";
+    let array = [];
+    let newArray = [];
+    // while (!isNaN(string)) {
+    //   string = prompt("Please enter your string to check: ");
+    // }
+    // let arrayLower = [];
+    // let arrayTemp = [];
+    // let arrayUpper = [];
+    // function checkString(string) {
+    //     let sampleString1 = "ueoai";
+    //     let sampleString2 = "UEOAI";
+    //     for (let i = 0; i < string.length; i++) {
+    //         let flag = true;
+    //         for (let j = 0; j < sampleString1.length; j++) {
+    //             if (string[i] === sampleString1[j]) {
+    //                 arrayLower.push(string[i]);
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     for (let i = 0; i < string.length; i++) {
+    //         for (let j = 0; j < sampleString2.length; j++) {
+    //             if (string[i] === sampleString2[j]) {
+    //                 arrayUpper.push(string[i]);
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     document.write(arrayLower +"<br/>");
+    //     document.write(arrayUpper);
+    //
+    // }
+    function checkString(str) {
+        str = str.toLowerCase();
+        let vowelString = "ueoai";
+        for (let i = 0; i < str.length; i++) {
+            for (let j = 0; j < vowelString.length; j++) {
+                if (str[i] === vowelString[j]) {
+                    array.push(str[i]);
+                }
+            }
+        }
+        for (let i = 0; i < array.length; i++) {
+            let flag = true;
+            for (let j = 0; j < newArray.length; j++) {
+                if (array[i] === newArray[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                newArray.push(array[i]);
+            }
+        }
+        document.write(newArray);
+    }
+
+    //Lưu ý đối với bài này: Mở rộng thêm trường hợp bắt buộc hiển thị đúng chữ Hoa như ban đầu. Và trương fhowpj có phân biệt chữ Hoa, chữ thường
+    checkString(str);
+</script>
+</body>
+</html>

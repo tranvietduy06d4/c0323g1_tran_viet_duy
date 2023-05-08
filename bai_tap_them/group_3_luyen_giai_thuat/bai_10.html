@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10</title>
+</head>
+<body>
+<script>
+    let string = prompt("Please enter your string to check: ");
+
+    let stringA = string.split(" ");
+
+    for (let i = 0; i < stringA.length; i++) {
+        if (stringA[i] === "" || stringA[i] === " ") {
+            stringA.splice(i, 1);
+            i--;
+        }
+    }
+
+    for (let i = 0; i < stringA.length; i++) {
+        document.write("Các từ có trong chuỗi là: " + stringA[i] + "<br/>");
+    }
+    document.write("Số từ có trong chuỗi là: " + stringA.length + "<br/>");
+
+
+    for (let i = 0; i < stringA.length; i++) {
+        let count = 1;
+        for (let j = i + 1; j < stringA.length; j++) {
+            if (stringA[i] === stringA[j]) {
+                count++;
+                stringA.splice(j, 1);
+                j--;
+            }
+        }
+        document.write("Từ " + stringA[i] + " xuất hiện " + count + " lần trong chuỗi" + "<br/>");
+    }
+
+
+</script>
+</body>
+</html>

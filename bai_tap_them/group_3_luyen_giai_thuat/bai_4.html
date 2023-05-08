@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    let S = 15;
+    let n = +prompt("Please enter value of n ( n is a number and different 0: ");
+    while (isNaN(n) || n === 0) {
+        n = +prompt("Wrong. Please enter again value of n : ");
+    }
+    for (let i = 1; i <= n; i++) {
+        S += 1 / calculateFactorial(i);
+    }
+    document.write("Result is: " + S);
+
+    function calculateFactorial(i) {
+        let factorial = 1;
+        for (let j = 1; j <= i; j++) {
+            factorial *= -j;
+        }
+        return factorial;
+    }
+</script>
+</body>
+</html>

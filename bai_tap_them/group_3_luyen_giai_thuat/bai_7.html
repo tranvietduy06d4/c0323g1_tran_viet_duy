@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+    let number = 45678;
+    let string = number.toString();
+    let S = 0;
+    let P = 1;
+    for (let i = 0; i < string.length; i++) {
+        S += +string[i];
+        P *= string[i];
+    }
+    document.write("Result is: S = " + S + " P = " + P);
+</script>
+</body>
+</html>

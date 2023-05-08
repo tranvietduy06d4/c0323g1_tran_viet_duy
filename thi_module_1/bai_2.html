@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let primeArray = [];
+    let sum = 0;
+    let n = +prompt("Vui lòng nhập vào chiều dài mảng của bạn: ");
+    while (isNaN(n) || n > 100 || n === 0) {
+        n = +prompt("Sai. Đây không phải là số dương, nhỏ hơn hoặc bằng 100. Vui lòng nhập vào chiều dài mảng của bạn: ");
+    }
+
+    for (let i = 0; i < n; i++) {
+        array[i] = +prompt("Vui lòng nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+    }
+    for (let i = 0; i < array.length; i++) {
+        let result = isPrime(array[i]);
+        if (result) {
+            sum += array[i];
+            primeArray.push(array[i]);
+        }
+    }
+
+
+    document.write("Các số nguyên tố trong mảng là: " + primeArray + "<br/>");
+    document.write("Tổng các số nguyên tố trong mảng là: " + sum);
+
+
+    function isPrime(n) {
+        let flag = true;
+        for (let i = 2; i < n; i++) {
+            if (n % i === 0) {
+                flag = false;
+                return flag;
+            }
+        }
+        if (flag) {
+            return flag;
+        }
+    }
+
+
+</script>
+</body>
+</html>

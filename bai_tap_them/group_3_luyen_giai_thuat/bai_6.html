@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+    let S = 1;
+    let n = +prompt("Please enter value of n ( n is a number: ");
+    while (isNaN(n) || n === 0) {
+        n = +prompt("Wrong. Please enter again value of n : ");
+    }
+    let i;
+    if (n % 2 === 0) {
+        i = 2;
+    } else {
+        i = 1;
+    }
+    for (; i <= n; i = i + 2) {
+        S *= i;
+    }
+    document.write("Result is: " + S);
+
+</script>
+</body>
+</html>

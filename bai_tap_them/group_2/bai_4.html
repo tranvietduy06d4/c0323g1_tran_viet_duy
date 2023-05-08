@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<button id="add" onclick="addProduct()">Add</button>
+<button id="sortdown" onclick="sortProductDown(productList)">Sort Product Price down</button>
+<button id="sortup" onclick="sortProductUp(productList)">Sort Product Price up</button>
+<p id="result"></p>
+<script>
+    class Laptop {
+        constructor(id, name, company, price) {
+            this.id = id;
+            this.name = name;
+            this.company = company
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getCompany() {
+            return this.company;
+        }
+
+        setCompany(company) {
+            this.company = company;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toString() {
+            this.getId();
+            this.getName();
+            this.getCompany();
+            this.getPrice();
+        }
+    }
+
+    let laptop1 = new Laptop('A001', 'Del 1212', 'Dell', 17000000);
+    let laptop2 = new Laptop('A002', 'HP 2321', 'HP', 18000000);
+    let laptop3 = new Laptop('A003', 'Asus 3214', 'Dell', 20000000);
+    let laptop4 = new Laptop('A004', 'Lenovo 1212', 'Dell', 19000000);
+    let productList = [];
+    productList.push(laptop1, laptop2, laptop3, laptop4);
+    display(productList);
+
+    function addProduct() {
+        let id = prompt("Please enter your laptop id to add:");
+        let name = prompt("Please enter your laptop name to add:");
+        let company = prompt("Please enter your laptop company to add:");
+        let price = +prompt("Please enter your laptop price to add:");
+        while (isNaN(price) || price === 0 ) {
+            alert("Wrong. It is not a number. Please enter again your laptop price again. Remember it must be a number and bigger than 1");
+            price = +prompt("Please enter your laptop price to add:");
+        }
+        let newLaptop = new Laptop(id,name,company,price);
+        productList.push(newLaptop);
+        display(productList);
+    }
+
+    function sortProductUp(arr) {
+        let result = [];
+        let minIndex = -1;
+        while (arr.length !== 0) {
+
+            let min = arr[0].getPrice();
+            for (let i = 0; i < arr.length; i++) {
+                if (min >= arr[i].getPrice()) {
+                    min = arr[i].getPrice();
+                    minIndex = i;
+                }
+            }
+            result.push(arr[minIndex]);
+            arr.splice(minIndex, 1);
+        }
+        productList = result;
+        display(productList);
+    }
+
+    function sortProductDown(arr) {
+        let result = [];
+        let maxIndex = -1;
+        while (arr.length !== 0) {
+
+            let max = arr[0].getPrice();
+            for (let i = 0; i < arr.length; i++) {
+                if (max <= arr[i].getPrice()) {
+                    max = arr[i].getPrice();
+                    maxIndex = i;
+                }
+            }
+            result.push(arr[maxIndex]);
+            arr.splice(maxIndex, 1);
+        }
+        productList = result;
+        display(productList);
+    }
+
+
+
+    function display(productList) {
+        let tableString = '<table border="1" style="border-collapse: collapse ">\n' +
+            '    <tr>\n' +
+            '        <th>ID</th>\n' +
+            '        <th>Name</th>\n' +
+            '        <th>Company</th>\n' +
+            '        <th>Price</th>\n' +
+            '    </tr>'
+        for (let i = 0; i < productList.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + productList[i].getId() + '</td>\n' +
+                '        <td>' + productList[i].getName() + '</td>\n' +
+                '        <td>' + productList[i].getCompany() + '</td>\n' +
+                '        <td>' + productList[i].getPrice() + '</td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>';
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+
+</script>
+</body>
+</html>

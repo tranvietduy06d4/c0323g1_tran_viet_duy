@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 - Cho nhập vào năm, tháng. Hiển thị số ngày trong tháng đó </title>
+</head>
+<body>
+<input id="year" type="number" placeholder="Year">
+<input id="month" type="number" min="1" max="12" placeholder="Month">
+<button onclick="calculateDay()">Calculate Day of month</button>
+<script>
+    function calculateDay() {
+        let year = document.getElementById("year").value;
+        let month = document.getElementById("month").value;
+        switch (month) {
+            case "1":
+            case "3":
+            case "5":
+            case "7":
+            case "8":
+            case "10":
+            case "12":
+                alert("This month has 31 days");
+                break;
+            case "2":
+                let flag = false;
+                if (year % 4 === 0) {
+                    if (year % 100 === 0) {
+                        if (year % 400 !== 0) {
+                            flag = true;
+                        }
+                    } else {
+                        flag = true;
+                    }
+                }
+                if (flag) {
+                    alert("This month has 29 days");
+                } else {
+                    alert("This month has 28 days");
+                }
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<p id="result"></p>
+
+<script>
+    class Film {
+        constructor(id, name, day, time, quantity) {
+            this.id = id;
+            this.name = name;
+            this.day = day;
+            this.time = time;
+            this.quantity = quantity;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getDay() {
+            return this.day;
+        }
+
+        setDay(day) {
+            this.day = day;
+        }
+
+        getTime() {
+            return this.time;
+        }
+
+        setId(time) {
+            this.time = time;
+        }
+
+        getQuantity() {
+            return this.quantity;
+        }
+
+        setQuantity(quantity) {
+            this.quantity = quantity;
+        }
+    }
+
+
+    let filmList = [];
+    let film1 = new Film(1, "Avatar", "12/03/2022", 90, 2000);
+    let film2 = new Film(2, "Doreamon", "12/04/2022", 100, 2200);
+    let film3 = new Film(3, "Mickey", "12/05/2022", 120, 2300);
+    filmList.push(film1, film2, film3);
+    display(filmList);
+
+    function display(filmList) {
+        let tableString = "";
+        tableString += '<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <th>ID</th>\n' +
+            '        <th>Name</th>\n' +
+            '        <th>Day</th>\n' +
+            '        <th>Time</th>\n' +
+            '        <th>Quantity</th>\n' +
+            '    </tr>'
+        for (let i = 0; i < filmList.length; i++) {
+            tableString += ' <tr>\n' +
+                '        <td>' + filmList[i].getId() + '</td>\n' +
+                '        <td>' + filmList[i].getName() + '</td>\n' +
+                '        <td>' + filmList[i].getDay() + '</td>\n' +
+                '        <td>' + filmList[i].getTime() + '</td>\n' +
+                '        <td>' + filmList[i].getQuantity() + '</td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>';
+        document.getElementById("result").innerHTML = tableString;
+    }
+</script>
+</body>
+</html>

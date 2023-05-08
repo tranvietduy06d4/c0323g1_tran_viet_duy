@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9 - Xử lý chuỗi kí tự</title>
+</head>
+<body>
+<script>
+    let string = prompt("Vui lòng nhập vào chuỗi kí tự để check: ");
+    creatReverseString(string);
+    createUpperString(string);
+    createLowerString(string);
+    createMixString(string);
+
+    function creatReverseString(string) {
+        let reverseString = "";
+        for (let i = string.length - 1 ; i >= 0; i--) {
+            reverseString += string[i];
+        }
+        document.write(reverseString + "<br/>");
+    }
+
+    function createUpperString(string) {
+        let upperString = "";
+        for (let i = 0; i < string.length; i++) {
+            upperString += string[i].toUpperCase();
+        }
+        document.write(upperString + "<br/>");
+    }
+
+    function createLowerString(string) {
+        let lowerString = "";
+        for (let i = 0; i < string.length; i++) {
+            lowerString += string[i].toLowerCase();
+        }
+        document.write(lowerString + "<br/>");
+    }
+
+    function createMixString(string) {
+        let upperString = "ABCDEFGHIKLMNOPQRSTUVXYZ";
+        let lowerString = "abcdefghiklmnopqrstuvxyz";
+        let mixString = "";
+        for (let i = 0; i < string.length; i++) {
+            if (upperString.indexOf(string[i]) !== -1) {
+                mixString += string[i].toLowerCase();
+            } else if (lowerString.indexOf(string[i]) !== -1) {
+                mixString += string[i].toUpperCase();
+            } else {
+                mixString += string[i];
+            }
+        }
+        document.write(mixString);
+    }
+</script>
+</body>
+</html>

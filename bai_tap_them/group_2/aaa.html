@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [-1,5,-2,3];
+  function sortArray(arr) {
+    let result = [];
+    let minIndex = -1;
+    while (arr.length !== 0) {
+
+      let min = arr[0];
+      for (let i = 0; i < arr.length; i++) {
+        if (min >= arr[i]) {
+          min = arr[i];
+          minIndex = i;
+        }
+      }
+      result.push(min);
+      arr.splice(minIndex, 1);
+    }
+    return result;
+  }
+  alert(sortArray(arr));
+
+</script>
+</body>
+</html>

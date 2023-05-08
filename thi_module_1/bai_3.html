@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let str = "abcabb";
+    let stringA = str.split("");
+    console.log(stringA);
+    let stringB = [];
+    for (let i = 0; i < stringA.length; i++) {
+        for (let j = 0; j < stringB.length; j++) {
+            if(stringA[i] === stringB[j]) {
+                break;
+            }
+        }
+        stringB.push(stringA[i]);
+    }
+console.log(stringB);
+</script>
+</body>
+</html>

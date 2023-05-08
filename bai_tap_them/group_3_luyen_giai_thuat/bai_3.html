@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Tính tổng dãy 1/n</title>
+</head>
+<body>
+<script>
+    let result = 0;
+    let n = +prompt("Please enter how many number do you want to calculate: ");
+    while (isNaN(n)) {
+        n = +prompt("Wrong. It is not a NUMBER. Please enter how many number do you want to calculate: ");
+    }
+    for (let i = 1; i <= n; i++) {
+        result += 1 / i;
+    }
+    document.write("The result is: " + result);
+</script>
+</body>
+</html>
