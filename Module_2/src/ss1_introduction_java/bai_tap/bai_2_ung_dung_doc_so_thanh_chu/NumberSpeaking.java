@@ -1,4 +1,4 @@
-package ss1_introduction_java.bai_tap.bai_3_ung_dung_chuyen_doi_tien_te;
+package ss1_introduction_java.bai_tap.bai_2_ung_dung_doc_so_thanh_chu;
 
 import java.util.Scanner;
 
