@@ -8,8 +8,9 @@ public class PrimeUnderNumber {
         System.out.println("Please enter upper limit of your integer number: ");
         int N = scanner.nextInt();
         int number = 2;
+        boolean flag;
         while (number < N) {
-            boolean flag = true;
+            flag = true;
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
                     flag = false;

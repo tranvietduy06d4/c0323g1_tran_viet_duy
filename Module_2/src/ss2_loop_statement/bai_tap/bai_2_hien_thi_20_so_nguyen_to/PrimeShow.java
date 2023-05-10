@@ -9,8 +9,9 @@ public class PrimeShow {
         int N = scanner.nextInt();
         int number = 2;
         int count = 0;
-        while (count <= N) {
-            boolean flag = true;
+        boolean flag;
+        while (count < N) {
+            flag = true;
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
                     flag = false;
