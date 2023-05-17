@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 public class Point3D extends Point2D {
     private float z;
-    float[] arrayXYZ = new float[3];
 
     public Point3D() {
 
     }
+
     public Point3D(float x, float y, float z) {
         super(x, y);
         this.z = z;
@@ -27,7 +27,9 @@ public class Point3D extends Point2D {
         setY(y);
         setZ(z);
     }
+
     public float[] getXYZ() {
+        float[] arrayXYZ = new float[3];
         arrayXYZ[0] = getX();
         arrayXYZ[1] = getY();
         arrayXYZ[2] = getZ();

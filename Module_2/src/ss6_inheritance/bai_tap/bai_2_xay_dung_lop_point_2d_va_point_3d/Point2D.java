@@ -5,10 +5,11 @@ import java.util.Arrays;
 public class Point2D {
     private float x;
     private float y;
-    float[] arrayXY = new float[2];
+
     public Point2D() {
 
     }
+
     public Point2D(float x, float y) {
         this.x = x;
         this.y = y;
@@ -35,9 +36,10 @@ public class Point2D {
         this.setY(y);
     }
 
-    public float [] getXY() {
-        arrayXY[0]=x;
-        arrayXY[1]=y;
+    public float[] getXY() {
+        float[] arrayXY = new float[2];
+        arrayXY[0] = getX();
+        arrayXY[1] = getY();
         return arrayXY;
     }
 

@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Point {
     private float x;
     private float y;
-    float[] arrayXY = new float[2];
 
     public Point() {
 
@@ -38,6 +37,7 @@ public class Point {
     }
 
     public float[] getXY() {
+        float[] arrayXY = new float[2];
         arrayXY[0] = x;
         arrayXY[1] = y;
         return arrayXY;

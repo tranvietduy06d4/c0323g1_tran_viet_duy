@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class MovablePoint extends Point {
     private float xSpeed;
     private float ySpeed;
-    float[] arraySpeed = new float[2];
 
     public MovablePoint() {
 
@@ -44,6 +43,7 @@ public class MovablePoint extends Point {
     }
 
     public float[] getSpeed() {
+        float[] arraySpeed = new float[2];
         arraySpeed[0] = getXSpeed();
         arraySpeed[1] = getYSpeed();
         return arraySpeed;
@@ -55,9 +55,10 @@ public class MovablePoint extends Point {
                 "Speed=" + Arrays.toString(getSpeed()) +
                 '}';
     }
+
     public String move() {
-        setX(getX()+getXSpeed());
-        setY(getY()+getYSpeed());
+        setX(getX() + getXSpeed());
+        setY(getY() + getYSpeed());
         return this.toString();
     }
 }
