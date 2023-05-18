@@ -29,6 +29,11 @@ public class MyList<E> {
             size++;
         }
     }
+    public boolean add(E e) {
+        ensureCapacity(elements.length);
+        elements[size+1] = e;
+        return true;
+    }
 
 
     E remove(int index) {
@@ -39,9 +44,8 @@ public class MyList<E> {
             elements[index] = null;
             return removeElement;
         }
-
     }
-    
+
 
     int size() {
         return this.size;
@@ -54,16 +58,40 @@ public class MyList<E> {
         }
     }
 
-    public E clone() {
-        //coming soon
-        return null;
+    public E[] clone() {
+        Object[] newElement = new Object[elements.length];
+        for (int i = 0; i < elements.length; i++) {
+            newElement[i] = elements[i];
+        }
+        return (E[]) newElement;
+    }
 
+    public int indexOf(E o) {
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (elements[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(elements[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     public boolean contains(E o) {
-        //coming soon
-        return false;
+        return indexOf(o) >= 0;
+    }
 
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            elements[i] = null;
+        }
+        size = 0;
     }
 
 }
