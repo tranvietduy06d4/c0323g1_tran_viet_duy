@@ -1,4 +1,4 @@
-package bai_tap_them;
+package bai_tap_them.excesie_1;
 
 public class Exercise1 {
     public static void main(String[] args) {
