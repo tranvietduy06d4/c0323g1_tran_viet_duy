@@ -26,11 +26,19 @@ public class ProductController {
                 case 1:
                     productService.displayAll();
                     break;
+                case 3:
+                    productService.searchProduct();
+                    break;
+                case 4:
+                    productService.updateProduct();
+                    break;
                 case 5:
                     productService.addProduct();
                     break;
                 case 6:
                     productService.deleteProduct();
+                case 0:
+                    System.exit(1);
             }
 
         } while (true);

@@ -13,4 +13,8 @@ public interface IProductRepository {
     void removeProduct(Product product);
 
     Product getById(String id);
+
+    Product getByName(String name);
+
+
 }

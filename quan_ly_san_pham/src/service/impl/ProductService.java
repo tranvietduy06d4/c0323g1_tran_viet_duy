@@ -70,4 +70,53 @@ public class ProductService implements IProductService {
         }
     }
 
+    @Override
+    public void searchProduct() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Vui lòng nhập vào tên sản phẩm để hiển thị thông tin: ");
+        String name = scanner.nextLine();
+        Product product = productRepository.getByName(name);
+        if(product != null) {
+            System.out.println(product);
+        } else {
+            System.out.println("Sản phẩm này không tồn tại trên hệ thống");
+        }
+    }
+
+    @Override
+    public void updateProduct() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Vui lòng nhập vào Id của sản phẩm cần cập nhật: ");
+        String idProduct = scanner.nextLine();
+        Product productCheck = productRepository.getById(idProduct);
+        if (productCheck != null) {
+            System.out.println("Vui lòng nhập vào tên mới của sản phẩm: ");
+            String name = scanner.nextLine();
+            System.out.println("Vui lòng nhập vào giá mới của sản phẩm: ");
+            float price = Float.valueOf(scanner.nextLine());
+            System.out.println("Vui lòng nhập vào số lượng cập nhật mới của sản phẩm: ");
+            int quantity = Integer.parseInt(scanner.nextLine());
+            System.out.println("Vui lòng cập nhật phần mô tả sản phẩm: ");
+            String description = scanner.nextLine();
+            System.out.println("Bạn có thực sự muốn cập nhật sản phẩm mã ID: " + productCheck.getId() + " Tên sản phẩm: " + productCheck.getName() + " Vui lòng chọn:\n" +
+                    "1. Có\n" +
+                    "2. Suy nghĩ thêm\n");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    productCheck.setName(name);
+                    productCheck.setPrice(price);
+                    productCheck.setQuantity(quantity);
+                    productCheck.setDescription(description);
+                    System.out.println("Bạn đã update thành công sản phẩm");
+                    System.out.println(productCheck);
+                    break;
+                case 2:
+                    break;
+                default:
+            }
+        } else {
+            System.out.println("Mã số ID này không tồn tại trên hệ thống. Vui lòng thử lại");
+        }
+    }
 }

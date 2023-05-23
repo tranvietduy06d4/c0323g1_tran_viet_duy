@@ -16,8 +16,6 @@ public class ProductRepository implements IProductRepository {
         productList.add(new Product("P-003","Dầu ăn Neptune",45000,30,"Dầu xuất xứ Việt Nam"));
     }
 
-
-
     @Override
     public List<Product> getAll() {
         return productList;
@@ -43,4 +41,15 @@ public class ProductRepository implements IProductRepository {
         }
         return null;
     }
+
+    @Override
+    public Product getByName(String name) {
+        for (Product p: productList) {
+            if(p.getName().equals(name)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 }
