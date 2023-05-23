@@ -26,6 +26,9 @@ public class ProductController {
                 case 1:
                     productService.displayAll();
                     break;
+                case 2:
+                    productService.sortProductPrice();
+                    break;
                 case 3:
                     productService.searchProduct();
                     break;

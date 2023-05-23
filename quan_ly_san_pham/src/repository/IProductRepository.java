@@ -14,7 +14,10 @@ public interface IProductRepository {
 
     Product getById(String id);
 
-    Product getByName(String name);
+    List<Product> getByName(String name);
 
 
+    void sortProductPriceUp();
+
+    void sortProductPriceDown();
 }

@@ -3,9 +3,7 @@ package repository.impl;
 import model.Product;
 import repository.IProductRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductRepository implements IProductRepository {
 
@@ -43,13 +41,38 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Product getByName(String name) {
+    public List<Product> getByName(String name) {
+        List<Product> productSearchList = new ArrayList<>();
         for (Product p: productList) {
-            if(p.getName().equals(name)) {
-                return p;
+            if(p.getName().toLowerCase().contains(name)) {
+                productSearchList.add(p);
             }
         }
-        return null;
+        if(!productSearchList.isEmpty()) {
+            return productSearchList;
+        } else {
+            return null;
+        }
+
     }
 
+    @Override
+    public void sortProductPriceUp() {
+        Collections.sort(productList, new Comparator<Product>() {
+            @Override
+            public int compare(Product product1, Product product2) {
+                return product1.getPrice() - product2.getPrice();
+            }
+        });
+    }
+
+    @Override
+    public void sortProductPriceDown() {
+        Collections.sort(productList, new Comparator<Product>() {
+            @Override
+            public int compare(Product product1, Product product2) {
+                return product2.getPrice() - product1.getPrice();
+            }
+        });
+    }
 }

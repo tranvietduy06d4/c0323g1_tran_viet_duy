@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class ProductService implements IProductService {
 
-    IProductRepository productRepository = new ProductRepository();
+    private IProductRepository productRepository = new ProductRepository();
 
     @Override
     public void displayAll() {
@@ -33,7 +33,7 @@ public class ProductService implements IProductService {
             System.out.println("Vui lòng nhập vào tên sản phẩm: ");
             String name = scanner.nextLine();
             System.out.println("Vui lòng nhập vào giá của sản phẩm: ");
-            float price = Float.valueOf(scanner.nextLine());
+            int price = Integer.parseInt(scanner.nextLine());
             System.out.println("Vui lòng nhập số lượng sản phẩm: ");
             int quantity = Integer.parseInt(scanner.nextLine());
             System.out.println("Vui lòng nhập mô tả sản phẩm: ");
@@ -75,8 +75,9 @@ public class ProductService implements IProductService {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Vui lòng nhập vào tên sản phẩm để hiển thị thông tin: ");
         String name = scanner.nextLine();
-        Product product = productRepository.getByName(name);
-        if(product != null) {
+        name = name.toLowerCase();
+        List<Product> product = productRepository.getByName(name);
+        if (product != null) {
             System.out.println(product);
         } else {
             System.out.println("Sản phẩm này không tồn tại trên hệ thống");
@@ -93,7 +94,7 @@ public class ProductService implements IProductService {
             System.out.println("Vui lòng nhập vào tên mới của sản phẩm: ");
             String name = scanner.nextLine();
             System.out.println("Vui lòng nhập vào giá mới của sản phẩm: ");
-            float price = Float.valueOf(scanner.nextLine());
+            int price = Integer.parseInt(scanner.nextLine());
             System.out.println("Vui lòng nhập vào số lượng cập nhật mới của sản phẩm: ");
             int quantity = Integer.parseInt(scanner.nextLine());
             System.out.println("Vui lòng cập nhật phần mô tả sản phẩm: ");
@@ -118,5 +119,23 @@ public class ProductService implements IProductService {
         } else {
             System.out.println("Mã số ID này không tồn tại trên hệ thống. Vui lòng thử lại");
         }
+    }
+
+    @Override
+    public void sortProductPrice() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Vui lòng bấm số để chọn cách thức sắp xếp sản phẩm theo giá : \n1.Giá tăng dần\n2.Giá giảm dần");
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                productRepository.sortProductPriceUp();
+                System.out.println("Bạn đã sắp xếp thành công sản phẩm theo thứ ự giá tăng dần");
+                break;
+            case 2:
+                productRepository.sortProductPriceDown();
+                System.out.println("Bạn đã sắp xếp thành công sản phẩm theo thứ tự giá giảm dần");
+                break;
+        }
+
     }
 }
