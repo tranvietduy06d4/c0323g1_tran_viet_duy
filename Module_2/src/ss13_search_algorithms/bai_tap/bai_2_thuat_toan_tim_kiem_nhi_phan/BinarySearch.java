@@ -22,7 +22,7 @@ public class BinarySearch {
     }
 
     public static int binarySearch(int[] integerArray, int first, int last, int number) {
-        if (first < last) {
+        if (first <= last) {
             int mid = (first + last) / 2;
             if (integerArray[mid] == number) {
                 return mid;
