@@ -3,10 +3,13 @@ package service.impl;
 import model.Person;
 import model.Teacher;
 import repository.IPersonRepository;
-import repository.impl.StudentRepository;
 import repository.impl.TeacherRepository;
 import service.IPersonService;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,6 +21,26 @@ public class TeacherService implements IPersonService {
         List<Person> teacherList = teacherRepository.getAll();
         for (Person p: teacherList) {
             System.out.println(p);
+        }
+    }
+
+    @Override
+    public void exportPersonListToFile() {
+        List<Person> teacherList = teacherRepository.getAll();
+        File file = new File("src/repository/impl/teacherList.csv");
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (int i = 0; i < teacherList.size();
+                 i++) {
+                bufferedWriter.write(teacherList.get(i).toString());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

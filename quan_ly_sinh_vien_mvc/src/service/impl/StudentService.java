@@ -6,6 +6,10 @@ import repository.IPersonRepository;
 import repository.impl.StudentRepository;
 import service.IPersonService;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,6 +23,26 @@ public class StudentService implements IPersonService {
             System.out.println(p);
         }
     }
+
+    @Override
+    public void exportPersonListToFile() {
+        List<Person> studentList = studentRepository.getAll();
+        File file = new File("src/repository/impl/studentList.csv");
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (int i = 0; i < studentList.size(); i++) {
+                bufferedWriter.write(studentList.get(i).toString());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @Override
     public void addPerson() {
@@ -62,7 +86,7 @@ public class StudentService implements IPersonService {
         System.out.println("Vui lòng nhập vào id của Học viên cần xóa khỏi danh sách:");
         String idStudent = scanner.nextLine();
         Person checkId = studentRepository.getById(idStudent);
-        if(checkId != null) {
+        if (checkId != null) {
             studentRepository.deletePerson(checkId);
         }
 
