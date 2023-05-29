@@ -7,9 +7,9 @@ public class TriangleTest {
     public static void main(String[] args) {
         boolean check = false;
         Scanner scanner = new Scanner(System.in);
-        int a;
-        int b;
-        int c;
+        int a = -1;
+        int b =-1;
+        int c = -1;
 
         do {
             System.out.println("Vui lòng nhập vào giá trị của a:");
