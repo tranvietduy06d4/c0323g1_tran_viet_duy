@@ -15,7 +15,15 @@ public class FuramaController {
             System.out.println("4. Booking Management");
             System.out.println("5. Promotion Management");
             System.out.println("6. Exit");
-            int choice = Integer.parseInt(scanner.nextLine());
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException n) {
+                System.out.println("It is not number format");
+            } catch (Exception e) {
+                System.out.println("Error!!!");
+            }
+
             switch (choice) {
                 case 1:
                     EmployeeManagementController.displayEmployeeMenu();
@@ -35,6 +43,8 @@ public class FuramaController {
                 case 6:
                     System.out.println("Thanks you for using our service. See you again!!!");
                     System.exit(1);
+                default:
+                    System.out.println("Wrong. It is not number format. Please try again");
             }
         } while (true);
 
