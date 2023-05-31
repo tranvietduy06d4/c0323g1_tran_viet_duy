@@ -31,4 +31,19 @@ public class Teacher extends Person{
                 ", Chuyên ngành: " + speciality + '\'' +
                 '}';
     }
+
+    @Override
+    public String getInfoToCsv() {
+        return super.getInfoToCsv() + "," +this.speciality;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

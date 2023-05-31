@@ -7,6 +7,5 @@ public interface IPersonService {
 
     void deletePerson();
 
-    void exportPersonListToFile();
 
 }

@@ -24,25 +24,7 @@ public class TeacherService implements IPersonService {
         }
     }
 
-    @Override
-    public void exportPersonListToFile() {
-        List<Person> teacherList = teacherRepository.getAll();
-        File file = new File("src/repository/impl/teacherList.csv");
-        try {
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            for (int i = 0; i < teacherList.size();
-                 i++) {
-                bufferedWriter.write(teacherList.get(i).toString());
-                bufferedWriter.newLine();
-            }
-            bufferedWriter.flush();
-            bufferedWriter.close();
-            fileWriter.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 
     @Override
     public void addPerson() {

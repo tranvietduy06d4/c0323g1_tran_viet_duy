@@ -47,4 +47,19 @@ public class Student extends Person {
                 ", Điểm số: " + score +
                 '}';
     }
+
+    @Override
+    public String getInfoToCsv() {
+        return super.getInfoToCsv() +"," +this.className +"," +this.score;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

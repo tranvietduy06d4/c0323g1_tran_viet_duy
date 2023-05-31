@@ -1,5 +1,6 @@
 package repository.impl;
 
+import common.ReadAndWrite;
 import model.Person;
 import model.Student;
 import repository.IPersonRepository;
@@ -19,7 +20,7 @@ public class StudentRepository implements IPersonRepository {
 
     @Override
     public List<Person> getAll() {
-        return studentList;
+        return ReadAndWrite.readFileStudent("src/data/student_list.csv");
     }
 
     @Override
