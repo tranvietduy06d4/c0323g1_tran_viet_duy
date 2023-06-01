@@ -18,13 +18,13 @@ public class CustomerManagementController {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    customerService.displayListCustomer();
+//                    customerService.displayListCustomer();
                     break;
                 case 2:
-                    customerService.addNewCustomer();
+//                    customerService.addNewCustomer();
                     break;
                 case 3:
-                    customerService.editCustomer();
+//                    customerService.editCustomer();
                     break;
                 case 4:
                     return;

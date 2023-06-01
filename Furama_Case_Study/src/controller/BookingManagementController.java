@@ -24,19 +24,19 @@ public class BookingManagementController {
 
             switch (choice) {
                 case 1:
-                    bookingService.addNewBooking();
+//                    bookingService.addNewBooking();
                     break;
                 case 2:
-                    bookingService.displayListBooking();
+//                    bookingService.displayListBooking();
                     break;
                 case 3:
-                    bookingService.createNewContract();
+//                    bookingService.createNewContract();
                     break;
                 case 4:
-                    bookingService.displayListContract();
+//                    bookingService.displayListContract();
                     break;
                 case 5:
-                    bookingService.editContract();
+//                    bookingService.editContract();
                     break;
                 case 6:
                     return;

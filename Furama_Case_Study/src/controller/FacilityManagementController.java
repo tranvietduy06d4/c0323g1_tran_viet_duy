@@ -20,13 +20,13 @@ public class FacilityManagementController {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    facilityService.displayListFacility();
+//                    facilityService.displayListFacility();
                     break;
                 case 2:
-                    facilityService.addNewFacility();
+//                    facilityService.addNewFacility();
                     break;
                 case 3:
-                    facilityService.displayListFacilityMainternance();
+//                    facilityService.displayListFacilityMaintenance();
                     break;
                 case 4:
                     return;

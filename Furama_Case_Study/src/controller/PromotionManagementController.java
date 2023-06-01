@@ -1,13 +1,13 @@
 package controller;
 
-import service.IPromotionService;
-import service.impl.PromotionService;
+
+
 
 import java.util.Scanner;
 
 public class PromotionManagementController {
     private static Scanner scanner = new Scanner(System.in);
-    private static IPromotionService promotionService = new PromotionService();
+//    private static IPromotionService promotionService = new PromotionService();
     public static void displayPromotionMenu() {
         do {
             System.out.println("Please enter number from 1 to 4 to select service: ");
@@ -17,10 +17,10 @@ public class PromotionManagementController {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    promotionService.displayListServiceCustomer();
+//                    promotionService.displayListServiceCustomer();
                     break;
                 case 2:
-                    promotionService.displayListVoucherCustomer();
+//                    promotionService.displayListVoucherCustomer();
                     break;
                 case 4:
                     return;

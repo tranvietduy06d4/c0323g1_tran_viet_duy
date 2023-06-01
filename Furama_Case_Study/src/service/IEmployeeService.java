@@ -1,9 +1,6 @@
 package service;
 
-public interface IEmployeeService {
-    void displayListEmployee();
-
-    void addNewEmployee();
+public interface IEmployeeService extends IService {
 
     void editEmployee();
 }
