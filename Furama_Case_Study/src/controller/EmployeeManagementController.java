@@ -18,12 +18,13 @@ public class EmployeeManagementController {
             System.out.println("2. Add new employee");
             System.out.println("3. Edit employee");
             System.out.println("4. Delete employee");
-            System.out.println("5. Return main menu");
+            System.out.println("5. Search employee by name");
+            System.out.println("6. Return main menu");
             int choice = 0;
             try{
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException n) {
-                System.out.println("Wrong. It í not number format");
+                System.out.println("Wrong. It is not number format");
             } catch (Exception e) {
                 System.out.println("Error!!!");
             }
@@ -41,9 +42,12 @@ public class EmployeeManagementController {
                     employeeService.delete();
                     break;
                 case 5:
+                    employeeService.getEmployeeByName();
+                    break;
+                case 6:
                     return;
-                default:
-                    System.out.println("Wrong. It is not number format. Please try again");
+//                default:
+//                    System.out.println("Wrong. It is not number format. Please try again");
             }
         } while (true);
 

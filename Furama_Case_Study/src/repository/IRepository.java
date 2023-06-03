@@ -12,5 +12,5 @@ public interface IRepository <T> {
 
     void addNew (T t);
 
-    void deleteEmployee(T employeeCheck);
+    void delete (T t);
 }

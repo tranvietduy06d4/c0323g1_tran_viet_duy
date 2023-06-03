@@ -18,18 +18,19 @@ public class EmployeeRepository implements IEmployeeRepository {
         employeeList.clear();
         String[] info;
 //        public Employee(String personCode, String personName, String birthDay, boolean gender, int personId, int phoneNumber, String email, String level, String position, int salary)
-        for (String str:string) {
+        for (String str : string) {
             info = str.split(",");
-            employeeList.add(new Employee(info[0],info[1],info[2],Boolean.parseBoolean(info[3]),info[4],info[5],info[6],info[7],info[8],Float.parseFloat(info[9])));
+            employeeList.add(new Employee(info[0], info[1], info[2], Boolean.parseBoolean(info[3]), info[4], info[5], info[6], info[7], info[8], Float.parseFloat(info[9])));
         }
         return employeeList;
 
     }
+
     @Override
     public Employee getByCode(String employeeCode) {
         employeeList = getAll();
-        for (Employee e:employeeList) {
-            if(e.getPersonCode().equals(employeeCode)) {
+        for (Employee e : employeeList) {
+            if (e.getPersonCode().equals(employeeCode)) {
                 return e;
             }
         }
@@ -41,20 +42,50 @@ public class EmployeeRepository implements IEmployeeRepository {
     @Override
     public void addNew(Employee employee) {
         List<String> string = new ArrayList<>();
-        string.add(employee.getPersonCode()+","+employee.getPersonName()+","+employee.getBirthDay()+","+employee.isGender()+","+employee.getPersonId()+","+employee.getPhoneNumber()+","+employee.getEmail()+","+employee.getLevel()+","+employee.getPosition()+","+employee.getSalary());
-        ReadAndWrite.writeFile(PATH_EMPLOYEE,string,true);
+        string.add(employee.getPersonCode() + "," + employee.getPersonName() + "," + employee.getBirthDay() + "," + employee.isGender() + "," + employee.getPersonId() + "," + employee.getPhoneNumber() + "," + employee.getEmail() + "," + employee.getLevel() + "," + employee.getPosition() + "," + employee.getSalary());
+        ReadAndWrite.writeFile(PATH_EMPLOYEE, string, true);
     }
 
 //        public Employee(String personCode, String personName, String birthDay, boolean gender, int personId, int phoneNumber, String email, String level, String position, int salary)
 
     @Override
-    public void deleteEmployee(Employee employeeCheck) {
+    public void delete(Employee employeeCheck) {
         employeeList = getAll();
         employeeList.remove(employeeCheck);
         List<String> string = new ArrayList<>();
-        for (Employee e:employeeList) {
-            string.add(e.getPersonCode()+","+ e.getPersonName()+","+e.getBirthDay()+","+e.isGender()+","+e.getPersonId()+","+e.getPhoneNumber()+","+e.getEmail()+","+e.getLevel()+","+e.getPosition()+","+e.getSalary());
+        for (Employee e : employeeList) {
+            string.add(e.getPersonCode() + "," + e.getPersonName() + "," + e.getBirthDay() + "," + e.isGender() + "," + e.getPersonId() + "," + e.getPhoneNumber() + "," + e.getEmail() + "," + e.getLevel() + "," + e.getPosition() + "," + e.getSalary());
         }
-        ReadAndWrite.writeFile(PATH_EMPLOYEE,string,false);
+        ReadAndWrite.writeFile(PATH_EMPLOYEE, string, false);
+    }
+
+    public void callEdit() {
+        employeeList = getAll();
+    }
+
+    @Override
+    public void editEmployee() {
+        List<String> string = new ArrayList<>();
+        for (Employee e : employeeList) {
+            string.add(e.getPersonCode() + "," + e.getPersonName() + "," + e.getBirthDay() + "," + e.isGender() + "," + e.getPersonId() + "," + e.getPhoneNumber() + "," + e.getEmail() + "," + e.getLevel() + "," + e.getPosition() + "," + e.getSalary());
+        }
+        ReadAndWrite.writeFile(PATH_EMPLOYEE, string, false);
+    }
+
+    @Override
+    public List<Employee> getEmployeeByName(String name) {
+        employeeList = getAll();
+        List<Employee> employeeSearchList = new ArrayList<>();
+        for (Employee e: employeeList) {
+            if(e.getPersonName().toLowerCase().contains(name.toLowerCase())) {
+                employeeSearchList.add(e);
+            }
+        }
+        if(!employeeSearchList.isEmpty()) {
+            return employeeSearchList;
+        } else {
+            return null;
+        }
+
     }
 }
