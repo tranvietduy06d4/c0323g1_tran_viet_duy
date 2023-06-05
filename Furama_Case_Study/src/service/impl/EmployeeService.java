@@ -18,7 +18,7 @@ public class EmployeeService implements IEmployeeService {
     private String nameRegex = "^(([A-Z][a-z]*)(\\s|$))+$";
     private String idRegex = "^(\\d{9}|\\d{12})$";
     private String phoneNumberRegex = "^[0]\\d{9}$";
-    private String codeRegex = "^(NV-)\\d{9}$";
+    private String codeRegex = "^(NV-)\\d{4}$";
 
     private String birthDayRegex = "^(19|20)?[0-9]{2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$";
     private String emailRegex = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";

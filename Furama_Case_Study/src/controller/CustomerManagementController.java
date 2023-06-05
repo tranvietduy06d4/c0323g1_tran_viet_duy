@@ -14,22 +14,28 @@ public class CustomerManagementController {
             System.out.println("1. Display list customers");
             System.out.println("2. Add new customer");
             System.out.println("3. Edit customer");
-            System.out.println("4. Return main menu");
+            System.out.println("4. Delete customer");
+            System.out.println("5. Search customer");
+            System.out.println("6. Return main menu");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-//                    customerService.displayListCustomer();
+                    customerService.displayAll();
                     break;
                 case 2:
-//                    customerService.addNewCustomer();
+                    customerService.addNew();
                     break;
                 case 3:
-//                    customerService.editCustomer();
+                    customerService.editCustomer();
                     break;
                 case 4:
+                    customerService.delete();
+                    break;
+                case 5:
+                    customerService.getCustomerByName();
+                    break;
+                case 6:
                     return;
-                default:
-                    System.out.println("Wrong. It is not number format. Please try again");
             }
         } while (true);
 

@@ -1,9 +1,7 @@
 package service;
 
-public interface ICustomerService {
-    void displayListCustomer();
+public interface ICustomerService extends IService{
+    public void editCustomer();
 
-    void addNewCustomer();
-
-    void editCustomer();
+    void getCustomerByName();
 }
