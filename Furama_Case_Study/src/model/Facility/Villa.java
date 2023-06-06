@@ -39,4 +39,8 @@ public class Villa extends Facility{
         this.villaFloorQuantity = villaFloorQuantity;
     }
 
+    @Override
+    public String toString() {
+        return "- Villa " +super.toString() +" , Standard: " +this.getVillaStandard() +" , Pool Area: " +this.getPoolArea() +" , Floor Quantity: " +this.getVillaFloorQuantity();
+    }
 }

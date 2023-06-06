@@ -1,9 +1,6 @@
 package service;
 
-public interface IFacilityService {
-    void displayListFacility();
-
-    void addNewFacility();
+public interface IFacilityService extends IService {
 
     void displayListFacilityMaintenance();
 }

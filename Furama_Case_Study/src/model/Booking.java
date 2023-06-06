@@ -1,6 +1,7 @@
 package model;
 
 public class Booking {
+
     private String bookingCode;
     private String bookingDay;
     private String startDay;
@@ -70,13 +71,12 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "bookingCode='" + bookingCode + '\'' +
-                ", bookingDay='" + bookingDay + '\'' +
-                ", startDay='" + startDay + '\'' +
-                ", endDay='" + endDay + '\'' +
-                ", customerCode='" + customerCode + '\'' +
-                ", serviceCode='" + serviceCode + '\'' +
-                '}';
+        return "- Booking " +
+                "bookingCode= " + bookingCode + '\'' +
+                ", bookingDay= " + bookingDay + '\'' +
+                ", startDay= " + startDay + '\'' +
+                ", endDay= " + endDay + '\'' +
+                ", customerCode= " + customerCode + '\'' +
+                ", serviceCode= " + serviceCode + '\'' ;
     }
 }

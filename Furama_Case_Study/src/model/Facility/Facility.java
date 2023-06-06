@@ -1,5 +1,7 @@
 package model.Facility;
 
+import java.util.Objects;
+
 public class Facility {
     private String serviceCode;
     private String serviceName;
@@ -70,13 +72,24 @@ public class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "serviceCode='" + serviceCode + '\'' +
+        return  "serviceCode='" + serviceCode + '\'' +
                 ", serviceName='" + serviceName + '\'' +
                 ", serviceArea=" + serviceArea +
                 ", serviceFee=" + serviceFee +
                 ", MaximumPerson=" + MaximumPerson +
-                ", rentType='" + rentType + '\'' +
-                '}';
+                ", rentType='" + rentType + '\'';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Facility)) return false;
+        Facility facility = (Facility) o;
+        return Objects.equals(serviceCode, facility.serviceCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(serviceCode);
     }
 }

@@ -18,4 +18,9 @@ public class Room extends Facility{
     public void setFreeAdditionService(String freeAdditionService) {
         this.freeAdditionService = freeAdditionService;
     }
+
+    @Override
+    public String toString() {
+        return "- Room: " + super.toString() +" , Free additional service: " +this.getFreeAdditionService();
+    }
 }

@@ -28,4 +28,9 @@ public class House extends Facility{
     public void setHouseFloorQuantity(int houseFloorQuantity) {
         this.houseFloorQuantity = houseFloorQuantity;
     }
+
+    @Override
+    public String toString() {
+        return "- House " +super.toString() + " , Standard: " +this.houseStandard + " ,Floor Quantity: " +this.getHouseFloorQuantity();
+    }
 }

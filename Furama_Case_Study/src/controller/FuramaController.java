@@ -18,34 +18,34 @@ public class FuramaController {
             int choice = -1;
             try {
                 choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        EmployeeManagementController.displayEmployeeMenu();
+                        break;
+                    case 2:
+                        CustomerManagementController.displayCustomerMenu();
+                        break;
+                    case 3:
+                        FacilityManagementController.displayFacilityMenu();
+                        break;
+                    case 4:
+                        BookingManagementController.displayBookingMenu();
+                        break;
+                    case 5:
+                        PromotionManagementController.displayPromotionMenu();
+                        break;
+                    case 6:
+                        System.out.println("Thanks you for using our service. See you again!!!");
+                        System.exit(1);
+                    default:
+                        System.out.println("Wrong. It is not number format. Please try again");
+                }
             } catch (NumberFormatException n) {
                 System.out.println("It is not number format");
             } catch (Exception e) {
                 System.out.println("Error!!!");
             }
 
-            switch (choice) {
-                case 1:
-                    EmployeeManagementController.displayEmployeeMenu();
-                    break;
-                case 2:
-                    CustomerManagementController.displayCustomerMenu();
-                    break;
-                case 3:
-                    FacilityManagementController.displayFacilityMenu();
-                    break;
-                case 4:
-                    BookingManagementController.displayBookingMenu();
-                    break;
-                case 5:
-                    PromotionManagementController.displayPromotionMenu();
-                    break;
-                case 6:
-                    System.out.println("Thanks you for using our service. See you again!!!");
-                    System.exit(1);
-                default:
-                    System.out.println("Wrong. It is not number format. Please try again");
-            }
         } while (true);
 
     }

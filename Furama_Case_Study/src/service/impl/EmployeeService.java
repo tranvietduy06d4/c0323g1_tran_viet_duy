@@ -63,7 +63,7 @@ public class EmployeeService implements IEmployeeService {
             while (choice != 1 || choice != 2) {
                 System.out.println("Please enter gender of employee: \n" +
                         "Press 1. Male (True)\n" +
-                        "Press 2. Female");
+                        "Press 2. Female (False)\n");
                 choice = Integer.parseInt(scanner.nextLine());
             }
 
@@ -201,8 +201,6 @@ public class EmployeeService implements IEmployeeService {
                 default:
                     System.out.println("Wrong. Please try again");
             }
-
-
         }
     }
 
@@ -227,7 +225,6 @@ public class EmployeeService implements IEmployeeService {
                 System.out.println("Please enter new employee name: ");
                 name = scanner.nextLine();
             } while (!Regex.checkName(name, nameRegex));
-
 
 
             String birthDay;

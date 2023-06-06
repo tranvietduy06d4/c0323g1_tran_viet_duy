@@ -98,14 +98,13 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "personCode='" + personCode + '\'' +
-                ", personName='" + personName + '\'' +
-                ", birthDay='" + birthDay + '\'' +
-                ", gender=" + gender +
-                ", personId=" + personId +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                '}';
+        return "- Person " +
+                "personCode= " + personCode + '\'' +
+                ", personName= " + personName + '\'' +
+                ", birthDay= " + birthDay + '\'' +
+                ", gender= " + gender +
+                ", personId= " + personId +
+                ", phoneNumber= " + phoneNumber +
+                ", email= " + email + '\'' ;
     }
 }

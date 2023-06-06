@@ -32,16 +32,15 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "customerCode='" + this.getPersonCode() + '\'' +
-                ", Name='" + this.getPersonName() + '\'' +
-                ", birthDay='" + this.getBirthDay() + '\'' +
-                ", gender=" + this.isGender() +
-                ", customerId=" + this.getPersonId() +
-                ", phoneNumber=" + this.getPhoneNumber() +
-                ", email='" + this.getEmail() + '\'' +
-                ", customerType='" + this.getCustomerType() + '\'' +
-                ", customerAddress='" + this.getCustomerAddress() + '\'' +
-                '}';
+        return "- Customer " +
+                "customerCode= " + this.getPersonCode() + '\'' +
+                ", Name= " + this.getPersonName() + '\'' +
+                ", birthDay= " + this.getBirthDay() + '\'' +
+                ", gender= " + this.isGender() +
+                ", customerId= " + this.getPersonId() +
+                ", phoneNumber= " + this.getPhoneNumber() +
+                ", email= " + this.getEmail() + '\'' +
+                ", customerType= " + this.getCustomerType() + '\'' +
+                ", customerAddress= " + this.getCustomerAddress() + '\'';
     }
 }

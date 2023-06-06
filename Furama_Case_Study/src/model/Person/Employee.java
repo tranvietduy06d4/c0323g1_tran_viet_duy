@@ -42,17 +42,16 @@ public class Employee extends Person{
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeCode='" + this.getPersonCode() + '\'' +
-                ", Name='" + this.getPersonName() + '\'' +
-                ", birthDay='" + this.getBirthDay() + '\'' +
-                ", gender=" + this.isGender() +
-                ", employeeId=" + this.getPersonId() +
-                ", phoneNumber=" + this.getPhoneNumber() +
-                ", email='" + this.getEmail() + '\'' +
-                ", level='" + this.getLevel() + '\'' +
-                ", position='" + this.getPosition() + '\'' +
-                ", salary='" + this.getSalary() + '\'' +
-                '}';
+        return "- Employee " +
+                "employeeCode= " + this.getPersonCode() + '\'' +
+                ", Name= " + this.getPersonName() + '\'' +
+                ", birthDay= " + this.getBirthDay() + '\'' +
+                ", gender= " + this.isGender() +
+                ", employeeId= " + this.getPersonId() +
+                ", phoneNumber= " + this.getPhoneNumber() +
+                ", email= " + this.getEmail() + '\'' +
+                ", level= " + this.getLevel() + '\'' +
+                ", position= " + this.getPosition() + '\'' +
+                ", salary= " + this.getSalary() + '\'';
     }
 }
