@@ -24,10 +24,10 @@ public class BookingManagementController {
 
             switch (choice) {
                 case 1:
-//                    bookingService.addNewBooking();
+                    bookingService.addNewBooking();
                     break;
                 case 2:
-//                    bookingService.displayListBooking();
+                    bookingService.displayListBooking();
                     break;
                 case 3:
 //                    bookingService.createNewContract();

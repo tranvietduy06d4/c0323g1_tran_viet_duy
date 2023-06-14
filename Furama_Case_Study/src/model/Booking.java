@@ -1,6 +1,10 @@
 package model;
 
-public class Booking {
+import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.Objects;
+
+public class Booking implements Comparable<Booking> {
 
     private String bookingCode;
     private String bookingDay;
@@ -78,5 +82,29 @@ public class Booking {
                 ", endDay= " + endDay + '\'' +
                 ", customerCode= " + customerCode + '\'' +
                 ", serviceCode= " + serviceCode + '\'' ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Booking)) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(bookingCode, booking.bookingCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingCode);
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        if(this.equals(o)) {
+            return 0;
+        } else {
+            LocalDate localDate = LocalDate.parse(o.bookingDay);
+            LocalDate localDate1 = LocalDate.parse(this.bookingDay);
+            return localDate.isBefore(localDate1) ? 1:-1;
+        }
     }
 }
