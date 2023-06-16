@@ -105,7 +105,20 @@ from student
 where (`point` >5)
 order by `point` ASC;
 
---- Cau 7 Thong ke so luong hoc sinh theo tuoi va phai lon hon 5
-select `point`
-from student 
-where (count(*) >=2);
+--- Cau 7 Thong ke so luong hoc sinh theo từng loại điểm va phai lon hon 5
+select `point`,count(*) 
+from student
+where (`point` >5)
+group by `point`;
+
+--- Cau 8 Thong ke so luong hoc sinh theo diem lon hon 5 va so luong >= 2
+
+
+
+--- Câu 9
+select s.`name`,s.birthday, s.class_id, c.name
+from student s join class c on s.class_id = c.id
+where c.name = 'c1121g1'
+order by s.`name` ASC;
+
+
