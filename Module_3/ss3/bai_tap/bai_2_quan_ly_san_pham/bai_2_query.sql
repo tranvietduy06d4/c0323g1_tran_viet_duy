@@ -16,9 +16,10 @@ join product on order_detail.pID = product.pID;
 select cName, `order`.oID
 from customer
 left join `order` on customer.cID = `order`.cID
-where oID = 'null';
+where oID <=> null;
 
-
-select * from customer;
-
-select * from `order`;
+select `order`.oID, `order`.oDate, sum(pPrice*order_detail.odQuantity) as 'total'
+  from product
+  join order_detail on product.pPrice=order_detail.pID
+  join `order` on order_detail.oID =`order`.oID
+  group by oID;
