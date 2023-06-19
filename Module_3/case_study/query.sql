@@ -188,11 +188,26 @@ GROUP BY constract.constract_ID;
 -- Cau 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 -- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 
-select addtional_service.additional_service_ID, addtional_service.additional_service_name, sum(constract_detail.quantity) as service_quantity
-from addtional_service
-join constract_detail on addtional_service.additional_service_ID = constract_detail.additional_service_ID
-group by addtional_service.additional_service_ID;
-having 
+SELECT 
+    addtional_service.additional_service_ID,
+    addtional_service.additional_service_name,
+    SUM(constract_detail.quantity) AS service_amount
+FROM
+    addtional_service
+        JOIN
+    constract_detail ON addtional_service.additional_service_ID = constract_detail.additional_service_ID
+GROUP BY addtional_service.additional_service_ID
+HAVING service_amount = (SELECT 
+        MAX(result.sum)
+    FROM
+        constract_detail
+            JOIN
+        (SELECT 
+            SUM(constract_detail.quantity) AS sum,
+                constract_detail.additional_service_ID AS code
+        FROM
+            constract_detail
+        GROUP BY constract_detail.additional_service_ID) result ON constract_detail.constract_detail_ID = result.code);
 
 
 
