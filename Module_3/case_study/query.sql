@@ -188,6 +188,25 @@ GROUP BY constract.constract_ID;
 -- Cau 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 -- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 
+select 	constract_detail.additional_service_ID,
+		sum(constract_detail.quantity) as constract_amount
+from constract_detail
+group by constract_detail.additional_service_ID
+having constract_amount = (select max(abc.sum)
+from 	(select constract_detail.additional_service_ID, sum(constract_detail.quantity) as sum
+		from constract_detail
+		group by constract_detail.additional_service_ID) 
+        abc);
+
+select max(abc.sum)
+from 	(select constract_detail.additional_service_ID, sum(constract_detail.quantity) as sum
+		from constract_detail
+		group by constract_detail.additional_service_ID) 
+        abc;
+
+(select constract_detail.additional_service_ID, sum(constract_detail.quantity) as sum
+from constract_detail
+group by constract_detail.additional_service_ID) abc;
 SELECT 
     addtional_service.additional_service_ID,
     addtional_service.additional_service_name,
@@ -209,13 +228,57 @@ HAVING service_amount = (SELECT
             constract_detail
         GROUP BY constract_detail.additional_service_ID) result ON constract_detail.constract_detail_ID = result.code);
 
+-- Câu 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
+-- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem).
+
+SELECT 
+    constract.constract_ID,
+    service_type.service_type_name,
+    addtional_service.additional_service_name,
+    COUNT(addtional_service.additional_service_ID) AS service_amount
+FROM
+    addtional_service
+        JOIN
+    constract_detail ON addtional_service.additional_service_ID = constract_detail.additional_service_ID
+        JOIN
+    constract ON constract_detail.constract_ID = constract.constract_ID
+        JOIN
+    service ON constract.service_ID = service.service_ID
+        JOIN
+    service_type ON service.service_type_ID = service_type.service_type_ID
+WHERE
+    addtional_service.additional_service_ID IN (SELECT 
+            addtional_service.additional_service_ID
+        FROM
+            addtional_service
+                JOIN
+            constract_detail ON addtional_service.additional_service_ID = constract_detail.additional_service_ID
+        GROUP BY addtional_service.additional_service_ID
+        HAVING COUNT(constract_detail.constract_detail_ID) = 1)
+GROUP BY constract_detail.constract_detail_ID;
 
 
+-- Caau 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi 
+-- mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
 
-select *
-from constract_detail;
+ Create view constract_amount_of_employee as
+select employee.employee_ID, count(constract.employee_ID) as constract_count
+from employee
+join constract on employee.employee_ID = constract.employee_ID
+group by employee.employee_ID;
 
-select *
-from constract;
-
-
+SELECT 
+    employee.employee_ID,
+    employee.employee_name,
+    employee_level.level_name,
+    department.department_name,
+    employee.phone_number,
+    employee.address,
+    constract_amount_of_employee.constract_count as times
+FROM
+    employee
+    join
+     employee_level on employee.level_ID = employee_level.level_ID
+     join department on employee.department_ID = department.department_ID
+     join constract_amount_of_employee on  employee.employee_ID=constract_amount_of_employee.employee_ID
+     where constract_amount_of_employee.constract_count <= 3;
