@@ -204,9 +204,10 @@ from 	(select constract_detail.additional_service_ID, sum(constract_detail.quant
 		group by constract_detail.additional_service_ID) 
         abc;
 
-(select constract_detail.additional_service_ID, sum(constract_detail.quantity) as sum
-from constract_detail
-group by constract_detail.additional_service_ID) abc;
+
+
+
+---- Thử nghiệm phương án tương tự
 SELECT 
     addtional_service.additional_service_ID,
     addtional_service.additional_service_name,
@@ -258,7 +259,7 @@ WHERE
 GROUP BY constract_detail.constract_detail_ID;
 
 
--- Caau 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi 
+-- Cau 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi 
 -- mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
 
  Create view constract_amount_of_employee as
@@ -282,3 +283,92 @@ FROM
      join department on employee.department_ID = department.department_ID
      join constract_amount_of_employee on  employee.employee_ID=constract_amount_of_employee.employee_ID
      where constract_amount_of_employee.constract_count <= 3;
+
+-- Cau 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
+
+set sql_safe_updates = 0;
+delete from employee
+where employee.employee_ID in (
+select employee.employee_ID, count(constract.constract_ID)
+from employee
+left join constract on employee.employee_ID = constract.employee_ID
+group by employee.employee_ID
+having count(constract.constract_ID) = 0);
+
+set sql_safe_updates = 0;
+DELETE e FROM employee e
+        LEFT JOIN
+    constract ON e.employee_ID = constract.employee_ID 
+WHERE
+    constract.constract_ID IS NULL;
+    set sql_safe_updates = 1;
+
+
+-- Câu 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, 
+-- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+
+create view total_contract as
+select constract.customer_ID, 
+		service.rent_fee + constract_detail.quantity*addtional_service.additional_service_price as total
+from constract
+join service on constract.service_ID = service.service_ID
+left join constract_detail on constract.constract_ID = constract_detail.constract_ID
+join addtional_service on constract_detail.additional_service_ID = addtional_service.additional_service_ID;
+
+
+update customer
+join customer_type on customer.customer_type_ID = customer_type.customer_type_ID
+join (
+select customer_ID, sum(total)
+from total_contract
+group by customer_ID
+having sum(total) > 10000000) customer_money
+on customer.customer_ID = customer_money.customer_ID
+set customer.customer_type_ID = 1
+where customer.customer_type_ID = 2;
+
+
+-- Câu 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
+
+SET FOREIGN_KEY_CHECKS=0;
+
+delete c from customer c
+join constract on c.customer_ID = constract.customer_ID
+where year(constract.begin_date) < 2021;
+SET FOREIGN_KEY_CHECKS=1;
+
+
+-- Câu 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+set sql_safe_updates = 0;
+update addtional_service
+join (
+select constract_detail.additional_service_ID as add_service_ID, sum(constract_detail.quantity) 
+from constract_detail
+join constract on constract_detail.constract_ID = constract.constract_ID
+where year(constract.begin_date) = 2020
+group by constract_detail.additional_service_ID
+having sum(constract_detail.quantity) >10 ) constract_amount
+on addtional_service.additional_service_ID = constract_amount.add_service_ID
+set addtional_service.additional_service_price = addtional_service.additional_service_price*2;
+set sql_safe_updates = 1;
+
+-- Câu 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống,
+--  thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+
+select 
+		e.employee_ID as id,
+        e.employee_name as name,
+        e.email,
+        e.phone_number,
+        e.employee_birthday as birth_day,
+        e.address
+from employee e
+union all
+select 
+		c.customer_ID,
+        c.customer_name,
+        c.email,
+        c.phone_number,
+        c.customer_birthday,
+        c.address
+from customer c;
