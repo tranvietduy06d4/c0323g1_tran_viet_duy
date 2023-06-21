@@ -23,6 +23,10 @@ VALUES
   (9,'Tòng Hoang','1982-09-03',256781231,6000000,0245144444,'hoangtong@gmail.com','213 Hàm Nghi, Đà Nẵng',2,4,4),
   (10,'Nguyễn Công Đạo','1994-01-08',755434343,8000000,0988767111,'nguyencongdao12@gmail.com','6 Hoà Khánh, Đồng Nai',2,3,2);
   
+  INSERT INTO employee 
+  (employee_ID,employee_name,employee_birthday,employee_code,salary,phone_number,email,address,position_ID,level_ID,department_ID) 
+VALUES 
+  (11,'Nguyễn Lãng Du','1971-12-07',453231086,11000000,0905234155,'dunguyen@gmail.com','Hải Châu, Đà Nẵng',1,2,1);
   
 INSERT INTO customer_type 
   (customer_type_ID,customer_type_name) 
@@ -104,6 +108,13 @@ VALUES
   (10,'2021-04-12','2021-04-14',0,10,3,5),
   (11,'2021-04-25','2021-04-25',0,2,2,1),
   (12,'2021-05-25','2021-05-27',0,7,10,1);
+  
+  SET FOREIGN_KEY_CHECKS=0;
+  INSERT INTO constract 
+  (constract_ID,begin_date,end_date,deposit_money,employee_ID,customer_ID,service_ID) 
+VALUES 
+  (13,'2019-12-12','2019-12-14',0,11,1,3);
+    SET FOREIGN_KEY_CHECKS=1;
   
 
 INSERT INTO constract_detail 
