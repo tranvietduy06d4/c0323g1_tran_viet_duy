@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo layout với RWD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="row" style="background-color: cornflowerblue;font-family: Algerian;font-size: large">
+            <div class="col-1">Logo</div>
+            <div class="col-1">Home</div>
+            <div class="col-1">About</div>
+            <div class="col-1">Projects</div>
+            <div class="col-1">Contact</div>
+            <div class="col-6"></div>
+            <div class="col-1"><i class="fa-solid fa-right-to-bracket"></i>Login</div>
+    </div>
+    <div class="row">
+        <div style="padding: 5px" class="col-2">
+            <ul>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <h1>Welcome</h1>
+            </div>
+            <div class="row">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ducimus eligendi labore sed,
+                    sint tempora totam. A aperiam cum delectus doloremque eos, ipsum iste libero modi nam perspiciatis
+                    sint suscipit!
+                </p>
+            </div>
+            <div class="row">
+                <h2>Test</h2>
+            </div>
+            <div class="row">
+                <p>
+                    Lorem ipsum...
+                </p>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="button" style="width: 80%;height: 30px;margin-top: 20px; font-size: medium">ADS</button><br>
+            <button type="button" style="width: 80%;height: 30px;margin-top: 20px; font-size: medium">ADS</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2 style="background-color: #685a5a;color: #dddddd;text-align: center">Footer Text</h2>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
