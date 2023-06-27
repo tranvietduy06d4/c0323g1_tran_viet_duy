@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+
+#search-icon,#order-icon,#sign-icon {
+    border: none;
+}
+#logo {
+    height: 2rem;
+    width: 9rem;
+}
+
+#laptop-picture {
+    width: 100%;
+}
