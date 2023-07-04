@@ -27,4 +27,9 @@ public class ProductService implements IProductService{
     public void edit(int id, Product product) {
         productRepository.edit(id, product);
     }
+
+    @Override
+    public void remove(int id) {
+        productRepository.remove(id);
+    }
 }

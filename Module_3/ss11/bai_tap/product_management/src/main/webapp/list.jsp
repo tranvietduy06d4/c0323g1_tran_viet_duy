@@ -29,7 +29,7 @@
   <c:forEach var="product" items="${list}" varStatus="loop">
     <tr>
       <td>${loop.count}</td>
-      <td><c:out value="${product.getName()}"/></td>
+      <td><a href="/ProductServlet?action=showFormView&id=${product.getId()}"><c:out value="${product.getName()}"/></a></td>
       <td><c:out value="${product.getPrice()}"/></td>
       <td><c:out value="${product.getDescription()}"/></td>
       <td><c:out value="${product.getProducer()}"/></td>

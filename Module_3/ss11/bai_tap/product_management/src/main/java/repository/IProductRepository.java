@@ -13,5 +13,7 @@ public interface IProductRepository {
 
     public void edit(int id, Product product);
 
+    public void remove(int id);
+
 
 }

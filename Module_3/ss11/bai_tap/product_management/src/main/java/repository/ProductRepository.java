@@ -38,5 +38,10 @@ public class ProductRepository implements IProductRepository{
         products.put(id,product);
     }
 
+    @Override
+    public void remove(int id) {
+        products.remove(id);
+    }
+
 
 }

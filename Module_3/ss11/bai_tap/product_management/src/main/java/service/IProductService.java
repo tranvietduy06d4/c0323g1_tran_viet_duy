@@ -10,5 +10,6 @@ public interface IProductService {
     void create(Product product);
     Product getById(int id);
     void edit(int id, Product product);
+    public void remove(int id);
 
 }

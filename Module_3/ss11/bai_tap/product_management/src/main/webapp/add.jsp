@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/ProductServlet">Quay về danh sách sản phẩm</a>
 <form action="/ProductServlet?action=create" method="post">
   <table>
     <tr>
