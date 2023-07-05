@@ -14,8 +14,9 @@
 </head>
 <body>
 <a href="/UserServlet?action=showFormCreate">Thêm mới User</a>
+<a href="/UserServlet?action=sortByName">Sắp xếp theo tên</a>
 
-<table border="1px" >
+<table border="1px">
     <h1>Danh sách các User</h1>
     <tr>
         <th>STT</th>
@@ -32,14 +33,15 @@
             <td>${user.getEmail()}</td>
             <td>${user.getCountry()}</td>
             <td><a href="/UserServlet?action=showFormEdit&id=${user.getId()}">Cập nhật</a></td>
-            <td><a href="/UserServlet?action=showFormDelete&id=${user.getId()}">Xóa</a></td>
+            <td><a href="/UserServlet?action=delete&id=${user.getId()}">Xóa</a></td>
         </tr>
     </c:forEach>
 
 </table>
+<br>
 <form action="/UserServlet?action=search" method="post">
-    <input type="text" name="searchByCountry">
-    <input type="submit" value="Tìm kiếm">
+    <input type="text" name="searchByCountry"/>
+    <input type="submit" value="Tìm kiếm"/>
 </form>
 
 

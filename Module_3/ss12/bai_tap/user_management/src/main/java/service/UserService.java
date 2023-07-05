@@ -19,7 +19,22 @@ public class UserService implements IUserService{
     }
 
     @Override
+    public void remove(int id) {
+        userRepository.remove(id);
+    }
+
+    @Override
     public List<User> getByCountry(String country) {
         return userRepository.getByCountry(country);
+    }
+
+    @Override
+    public List<User> sortByName() {
+        return userRepository.sortByName();
+    }
+
+    @Override
+    public User getById(int id) {
+        return userRepository.getByID(id);
     }
 }

@@ -24,12 +24,71 @@ public class UserServlet extends HttpServlet {
             case "showFormCreate":
                 showFormCreate(request, response);
                 break;
+            case "showFormEdit":
+                showFormEdit(request, response);
+                break;
+            case "delete":
+                remove(request,response);
+                break;
+            case "sortByName":
+                sortByName(request,response);
+                break;
             default:
                 showList(request, response);
 
         }
 
     }
+
+    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = userService.getById(id);
+        RequestDispatcher requestDispatcher;
+        if(user == null) {
+            requestDispatcher = request.getRequestDispatcher("/user/error.jsp");
+        } else {
+            request.setAttribute("user",user);
+            requestDispatcher = request.getRequestDispatcher("/user/edit.jsp");
+        }
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void remove(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        userService.remove(id);
+        List<User> list = userService.displayAll();
+        request.setAttribute("list",list);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
+    }
+
+
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) {
+        List<User> list = userService.sortByName();
+        request.setAttribute("list", list);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void showFormCreate(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/create.jsp");
@@ -68,11 +127,22 @@ public class UserServlet extends HttpServlet {
             case "create":
                 create(request,response);
                 break;
+            case "edit":
+                edit(request,response);
+                break;
             case "search":
                 searchByCountry(request,response);
                 break;
-
         }
+
+    }
+
+    private void edit(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User user = new User(id,name,email,country);
 
     }
 

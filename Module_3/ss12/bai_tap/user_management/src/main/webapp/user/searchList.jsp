@@ -12,25 +12,22 @@
     <title>Hiển thị danh sách tìm kiếm Users</title>
 </head>
 <body>
-<table>
-  <tr>
-    <th>STT</th>
-    <th>Họ và tên</th>
-    <th>Email</th>
-    <th>Quốc gia</th>
-  </tr>
-  <c:forEach var="user" items="$userList}" varStatus="loop">
+<table border="1px">
     <tr>
-      <td>${loop.count}</td>
-      <td>${user.getName()}</td>
-      <td>${user.getEmail()}</td>
-      <td>${user.getCountry()}</td>
+        <th>STT</th>
+        <th>Họ và tên</th>
+        <th>Email</th>
+        <th>Quốc gia</th>
     </tr>
-  </c:forEach>
-  <tr>
-    <td></td>
-    <td><a href="/UserServlet">Quay lại danh sách các Users</a></td>
-  </tr>
+    <c:forEach var="user" items="${userList}" varStatus="loop">
+        <tr>
+            <td>${loop.count}</td>
+            <td>${user.getName()}</td>
+            <td>${user.getEmail()}</td>
+            <td>${user.getCountry()}</td>
+        </tr>
+    </c:forEach>
 </table>
+<a href="/UserServlet">Quay lại danh sách các Users</a>
 </body>
 </html>

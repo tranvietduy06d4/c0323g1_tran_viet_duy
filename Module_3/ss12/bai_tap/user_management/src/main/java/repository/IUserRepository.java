@@ -16,5 +16,7 @@ public interface IUserRepository {
 
     public List<User> getByCountry(String country);
 
+    public List<User> sortByName();
+
 
 }
