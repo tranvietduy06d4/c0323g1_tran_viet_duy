@@ -143,7 +143,15 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         User user = new User(id,name,email,country);
-
+        userService.edit(user);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/edit.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {

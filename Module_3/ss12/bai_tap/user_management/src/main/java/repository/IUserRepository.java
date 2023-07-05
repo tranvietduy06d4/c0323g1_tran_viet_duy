@@ -10,7 +10,7 @@ public interface IUserRepository {
     public void create(User user);
 
     public User getByID(int id);
-    public void edit(int id,User user);
+    public void edit(User user);
 
     public void remove(int id);
 

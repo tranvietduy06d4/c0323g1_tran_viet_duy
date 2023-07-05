@@ -37,4 +37,9 @@ public class UserService implements IUserService{
     public User getById(int id) {
         return userRepository.getByID(id);
     }
+
+    @Override
+    public void edit(User user) {
+        userRepository.edit(user);
+    }
 }

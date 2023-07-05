@@ -12,4 +12,5 @@ public interface IUserService {
     List<User> sortByName();
 
     User getById(int id);
+    void edit(User user);
 }
