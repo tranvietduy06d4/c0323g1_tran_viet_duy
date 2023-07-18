@@ -15,21 +15,17 @@ CREATE TABLE account (
 CREATE TABLE service (
     service_id INT PRIMARY KEY AUTO_INCREMENT,
     service_name VARCHAR(255) NOT NULL,
-    price DOUBLE NOT NULL,
-    service_quantity INT NOT NULL,
-    status BIT(1)
+    price DOUBLE NOT NULL
 );
 CREATE TABLE employee (
     employee_id INT PRIMARY KEY AUTO_INCREMENT,
     employee_name VARCHAR(255) NOT NULL,
-    birthday varchar(50) NOT NULL,
+    birthday date,
     salary DOUBLE NOT NULL,
-    phone_number VARCHAR(10) NOT NULL UNIQUE,
+    phone_number VARCHAR(10) NOT NULL,
     gender BIT NOT NULL,
-    start_date varchar(50) NOT NULL,
-    id_card VARCHAR(12) NOT NULL UNIQUE,
+    id_card VARCHAR(12) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    employee_status BIT NOT NULL,
     account_id INT NOT NULL,
     FOREIGN KEY (account_id)
         REFERENCES account (account_id)
@@ -41,7 +37,7 @@ CREATE TABLE customer_type (
 CREATE TABLE customer (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_name VARCHAR(255) NOT NULL,
-    birthday varchar(50),
+    birthday VARCHAR(10),
     phone_number VARCHAR(10),
     gender BIT NOT NULL,
     address VARCHAR(255),
@@ -54,20 +50,11 @@ CREATE TABLE customer (
 );
 CREATE TABLE booking (
     booking_id INT PRIMARY KEY AUTO_INCREMENT,
-    booking_date varchar(50) NOT NULL,
-    customer_id INT,
-    booking_status VARCHAR(50) NOT NULL,
-    FOREIGN KEY (customer_id)
-        REFERENCES customer (customer_id)
-);
-CREATE TABLE booking_detail_employee (
-    booking_detail_employee_id INT PRIMARY KEY AUTO_INCREMENT,
-    booking_id INT NOT NULL,
-    employee_id INT NOT NULL,
-    FOREIGN KEY (employee_id)
-        REFERENCES employee (employee_id),
-    FOREIGN KEY (booking_id)
-        REFERENCES booking (booking_id)
+    booking_date DATE NOT NULL,
+    account_id INT NOT NULL,
+    booking_status BIT,
+    FOREIGN KEY (account_id)
+        REFERENCES account (account_id)
 );
 CREATE TABLE booking_detail_service (
     booking_detail_service_id INT PRIMARY KEY AUTO_INCREMENT,

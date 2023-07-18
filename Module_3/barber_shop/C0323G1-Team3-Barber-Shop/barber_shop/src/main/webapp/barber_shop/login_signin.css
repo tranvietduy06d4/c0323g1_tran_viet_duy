@@ -1,0 +1,50 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    font-size: smaller;
+    background-image: url("login.png");
+    opacity: 0.6;
+    background-size: cover;
+    border-radius: 10px;
+    color: whitesmoke;
+    margin: 7% 5% 5% auto;
+    padding: 20px;
+    border-style: inset;
+    width: 300px;
+    height: 420px;
+    collapse: 10px;
+    overflow: auto;
+    -moz-opacity: 0.1;
+}
+.modal :hover{
+    opacity: 0.9;
+}
+
+::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+}
+
+.close {
+    color: whitesmoke;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: goldenrod;
+    text-decoration: none;
+    cursor: pointer;
+}
+
