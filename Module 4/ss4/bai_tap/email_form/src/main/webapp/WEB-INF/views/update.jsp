@@ -14,12 +14,7 @@
 </head>
 <body>
 <h1>Settings</h1>
-<%--public EmailConfig(String language, int pageSize, boolean filter, String signature) {--%>
-<%--this.language = language;--%>
-<%--this.pageSize = pageSize;--%>
-<%--this.filter = filter;--%>
-<%--this.signature = signature;--%>
-<%--}--%>
+
 <c:if test="${message != null}"><span>${message}</span>
 </c:if>
 <form:form action="/update" method="post" modelAttribute="emailConfig">

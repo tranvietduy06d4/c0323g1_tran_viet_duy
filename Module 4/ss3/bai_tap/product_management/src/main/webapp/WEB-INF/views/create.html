@@ -8,10 +8,6 @@
 <body>
 <h1>New Product Information</h1>
 <form th:action="@{create}" th:object="${product}" method="post">
-<!--    <div>-->
-<!--        <label>ID</label>-->
-<!--        <input type="number" th:field="*{id}"/>-->
-<!--    </div>-->
     <div>
         <label>Name</label>
         <input type="text" th:field="*{name}"/>

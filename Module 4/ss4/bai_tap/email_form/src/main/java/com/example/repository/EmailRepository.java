@@ -3,8 +3,6 @@ package com.example.repository;
 import com.example.model.EmailConfig;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public class EmailRepository implements IEmailRepository{

@@ -25,11 +25,6 @@ public class EmailController {
         return new int[] {5,10,15,25,50,100};
     }
 
-//    @GetMapping ("/")
-//    public String createForm(Model model) {
-//        model.addAttribute("emailConfig",new EmailConfig());
-//        return "home";
-//    }
     @GetMapping("/info")
     public String showInfo(Model model) {
         EmailConfig emailConfig = emailService.display();
@@ -49,9 +44,5 @@ public class EmailController {
         redirectAttributes.addFlashAttribute("message","Save new email config successful");
         return "redirect:/info";
     }
-
-
-
-
 
 }
