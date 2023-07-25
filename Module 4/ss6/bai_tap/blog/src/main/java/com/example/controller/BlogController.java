@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.model.Blog;
+import com.example.model.BlogType;
 import com.example.service.IBlogService;
 import com.example.service.IBlogTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,13 @@ public class BlogController {
     @Autowired
     private IBlogTypeService blogTypeService;
 
+
+    @GetMapping("/create")
+    public String showCreateForm(Model model){
+        model.addAttribute("blog",new Blog());
+        model.addAttribute("blogTypeList",blogTypeService.findAll());
+        return "/create";
+    }
 
 
     @GetMapping("/")
