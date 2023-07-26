@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -57,6 +59,7 @@ public class Blog {
         return postingDate;
     }
 
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public void setPostingDate(Date postingDate) {
         this.postingDate = postingDate;
     }
