@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song List</title>
+</head>
+<body>
+<h1>Song List</h1>
+<a href="/song/create">Add new Song</a>
+<p th:if="${message}" th:text="${message}"></p>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Song Name</th>
+        <th>Singer</th>
+        <th>Category</th>
+        <th>Update</th>
+    </tr>
+    <tr th:each="song,status:${songPage}">
+        <td th:text="${songPage.number*2+status.count}"></td>
+        <td th:text="${song.name}"></td>
+        <td th:text="${song.singer}"></td>
+        <td th:text="${song.category}"></td>
+        <td><a th:href="@{update/__${song.id}__}">Edit</a></td>
+    </tr>
+</table>
+<a th:if="${songPage.hasPrevious()}" th:href="@{/song/list(page=${songPage.number-1})}">Prev</a>
+<span th:text="${songPage.number+1}"></span>/<span th:text="${songPage.totalPages}"></span>
+<a th:if="${songPage.hasNext()}" th:href="@{/song/list(page=${songPage.number+1})}">Next</a>
+
+</body>
+</html>

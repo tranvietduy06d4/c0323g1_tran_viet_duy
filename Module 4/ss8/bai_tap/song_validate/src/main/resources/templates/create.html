@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new song</title>
+</head>
+<body>
+<h1>Add new Song</h1>
+<form th:action="@{/song/create}" th:object="${songDto}" method="post">
+    <table>
+        <tr>
+            <td>Song name</td>
+            <td><input type="text" th:field="*{name}" required></td>
+        </tr>
+        <tr>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Singer</td>
+            <td><input type="text" th:field="*{singer}" required></td>
+        </tr>
+        <tr>
+            <td th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><input type="text" th:field="*{category}" required></td>
+        </tr>
+        <tr>
+            <td th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></td>
+        </tr>
+    </table>
+    <button>Submit</button>
+</form>
+</body>
+</html>
