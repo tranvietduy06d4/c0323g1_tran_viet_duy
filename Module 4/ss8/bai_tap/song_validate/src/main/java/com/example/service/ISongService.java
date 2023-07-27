@@ -8,4 +8,8 @@ public interface ISongService {
     Page<Song> findAll(Pageable pageable);
 
     void createSong(Song song);
+
+    Song findById(int id);
+
+    void updateSong(Song song);
 }

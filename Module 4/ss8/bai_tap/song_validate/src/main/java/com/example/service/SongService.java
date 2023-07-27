@@ -21,4 +21,14 @@ public class SongService implements ISongService {
     public void createSong(Song song) {
         songRepository.save(song);
     }
+
+    @Override
+    public Song findById(int id) {
+        return songRepository.findById(id).get();
+    }
+
+    @Override
+    public void updateSong(Song song) {
+        songRepository.save(song);
+    }
 }

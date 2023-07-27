@@ -21,7 +21,7 @@
         <td th:text="${song.name}"></td>
         <td th:text="${song.singer}"></td>
         <td th:text="${song.category}"></td>
-        <td><a th:href="@{update/__${song.id}__}">Edit</a></td>
+        <td><a th:href="@{/song/update/__${song.id}__}">Edit</a></td>
     </tr>
 </table>
 <a th:if="${songPage.hasPrevious()}" th:href="@{/song/list(page=${songPage.number-1})}">Prev</a>

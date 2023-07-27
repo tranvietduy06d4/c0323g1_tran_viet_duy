@@ -12,10 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -53,6 +50,31 @@ public class SongController {
         BeanUtils.copyProperties(songDto,song);
         songService.createSong(song);
         redirectAttributes.addFlashAttribute("message","Add new song success");
+        return "redirect:/song/list";
+    }
+
+    @GetMapping("/song/update/{id}")
+    public String showFormEdit(@PathVariable int id,Model model) {
+        Song song = songService.findById(id);
+        SongDto songDto = new SongDto();
+        BeanUtils.copyProperties(song,songDto);
+        model.addAttribute("songDto",songDto);
+        return "update";
+    }
+
+    @PostMapping("/song/update")
+    public String updateSong(@Valid @ModelAttribute SongDto songDto,
+                             BindingResult bindingResult,
+                             Model model, RedirectAttributes redirectAttributes) {
+        Song song = new Song();
+        new SongDto().validate(songDto,bindingResult);
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("songDto",songDto);
+            return "update";
+        }
+        BeanUtils.copyProperties(songDto,song);
+        songService.updateSong(song);
+        redirectAttributes.addFlashAttribute("message","Edit new song success");
         return "redirect:/song/list";
     }
 
