@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Give Book Back Form</title>
+</head>
+<body>
+<h1>Give Book Back Form</h1>
+<form th:action="@{/book/give_back}" method="post">
+  <table>
+    <tr>
+      <td>Please enter your rent book code here to give book back:</td>
+      <td><input type="number" name="rentCode"></td>
+    </tr>
+  </table>
+  <button>Submit</button>
+</form>
+</body>
+</html>
