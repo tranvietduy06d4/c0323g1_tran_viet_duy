@@ -42,6 +42,7 @@ public class Logger {
         int rentCode = (int) args[0];
         System.out.println(rentCode);
         Code code = codeService.findCodeByRentCode(rentCode);
+        System.out.println(code);
         Book book = code.getBook();
         System.out.println("Tên sách: " +book.getName() +" Số lượng thu hồi: 01 quyển " +"Số lượng còn trong kho: " +book.getQuantity());
         System.out.println("Tổng số quyển sách đã thu hồi tính đến hiện tại là:" +numberOfGiveBack);
