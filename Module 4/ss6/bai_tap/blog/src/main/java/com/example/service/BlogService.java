@@ -38,5 +38,10 @@ public class BlogService implements IBlogService {
     public void createBlog(Blog blog) {
         blogRepository.save(blog);
     }
+
+    @Override
+    public Page<Blog> findAll(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
 }
 

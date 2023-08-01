@@ -25,8 +25,13 @@ public class BlogTypeService implements IBlogTypeService{
     }
 
     @Override
+    public BlogType findBlogTypeById(int id) {
+        return blogTypeRepository.findById(id).get();
+    }
+
+    @Override
     public Page<BlogType> findAllByName(Pageable pageable, String name) {
-        return blogTypeRepository.findAllByNameContains(pageable,name);
+        return blogTypeRepository.findBlogTypeByNameContaining(pageable,name);
     }
 
 }

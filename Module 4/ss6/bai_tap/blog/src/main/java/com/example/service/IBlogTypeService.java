@@ -11,5 +11,9 @@ public interface IBlogTypeService {
 
     void createBlogType(BlogType blogType);
 
+    BlogType findBlogTypeById(int id);
+
     Page<BlogType> findAllByName(Pageable pageable, String searchName);
+
+
 }

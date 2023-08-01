@@ -33,6 +33,16 @@ public class BlogController {
         return "/create";
     }
 
+    @PostMapping("/create")
+    public String createNewBlog(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes){
+        blog.setPostingDate(Date.valueOf(LocalDate.now()));
+        blogService.createBlog(blog);
+        redirectAttributes.addFlashAttribute("message","successfully");
+        return "redirect:/";
+    }
+
+
+
 
     @GetMapping("/")
     public String showList(@RequestParam(defaultValue = "0") int page,

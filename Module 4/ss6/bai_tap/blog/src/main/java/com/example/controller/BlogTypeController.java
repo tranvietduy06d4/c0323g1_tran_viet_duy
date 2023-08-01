@@ -13,60 +13,49 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.sql.Date;
-import java.time.LocalDate;
 
 @Controller
+@RequestMapping("/category")
 public class BlogTypeController {
 
     @Autowired
     private IBlogTypeService blogTypeService;
     @GetMapping("/create")
     public String showCreateForm(Model model){
-        model.addAttribute("blog",new Blog());
+        model.addAttribute("blogType",new BlogType());
         model.addAttribute("blogTypeList",blogTypeService.findAll());
-        return "/create";
+        return "/blogType/create";
+    }
+
+    @PostMapping("/create")
+    public String createBlogType(@ModelAttribute BlogType blogType, RedirectAttributes redirectAttributes) {
+        blogTypeService.createBlogType(blogType);
+        redirectAttributes.addFlashAttribute("message","Create new blog type success");
+        return "redirect:/category/list";
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/list")
     public String showList(@RequestParam(defaultValue = "0") int page,
                            @RequestParam(defaultValue = "") String searchName,
                            Model model) {
         Pageable pageable = PageRequest.of(page,2, Sort.by("name").ascending());
         Page<BlogType> blogTypePage = blogTypeService.findAllByName(pageable,searchName);
         model.addAttribute("blogTypeList",blogTypePage);
-        return "list";
+        return "blogType/list";
     }
 
     @GetMapping("/edit/{id}")
-    public String blogEdit(@PathVariable int id, Model model) {
-        model.addAttribute("blogType",blogTypeService.getById(id));
-        model.addAttribute("blogTypeList",blogTypeService.findAll());
-        return "edit";
+    public String blogTypeEdit(@PathVariable int id, Model model) {
+        model.addAttribute("blogType",blogTypeService.findBlogTypeById(id));
+        return "blogType/edit";
     }
     @PostMapping("/edit")
-    public String blogUpdate(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
-        blog.setPostingDate(Date.valueOf(LocalDate.now()));
-        blogTypeService.update(blog);
+    public String blogTypeUpdate(@ModelAttribute BlogType blogType, RedirectAttributes redirectAttributes) {
+
+        blogTypeService.createBlogType(blogType);
         redirectAttributes.addFlashAttribute("message","Update successful");
-        return "redirect:/";
-    }
-    @GetMapping("/detail/{id}")
-    public String blogDetail(@PathVariable int id, Model model) {
-        model.addAttribute("blogType",blogTypeService.getById(id));
-        return "detail";
+        return "redirect:/category/list";
     }
 
-    @GetMapping("/delete/{id}")
-    public String blogDelete(@PathVariable int id, Model model) {
-        model.addAttribute("blog",blogTypeService.getById(id));
-        return "delete";
-    }
-
-    @PostMapping("/delete/{id}")
-    public String blogTypeRemove(@PathVariable int id) {
-        blogTypeService.remove(id);
-        return "redirect:/";
-    }
 }

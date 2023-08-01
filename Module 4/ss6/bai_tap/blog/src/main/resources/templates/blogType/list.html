@@ -3,14 +3,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Blog List</title>
+    <title>Blog Type List</title>
 </head>
 <body>
-<h1>Blog List</h1>
-<button><a href="/create">Add new Blog</a></button>
+<h1>Blog Type List</h1>
+<button><a href="/category/create">Add new Blog Type</a></button>
 <br>
 <div th:text="${message}"></div>
-<form th:action="@{/}" method="get">
+<form th:action="@{/category/list}" method="get">
     <input type="text" name="searchName" placeholder="Search" />
     <button>Search</button>
 </form>
@@ -18,27 +18,17 @@
 <table border="1">
     <tr>
         <th>#</th>
-        <th>Title</th>
-        <th>Posting Date</th>
-        <th>Blog Type</th>
-        <th>Author</th>
-        <th>Detail</th>
+        <th>Blog Type Name</th>
         <th>Edit</th>
-        <th>Delete</th>
     </tr>
-    <tr th:each = "blog,status:${blogList}">
-        <td th:text="${blogList.number*2+status.count}"></td>
-        <td th:text="${blog.title}"></td>
-        <td th:text="${blog.postingDate}"></td>
-        <td th:text="${blog.blogType.getName()}"></td>
-        <td th:text="${blog.author}"></td>
-        <td><a th:href="@{detail/__${blog.id}__}">Detail</a></td>
-        <td><a th:href="@{edit/__${blog.id}__}">Edit</a></td>
-        <td><a th:href="@{delete/__${blog.id}__}">Delete</a></td>
+    <tr th:each = "blogType,status:${blogTypeList}">
+        <td th:text="${blogTypeList.number*2+status.count}"></td>
+        <td th:text="${blogType.name}"></td>
+        <td><a th:href="@{/category/edit/__${blogType.id}__}">Edit</a></td>
     </tr>
 </table>
-<a th:if="${blogList.hasPrevious()}" th:href="@{/(page=${blogList.number-1})}">Prev</a>
-<span th:text="${blogList.number+1}"></span>/<span th:text="${blogList.totalPages}"></span>
-<a th:if="${blogList.hasNext()}" th:href="@{/(page=${blogList.number+1})}">Next</a>
+<a th:if="${blogTypeList.hasPrevious()}" th:href="@{/category/list/(page=${blogTypeList.number-1})}">Prev</a>
+<span th:text="${blogTypeList.number+1}"></span>/<span th:text="${blogTypeList.totalPages}"></span>
+<a th:if="${blogTypeList.hasNext()}" th:href="@{/category/list/(page=${blogTypeList.number+1})}">Next</a>
 </body>
 </html>

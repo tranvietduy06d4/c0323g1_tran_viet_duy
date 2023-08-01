@@ -6,7 +6,7 @@
     <title>Add new Blog</title>
 </head>
 <body>
-<form th:action="@{/create}" th:object="${blogType}" method="post">
+<form th:action="@{/category/create}" th:object="${blogType}" method="post">
     <table>
         <tr>
             <td>Name</td>
@@ -14,7 +14,7 @@
         </tr>
     </table>
     <button>Save</button>
-    <a href="/">Back to Blog List</a>
+    <a href="/blogType/list">Back to Blog List</a>
 
 </form>
 </body>
