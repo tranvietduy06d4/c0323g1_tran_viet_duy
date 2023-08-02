@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.7.0.min.js"></script>
+
+</head>
+
+<body>
+<h1>Blog List</h1>
+<button><a href="/create">Add new Blog</a></button>
+<br>
+
+<input type="text" id="name" name="searchName" placeholder="Search"/>
+<button onclick="display()" type="button" id="btn-add">Search</button>
+
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Posting Date</th>
+        <th>Blog Type</th>
+        <th>Author</th>
+    </tr>
+    </thead>
+
+    <tbody id="content">
+
+    </tbody>
+</table>
+<a id="prev"></a>
+<div id="page"></div>
+<a id="next"></a>
+
+<script>
+    display();
+
+    function display(pageNew) {
+        let content = "";
+        let page = 0;
+        if(pageNew!=="" && pageNew!=null){
+            page = pageNew;
+        }
+        let searchName = $('#name').val();
+        $.ajax({
+            contentType: "application/json",
+            method: "GET",
+            dataType: "json",
+            url: "http://localhost:8080/api/blogs?page=" + page+"&searchName="+searchName,
+
+            success: function (data) {
+                if(data===undefined){
+                    alert("Không tìm thấy");
+                }
+                    let length = data.content.length
+                    page = data.pageable.pageNumber;
+                    for (let i = 0; i < length; i++) {
+                        content += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${data.content[i].title}</td>
+                        <td>${data.content[i].postingDate}</td>
+                        <td>${data.content[i].blogType.name}</td>
+                        <td>${data.content[i].author}</td>
+                     </tr>`
+                    }
+                $("#content").html(content);
+                $("#page").html(page);
+                $("#next").html("<button onclick='display("+(page+1)+")'>Next</button>")
+                $("#prev").html("<button onclick='display("+(page-1)+")'>Previous</button>")
+            }
+        })
+    }
+</script>
+
+</body>
+</html>

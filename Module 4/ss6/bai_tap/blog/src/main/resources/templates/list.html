@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Blog List</title>
+    <script src="jquery-3.7.0.min.js"></script>
 </head>
 <body>
 <h1>Blog List</h1>
@@ -11,8 +13,8 @@
 <br>
 <div th:text="${message}"></div>
 <form th:action="@{/}" method="get">
-    <input type="text" name="searchName" placeholder="Search" />
-    <button>Search</button>
+    <input type="text" name="searchName" placeholder="Search"/>
+    <button onclick="searchBlog()" id="btn-add">Search</button>
 </form>
 
 <table border="1">
@@ -26,19 +28,47 @@
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-    <tr th:each = "blog,status:${blogList}">
-        <td th:text="${blogList.number*2+status.count}"></td>
-        <td th:text="${blog.title}"></td>
-        <td th:text="${blog.postingDate}"></td>
-        <td th:text="${blog.blogType.getName()}"></td>
-        <td th:text="${blog.author}"></td>
-        <td><a th:href="@{detail/__${blog.id}__}">Detail</a></td>
-        <td><a th:href="@{edit/__${blog.id}__}">Edit</a></td>
-        <td><a th:href="@{delete/__${blog.id}__}">Delete</a></td>
-    </tr>
+    <tbody id="content">
+
+    </tbody>
+        <tr th:each = "blog,status:${blogList}">
+            <td th:text="${blogList.number*2+status.count}"></td>
+            <td th:text="${blog.title}"></td>
+            <td th:text="${blog.postingDate}"></td>
+            <td th:text="${blog.blogType.getName()}"></td>
+            <td th:text="${blog.author}"></td>
+            <td><a th:href="@{detail/__${blog.id}__}">Detail</a></td>
+            <td><a th:href="@{edit/__${blog.id}__}">Edit</a></td>
+            <td><a th:href="@{delete/__${blog.id}__}">Delete</a></td>
+        </tr>
 </table>
 <a th:if="${blogList.hasPrevious()}" th:href="@{/(page=${blogList.number-1})}">Prev</a>
 <span th:text="${blogList.number+1}"></span>/<span th:text="${blogList.totalPages}"></span>
 <a th:if="${blogList.hasNext()}" th:href="@{/(page=${blogList.number+1})}">Next</a>
+
+<!--<script>-->
+<!--    display();-->
+<!--    function display() {-->
+<!--        let content = "";-->
+<!--        $.ajax({-->
+<!--            contentType: "application/json",-->
+<!--            method: "GET",-->
+<!--            dataType: "json",-->
+<!--            url: "http://localhost:8080/api/blogs",-->
+<!--            success:function (data) {-->
+<!--                for (let i = 0; i < data.length; i++) {-->
+<!--                    content+= '<td>${i+1}</td>\n' +-->
+<!--                        '        <td>${data[i].title}</td>\n' +-->
+<!--                        '        <td>${data[i].postingDate}</td>\n' +-->
+<!--                        '        <td>${data[i].blogType.name}</td>\n' +-->
+<!--                        '        <td>${data[i].author}</td>\n'-->
+
+<!--                }-->
+<!--                $("#content").html(content);-->
+<!--            }-->
+
+<!--        })-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

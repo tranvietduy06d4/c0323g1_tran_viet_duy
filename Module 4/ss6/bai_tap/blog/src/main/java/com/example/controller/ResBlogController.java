@@ -20,10 +20,11 @@ public class ResBlogController {
     private IBlogService blogService;
 
     @GetMapping("")
-    public ResponseEntity<Page<Blog>> showList( @RequestParam(defaultValue = "0") int page) {
+    public ResponseEntity<Page<Blog>> showList( @RequestParam(defaultValue = "0") int page,
+                                                @RequestParam(defaultValue = "") String searchName) {
 
         Pageable pageable = PageRequest.of(page, 2, Sort.by("title").ascending());
-        Page<Blog> blogList = blogService.findAll(pageable);
+        Page<Blog> blogList = blogService.displayAll(pageable,searchName);
         if (blogList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
