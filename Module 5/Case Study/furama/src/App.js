@@ -1,14 +1,14 @@
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ServiceCreate from "./components/service/ServiceCreate";
+import CustomerCreate from "./components/customer/CustomerCreate";
 
 function App() {
   return (
     <>
       <Header />
       <div className="min-vh-100">
-        <ServiceCreate />
+        <CustomerCreate />
       </div>
       <Footer />
     </>

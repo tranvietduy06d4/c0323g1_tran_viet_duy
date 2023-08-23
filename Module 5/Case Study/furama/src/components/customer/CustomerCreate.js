@@ -1,17 +1,17 @@
 import { React } from "react";
 
-function ServiceEdit() {
+function CustomerCreate() {
   return (
     <>
       <div
         className="row col-md-12"
-        style={{ minHeight: "28rem", marginTop: "5rem" }}
+        style={{ minHeight: "28rem", marginTop: "3rem" }}
       >
         <div className="col-md-3" />
         <div className="col-md-6">
           <form style={{ marginTop: "2%" }}>
             <div className="d-flex justify-content-center">
-              <h2>Chỉnh sửa dịch vụ</h2>
+              <h2>Thêm mới khách hàng</h2>
             </div>
             <div className="input-group" style={{ marginTop: "1rem" }}>
               <span
@@ -19,7 +19,7 @@ function ServiceEdit() {
                 id="basic-addon1"
                 style={{ width: "12.5rem" }}
               >
-                Tên dịch vụ
+                Họ và tên
                 <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
               </span>
               <input
@@ -36,63 +36,17 @@ function ServiceEdit() {
                 marginLeft: "12.5rem",
               }}
             ></div>
-            <div className="input-group" style={{ marginTop: "1rem" }}>
+            <div className="input-group">
               <span
                 className="input-group-text mx-auto"
-                id="basic-addon1"
+                id="basic-addon2"
                 style={{ width: "12.5rem" }}
               >
-                Diện tích sử dụng
+                Ngày sinh
                 <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
               </span>
               <input
-                type="number"
-                className="form-control"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-            <div
-              style={{
-                height: "1rem",
-                marginBottom: "0.8rem",
-                marginLeft: "12.5rem",
-              }}
-            ></div>
-            <div className="input-group" style={{ marginTop: "1rem" }}>
-              <span
-                className="input-group-text mx-auto"
-                id="basic-addon1"
-                style={{ width: "12.5rem" }}
-              >
-                Chi phí thuê
-                <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
-              </span>
-              <input
-                type="number"
-                className="form-control"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-            <div
-              style={{
-                height: "1rem",
-                marginBottom: "0.8rem",
-                marginLeft: "12.5rem",
-              }}
-            ></div>
-            <div className="input-group" style={{ marginTop: "1rem" }}>
-              <span
-                className="input-group-text mx-auto"
-                id="basic-addon1"
-                style={{ width: "12.5rem" }}
-              >
-                Số lượng người tối đa
-                <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
-              </span>
-              <input
-                type="number"
+                type="date"
                 className="form-control"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -111,57 +65,13 @@ function ServiceEdit() {
                 htmlFor="inputGroupSelect01"
                 style={{ width: "12.5rem" }}
               >
-                Kiểu thuê
+                Giới tính
                 <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
               </label>
-              <div className="form-control">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="inlineRadioOptions"
-                  id="inlineRadio1"
-                  defaultValue="option1"
-                />
-                <label className="form-check-label" htmlFor="inlineRadio1">
-                  Năm
-                </label>
-              </div>
-              <div className="form-control">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="inlineRadioOptions"
-                  id="inlineRadio2"
-                  defaultValue="option2"
-                />
-                <label className="form-check-label" htmlFor="inlineRadio2">
-                  Tháng
-                </label>
-              </div>
-              <div className="form-control">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="inlineRadioOptions"
-                  id="inlineRadio1"
-                  defaultValue="option3"
-                />
-                <label className="form-check-label" htmlFor="inlineRadio1">
-                  Ngày
-                </label>
-              </div>
-              <div className="form-control">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="inlineRadioOptions"
-                  id="inlineRadio2"
-                  defaultValue="option4"
-                />
-                <label className="form-check-label" htmlFor="inlineRadio2">
-                  Giờ
-                </label>
-              </div>
+              <select className="form-select" id="inputGroupSelect01">
+                <option value="true">Nam</option>
+                <option value="false">Nữ</option>
+              </select>
             </div>
             <div style={{ height: "1rem", marginBottom: "0.8rem" }}></div>
             <div className="input-group" style={{ marginTop: "1rem" }}>
@@ -170,11 +80,11 @@ function ServiceEdit() {
                 id="basic-addon1"
                 style={{ width: "12.5rem" }}
               >
-                Diện tích hồ bơi
+                Số CMND
                 <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
               </span>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -187,20 +97,73 @@ function ServiceEdit() {
                 marginLeft: "12.5rem",
               }}
             ></div>
-            <div className="input-group" style={{ marginTop: "1rem" }}>
+            <div className="input-group mx-auto">
+              <span className="input-group-text" style={{ width: "12.5rem" }}>
+                Số điện thoại
+                <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
+              </span>
+              <input type="text" className="form-control" />
+            </div>
+            <div
+              style={{
+                height: "1rem",
+                marginBottom: "0.8rem",
+                marginLeft: "12.5rem",
+              }}
+            ></div>
+            <div className="input-group">
               <span
                 className="input-group-text mx-auto"
-                id="basic-addon1"
+                id="basic-addon3"
                 style={{ width: "12.5rem" }}
               >
-                Số tầng
+                Địa chỉ email
                 <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
               </span>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
+                id="basic-url"
+                aria-describedby="basic-addon3"
+              />
+            </div>
+            <div
+              style={{
+                height: "1rem",
+                marginBottom: "0.8rem",
+                marginLeft: "12.5rem",
+              }}
+            ></div>
+            <div className="input-group ">
+              <label
+                className="input-group-text mx-auto"
+                htmlFor="inputGroupSelect01"
+                style={{ width: "12.5rem" }}
+              >
+                Loại khách
+                <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
+              </label>
+              <select className="form-select" id="inputGroupSelect01">
+                <option value={1}>Member</option>
+                <option value={2}>Silver</option>
+                <option value={3}>Gold</option>
+                <option value={4}>Platinium</option>
+                <option value={5}>Diamond</option>
+              </select>
+            </div>
+            <div style={{ height: "1rem", marginBottom: "0.8rem" }}></div>
+            <div className="input-group">
+              <span
+                className="input-group-text mx-auto"
+                style={{ width: "12.5rem" }}
+              >
+                Địa chỉ khách hàng
+                <b style={{ color: "red", marginLeft: "0.25rem" }}>*</b>
+              </span>
+              <textarea
+                className="form-control"
+                aria-label="With textarea"
+                defaultValue={""}
               />
             </div>
             <div
@@ -211,14 +174,11 @@ function ServiceEdit() {
               }}
             ></div>
             <div style={{ textAlign: "center" }}>
-              <button
-                className="btn btn-outline-primary"
-                style={{ color: "black" }}
-              >
-                Cập nhật
+              <button className="btn btn-primary" style={{ color: "black" }}>
+                Thêm mới
               </button>
               <a
-                className="btn btn-outline-warning"
+                className="btn btn-info"
                 style={{ color: "black", marginLeft: "3%" }}
                 href="#"
               >
@@ -232,4 +192,4 @@ function ServiceEdit() {
     </>
   );
 }
-export default ServiceEdit;
+export default CustomerCreate;
