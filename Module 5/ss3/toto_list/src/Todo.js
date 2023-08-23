@@ -15,10 +15,10 @@ class Todo extends Component {
 
   addItem() {
     if (this.state.item.trim() !== "") {
-      this.setState({
-        list: [...this.state.list, this.state.item],
+      this.setState((state) => ({
+        list: [...state.list, state.item],
         item: "",
-      });
+      }));
     }
   }
 
