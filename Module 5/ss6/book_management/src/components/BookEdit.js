@@ -1,25 +1,24 @@
 import { Formik, Field, Form } from "formik";
 import * as bookService from "../services/BookService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 export function BookEdit() {
   const navigate = useNavigate();
 
   const {id} = useParams();
 
-  const [book,setBook] = useState({   
-      title:"",
-      quantity:""
-  })
+  const [book,setBook] = useState();
 
 
 
   
   const findBook = async () =>{
-    const currentBook = await axios.get(`http://localhost:8080/books/${id}`);
+    const currentBook = await axios.get(`http://localhost:8080/books/`+id);
     console.log(currentBook.data.title);
-    setBook(prev => ({...prev,...currentBook}));
+    setBook(prev => ({...prev,...currentBook})); 
   }
 
   useEffect(()=>{
@@ -28,6 +27,7 @@ export function BookEdit() {
     }
 
 },[book])
+console.log(book);
 
   const editBook = async (values) => {
     const result = await bookService.editBook(id,values);
@@ -38,9 +38,9 @@ export function BookEdit() {
     <>
     {book !== undefined ?
       <Formik
+        // enableReinitialize={true}
         initialValues={{
-          title: "",
-          quantity: "",
+          ...book.data,
         }}
         onSubmit={async (values, { setSubmitting }) => {
           setSubmitting(false);

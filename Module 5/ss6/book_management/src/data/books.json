@@ -1,18 +1,8 @@
 {
   "books": [
     {
-      "id": 2,
-      "title": "Tieu quy",
-      "quantity": "65"
-    },
-    {
-      "id": 3,
-      "title": "Thanh cat tu han",
-      "quantity": "10"
-    },
-    {
       "title": "Hoa lan",
-      "quantity": 5,
+      "quantity": 111,
       "id": 4
     },
     {
@@ -24,6 +14,16 @@
       "title": "Hoa Hồng",
       "quantity": 4,
       "id": 14
+    },
+    {
+      "title": "Hoa bưởi",
+      "quantity": 11,
+      "id": 15
+    },
+    {
+      "title": "Hoa nhài",
+      "quantity": 20,
+      "id": 16
     }
   ]
 }
