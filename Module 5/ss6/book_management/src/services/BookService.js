@@ -20,6 +20,16 @@ export const addBook = async (book) => {
   }
 };
 
+export const editBook = async (id,book) => {
+    try {
+      const result = await axios.patch("http://localhost:8080/books/" +id, book);
+      console.log(result);
+      return result.data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
 export const deleteBook = async (id) => {
   try {
     const result = await axios.delete("http://localhost:8080/books/" + id);

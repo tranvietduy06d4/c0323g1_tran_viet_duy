@@ -13,24 +13,30 @@ export function BookEdit() {
       quantity:""
   })
 
-  useEffect(()=>{
-      findBook();
-  },[])
+
 
   
   const findBook = async () =>{
-    const result = await axios.get(`http://localhost:8080/books/${id}`);
-    console.log(result.data.title);
-    setBook(result.data);
+    const currentBook = await axios.get(`http://localhost:8080/books/${id}`);
+    console.log(currentBook.data.title);
+    setBook(prev => ({...prev,...currentBook}));
   }
 
-  const editBook = async (id,value) => {
-    const result = await bookService.editBook(id,value);
+  useEffect(()=>{
+    if(book===undefined) {
+      findBook();
+    }
+
+},[book])
+
+  const editBook = async (values) => {
+    const result = await bookService.editBook(id,values);
     navigate("/");
   };
 
   return (
     <>
+    {book !== undefined ?
       <Formik
         initialValues={{
           title: "",
@@ -69,7 +75,7 @@ export function BookEdit() {
             Submit
           </button>
         </Form>
-      </Formik>
+      </Formik> : ""}
     </>
   );
 }
