@@ -1,174 +1,53 @@
-import { React } from "react";
+import { React, useState, useEffect } from "react";
+import { getAll } from "../../services/FacilityService";
 
 function ServiceList() {
+  const [facilities, setFacilities] = useState([]);
+  useEffect(() => {
+    loadFacilitiesList();
+  }, []);
+  const loadFacilitiesList = async () => {
+    const result = await getAll();
+    setFacilities((prev) => result);
+  };
+
   return (
     <>
       <div
         className="container-fluid d-flex justify-content-center row"
         style={{ marginTop: "5rem" }}
       >
-        <div
-          className="card col-sm-6 col-md-4 col-lg-4 "
-          style={{ width: "28rem", margin: "2rem" }}
-        >
-          <img
-            src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-370x239.jpg"
-            width={370}
-            height={239}
-            className="card-img-top"
-            alt="PHÒNG DELUXE HƯỚNG BIỂN"
-          />
-          <div className="card-body">
-            <h5 className="card-title">PHÒNG DELUXE HƯỚNG BIỂN</h5>
-            <span className="card-text">
-              Diện tích: 43.7 m<sup>2</sup>
-            </span>
-            <span style={{ float: "right" }}>
-              <a href="#" className="btn btn-outline-primary me-2">
-                Sửa
-              </a>
-              <a href="#" className="btn btn-outline-danger">
-                Xóa
-              </a>
-            </span>
+        {facilities.map((facility) => (
+          <div
+            key={facility.id}
+            className="card col-sm-6 col-md-4 col-lg-4 "
+            style={{ width: "28rem", margin: "2rem" }}
+          >
+            <img
+              src={facility.image}
+              width={370}
+              height={239}
+              className="card-img-top"
+              alt={facility.name}
+            />
+            <div className="card-body">
+              <h5 className="card-title">{facility.name}</h5>
+              <span className="card-text">
+                Diện tích: {facility.area} m<sup>2</sup>
+              </span>
+              <span style={{ float: "right" }}>
+                <a href="#" className="btn btn-outline-primary me-2">
+                  Sửa
+                </a>
+                <a href="#" className="btn btn-outline-danger">
+                  Xóa
+                </a>
+              </span>
+            </div>
           </div>
-        </div>
-        <div
-          className="card col-sm-6 col-md-4 col-lg-4"
-          style={{ width: "28rem", margin: "2rem" }}
-        >
-          <img
-            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
-            width={370}
-            height={239}
-            className="card-img-top"
-            alt="PHÒNG DELUXE HƯỚNG BIỂN"
-          />
-          <div className="card-body">
-            <h5 className="card-title">PHÒNG STUDIO SUITE HƯỚNG BIỂN</h5>
-            <span className="card-text">
-              Diện tích: 40.1 m<sup>2</sup>
-            </span>
-            <span style={{ float: "right" }}>
-              <a href="#" className="btn btn-outline-primary me-2">
-                Sửa
-              </a>
-              <a href="#" className="btn btn-outline-danger">
-                Xóa
-              </a>
-            </span>
-          </div>
-        </div>
-        <div
-          className="card col-sm-6  col-md-4  col-lg-4"
-          style={{ width: "28rem", margin: "2rem" }}
-        >
-          <img
-            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
-            width={370}
-            height={239}
-            className="card-img-top"
-            alt="PHÒNG SUITE HƯỚNG BIỂN"
-          />
-          <div className="card-body">
-            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-            <span className="card-text">
-              Diện tích: 85.8 m<sup>2</sup>
-            </span>
-            <span style={{ float: "right" }}>
-              <a href="#" className="btn btn-outline-primary me-2">
-                Sửa
-              </a>
-              <a href="#" className="btn btn-outline-danger">
-                Xóa
-              </a>
-            </span>
-          </div>
-        </div>
-        <div
-          className="card col-sm-6  col-md-4 col-lg-4"
-          style={{ width: "28rem", margin: "2rem" }}
-        >
-          <img
-            src="https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg"
-            width={370}
-            height={239}
-            className="card-img-top"
-            alt="PHÒNG PRESIDENTIAL SUITE"
-          />
-          <div className="card-body">
-            <h5 className="card-title">PHÒNG PRESIDENTIAL SUITE</h5>
-            <span className="card-text">
-              Diện tích: 8130 m<sup>2</sup>
-            </span>
-            <span style={{ float: "right" }}>
-              <a href="#" className="btn btn-outline-primary me-2">
-                Sửa
-              </a>
-              <a href="#" className="btn btn-outline-danger">
-                Xóa
-              </a>
-            </span>
-          </div>
-        </div>
-        <div
-          className="card col-sm-6  col-md-4 col-lg-4"
-          style={{ width: "28rem", margin: "2rem" }}
-        >
-          <img
-            src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg"
-            width={370}
-            height={239}
-            className="card-img-top"
-            alt="BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG"
-          />
-          <div className="card-body">
-            <h5 className="card-title">BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG</h5>
-            <span className="card-text">
-              Diện tích: 85.8 m<sup>2</sup>
-            </span>
-            <span style={{ float: "right" }}>
-              <a href="#" className="btn btn-outline-primary me-2">
-                Sửa
-              </a>
-              <a href="#" className="btn btn-outline-danger">
-                Xóa
-              </a>
-            </span>
-          </div>
-        </div>
-        <div
-          className="card col-sm-6  col-md-4 col-lg-4"
-          style={{ width: "28rem", margin: "2rem" }}
-        >
-          <img
-            src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg"
-            width={370}
-            height={239}
-            className="card-img-top"
-            alt="BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG"
-          />
-          <div className="card-body">
-            <h5 className="card-title">BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG</h5>
-            <span className="card-text">
-              Diện tích: 85.8 m<sup>2</sup>
-            </span>
-            <span style={{ float: "right" }}>
-              <a href="#" className="btn btn-outline-primary me-2">
-                Sửa
-              </a>
-              <a
-                href="#"
-                className="btn btn-outline-danger"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop1"
-              >
-                Xóa
-              </a>
-            </span>
-          </div>
-        </div>
+        ))}
       </div>
+
       {/*modal-delete*/}
       <div
         className="modal fade"

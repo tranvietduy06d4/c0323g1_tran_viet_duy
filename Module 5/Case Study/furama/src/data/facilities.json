@@ -1,0 +1,72 @@
+{
+  "facilities": [
+    {
+      "id": 1,
+      "name": "PHÒNG DELUXE HƯỚNG BIỂN",
+      "area":43.7,
+      "rentalCost": 1500000,
+      "capacity": 2,
+      "rentalType": ["Year","Month","Day","Hour"],
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-370x239.jpg"
+    },
+    {
+      "id": 2,
+      "name": "PHÒNG STUDIO SUITE HƯỚNG BIỂN",
+      "area":40.1,
+      "rentalCost": 2000000,
+      "capacity": 2,
+      "rentalType": ["Year","Month","Day","Hour"],
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
+    },
+
+    {
+      "id": 3,
+      "name": "PHÒNG SUITE HƯỚNG BIỂN",
+      "area":85.8,
+      "rentalCost": 1700000,
+      "capacity": 2,
+      "rentalType": ["Year","Month","Day","Hour"],
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
+    },
+
+    {
+      "id": 4,
+      "name": "PHÒNG PRESIDENTIAL SUITE",
+      "area":130,
+      "rentalCost": 3500000,
+      "capacity": 2,
+      "rentalType": ["Year","Month","Day","Hour"],
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg"
+    },
+
+    {
+      "id": 5,
+      "name": "BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG",
+      "area":900,
+      "rentalCost": 9000000,
+      "capacity": 8,
+      "rentalType": ["Year","Month","Day","Hour"],
+      "poolArea": 20,
+      "floorQuantity": 2,
+      "standard": "Diamond",
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg",
+      "accompaniedService": ["Pool","Elevator","Television"]
+
+    },
+
+    {
+      "id": 6,
+      "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
+      "area":320,
+      "rentalCost": 10000000,
+      "capacity": 8,
+      "rentalType": ["Year","Month","Day","Hour"],
+      "poolArea": 20,
+      "floorQuantity": 2,
+      "standard": "Diamond",
+      "image": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg",
+      "accompaniedService": ["Pool","Elevator","Television"]
+
+    }
+  ]
+}
