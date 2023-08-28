@@ -1,6 +1,16 @@
-import { React } from "react";
+import { React, useState, useEffect } from "react";
+import { getAll } from "../../services/CustomerService";
 
 function CustomerList() {
+  const [customers, setCustomers] = useState([]);
+
+  const loadCustomerList = async () => {
+    const result = await getAll();
+    setCustomers(result);
+  };
+  useEffect(() => {
+    loadCustomerList();
+  }, []);
   return (
     <>
       <div style={{ minHeight: "28rem", marginTop: "5rem" }}>
@@ -15,7 +25,6 @@ function CustomerList() {
         <table className="table table-striped table-hover mt-2">
           <thead>
             <tr>
-              <th>STT</th>
               <th>Họ và tên</th>
               <th>Ngày sinh</th>
               <th>Giới tính</th>
@@ -28,61 +37,36 @@ function CustomerList() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Trần Văn Bình</td>
-              <td>13-06-2000</td>
-              <td>Nam</td>
-              <td>205332456</td>
-              <td>0987657435</td>
-              <td>binhtv@gmail.com</td>
-              <td>Diamond</td>
-              <td>57 Bạch Đằng, Đà Nẵng</td>
-              <td>
-                <a
-                  className="btn btn-outline-primary border border-dark"
-                  href="#"
-                >
-                  Sửa
-                </a>
-              </td>
-              <td>
-                <a
-                  href="#"
-                  className="btn btn-outline-danger btn-square border-dark"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop1"
-                >
-                  Xóa
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Nguyễn Minh Châu</td>
-              <td>23-07-1999</td>
-              <td>Nữ</td>
-              <td>205228983</td>
-              <td>0976294738</td>
-              <td>chaunm@gmail.com</td>
-              <td>Platinium</td>
-              <td>57 Bạch Đằng, Đà Nẵng</td>
-              <td>
-                <a href="#" className="btn btn-outline-primary border border-dark">
-                  Sửa
-                </a>
-              </td>
-              <td>
-                <a
-                  href="#"
-                  className="btn btn-outline-danger btn-square border-dark"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop1"
-                >
-                  Xóa
-                </a>
-              </td>
-            </tr>
+            {customers.map((customer) => (
+              <tr key= {customer.id}>
+                <td>{customer.name}</td>
+                <td>{customer.birthday}</td>
+                <td>{customer.gender?"Nam":"Nữ"}</td>
+                <td>{customer.idCard}</td>
+                <td>{customer.phone}</td>
+                <td>{customer.email}</td>
+                <td>{customer.customerType}</td>
+                <td>{customer.address}</td>
+                <td>
+                  <a
+                    className="btn btn-outline-primary border border-dark"
+                    href="#"
+                  >
+                    Sửa
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="#"
+                    className="btn btn-outline-danger btn-square border-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop1"
+                  >
+                    Xóa
+                  </a>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
         {/*modal-delete*/}

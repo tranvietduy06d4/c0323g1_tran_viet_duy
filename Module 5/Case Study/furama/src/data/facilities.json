@@ -68,5 +68,63 @@
       "accompaniedService": ["Pool","Elevator","Television"]
 
     }
+  ],
+
+  "customers": [
+    {
+      "id": 1,
+      "name": "Trần Văn Bình",
+      "birthday":"1978-03-20",
+      "gender": true,
+      "idCard": "205289476",
+      "phone": "0987357651",
+      "email": "binhtr@gmail.com",
+      "customerType": "Diamond",
+      "address": "57 Trần Phú, Hội An, Quảng Nam"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Hoàng Nhất",
+      "birthday":"1981-06-30",
+      "gender": true,
+      "idCard": "205985769",
+      "phone": "0972186936",
+      "email": "nhatnh@gmail.com",
+      "customerType": "Platinium",
+      "address": "135 Trần Hưng Đạo,Tam Kỳ, Quảng Nam"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Ý Nhi",
+      "birthday":"1992-01-24",
+      "gender": false,
+      "idCard": "205986574",
+      "phone": "0935678461",
+      "email": "nhiny@gmail.com",
+      "customerType": "Gold",
+      "address": "92 Nguyễn Lương Bằng, Đà Nẵng"
+    },
+    {
+      "id": 4,
+      "name": "Lê Khả Hân",
+      "birthday":"1993-09-06",
+      "gender": false,
+      "idCard": "205375983",
+      "phone": "0969264350",
+      "email": "hanlk@gmail.com",
+      "customerType": "Silver",
+      "address": "74 Trần Hưng Đạo, Đà Nẵng"
+    },
+    {
+      "id": 5,
+      "name": "Hoàng Văn Bách",
+      "birthday":"1995-08-02",
+      "gender": true,
+      "idCard": "205113932",
+      "phone": "0958745327",
+      "email": "bachhv@gmail.com",
+      "customerType": "Member",
+      "address": "45 Lương Nhữ Hộc, Đà Nẵng"
+    }
   ]
 }
