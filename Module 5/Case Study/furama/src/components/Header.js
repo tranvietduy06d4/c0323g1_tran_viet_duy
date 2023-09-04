@@ -1,14 +1,13 @@
 import { React } from "react";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-
       <div className="container-fluid fixed-top bg-dark ">
         <nav className="navbar navbar-expand-sm navbar-dark align-items-center">
           <a
-            href="#"
             className="nabar-brand mb-0 h3 text-light"
-            style={{ marginLeft: "5rem",textDecoration: "none"}}
+            style={{ marginLeft: "5rem", textDecoration: "none" }}
           >
             <img
               className="d-line-block"
@@ -16,27 +15,67 @@ function Header() {
               alt=" Logo Header Menu"
               width={20}
               height={30}
-              style={{ marginRight: "1rem"}}
+              style={{ marginRight: "1rem" }}
             />
             FURAMA
           </a>
-          <button
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            className="navbar-toggler"
-            aria-controls="navbar-nav"
-            aria-expanded="false"
-            aria-label="toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
+
           <div
+            className="collapse navbar-collapse"
+            id="navbarNavDarkDropdown"
+            style={{ marginLeft: "7rem" }}
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button
+                  className="btn btn-dark dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Quản lý
+                </button>
+                <ul className="dropdown-menu dropdown-menu-dark ">
+                  <li>
+                    <a className="dropdown-item">
+                      <Link
+                        to={"/"}
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        Dịch vụ
+                      </Link>
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item">
+                      <Link
+                        to={"/customer/list"}
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        Khách hàng
+                      </Link>
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item">
+                      <Link
+                        to="/contract/list"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        Hợp đồng
+                      </Link>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          {/* <div
             className="collapse navbar-collapse"
             id="navbarNav"
             style={{ marginLeft: "7rem" }}
-          >
-            <ul className="navbar-nav">
+          > */}
+          {/* <ul className="navbar-nav">
               <li className="nav-item active">
                 <a href="#" className="nav-link active">
                   Trang Chủ
@@ -58,7 +97,7 @@ function Header() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
           <form
             action="#"
             className="d-flex mb-1"

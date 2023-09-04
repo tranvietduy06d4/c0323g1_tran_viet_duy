@@ -3,128 +3,232 @@
     {
       "id": 1,
       "name": "PHÒNG DELUXE HƯỚNG BIỂN",
-      "area":43.7,
+      "area": 50,
       "rentalCost": 1500000,
       "capacity": 2,
-      "rentalType": ["Year","Month","Day","Hour"],
+      "rentalType": "Day",
+      "facilityType": {
+        "id": 2,
+        "name": "Villa"
+      },
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-370x239.jpg"
     },
     {
       "id": 2,
       "name": "PHÒNG STUDIO SUITE HƯỚNG BIỂN",
-      "area":40.1,
+      "area": 40.1,
       "rentalCost": 2000000,
       "capacity": 2,
-      "rentalType": ["Year","Month","Day","Hour"],
+      "rentalType": "Month",
+      "facilityType": {
+        "id": 1,
+        "name": "Room"
+      },
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
     },
-
     {
       "id": 3,
       "name": "PHÒNG SUITE HƯỚNG BIỂN",
-      "area":85.8,
+      "area": 85.8,
       "rentalCost": 1700000,
       "capacity": 2,
-      "rentalType": ["Year","Month","Day","Hour"],
+      "rentalType": "Day",
+      "facilityType": {
+        "id": 1,
+        "name": "Room"
+      },
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
     },
-
     {
       "id": 4,
       "name": "PHÒNG PRESIDENTIAL SUITE",
-      "area":130,
+      "area": 130,
       "rentalCost": 3500000,
       "capacity": 2,
-      "rentalType": ["Year","Month","Day","Hour"],
+      "rentalType": "Day",
+      "facilityType": {
+        "id": 1,
+        "name": "Room"
+      },
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg"
     },
-
     {
       "id": 5,
       "name": "BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG",
-      "area":900,
+      "area": 900,
       "rentalCost": 9000000,
       "capacity": 8,
-      "rentalType": ["Year","Month","Day","Hour"],
+      "rentalType": "Day",
+      "facilityType": {
+        "id": 3,
+        "name": "House"
+      },
       "poolArea": 20,
       "floorQuantity": 2,
       "standard": "Diamond",
       "image": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg",
-      "accompaniedService": ["Pool","Elevator","Television"]
-
+      "accompaniedService": [
+        "Pool",
+        "Elevator",
+        "Television"
+      ]
     },
-
     {
       "id": 6,
-      "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
-      "area":320,
+      "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG edited",
+      "area": 320,
       "rentalCost": 10000000,
       "capacity": 8,
-      "rentalType": ["Year","Month","Day","Hour"],
+      "rentalType": "Day",
       "poolArea": 20,
       "floorQuantity": 2,
       "standard": "Diamond",
+      "facilityType": {
+        "id": 2,
+        "name": "Villa"
+      },
       "image": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg",
-      "accompaniedService": ["Pool","Elevator","Television"]
-
+      "accompaniedService": [
+        "Pool",
+        "Elevator",
+        "Television"
+      ]
     }
   ],
-
-  "customers": [
+  "facilityTypes": [
     {
       "id": 1,
-      "name": "Trần Văn Bình",
-      "birthday":"1978-03-20",
-      "gender": true,
-      "idCard": "205289476",
-      "phone": "0987357651",
-      "email": "binhtr@gmail.com",
-      "customerType": "Diamond",
-      "address": "57 Trần Phú, Hội An, Quảng Nam"
+      "name": "Room"
     },
     {
       "id": 2,
+      "name": "Villa"
+    },
+    {
+      "id": 3,
+      "name": "House"
+    }
+  ],
+  "customers": [
+    {
+      "id": 2,
       "name": "Nguyễn Hoàng Nhất",
-      "birthday":"1981-06-30",
+      "birthday": "1981-06-30",
       "gender": true,
       "idCard": "205985769",
       "phone": "0972186936",
       "email": "nhatnh@gmail.com",
-      "customerType": "Platinium",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      },
       "address": "135 Trần Hưng Đạo,Tam Kỳ, Quảng Nam"
     },
     {
       "id": 3,
       "name": "Nguyễn Ý Nhi",
-      "birthday":"1992-01-24",
+      "birthday": "1992-01-24",
       "gender": false,
       "idCard": "205986574",
       "phone": "0935678461",
       "email": "nhiny@gmail.com",
-      "customerType": "Gold",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
       "address": "92 Nguyễn Lương Bằng, Đà Nẵng"
     },
     {
+      "name": "Đàm Thoại Tin",
+      "birthday": "2023-08-09",
+      "gender": "true",
+      "idCard": "200000000",
+      "phone": "0986686868",
+      "email": "tinstyle@gmail.com",
+      "address": "59 Mỹ Khê 6, Sơn Trà, Đà Nẵng",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      },
+      "id": 6
+    },
+    {
+      "name": "A",
+      "birthday": "2023-08-10",
+      "gender": "true",
+      "idCard": "200000000",
+      "phone": "0956798345",
+      "email": "tinstyle@gmail.com",
+      "address": "24 Mỹ Khê 6, Sơn Trà, Đà Nẵng",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      },
+      "id": 7
+    },
+    {
+      "name": "Banh dau xanh",
+      "birthday": "2023-08-03",
+      "gender": "true",
+      "idCard": "200000000",
+      "phone": "0986686868",
+      "email": "admin@gmail.com",
+      "address": "26 Mỹ Khê 6, Sơn Trà, Đà Nẵng",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 8
+    },
+    {
+      "name": "Đàm Thoại",
+      "birthday": "2023-08-04",
+      "gender": "true",
+      "idCard": "200000000",
+      "phone": "0986686868",
+      "email": "admin@gmail.com",
+      "address": "59 Mỹ Khê 6, Sơn Trà, Đà Nẵng",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 9
+    },
+    {
+      "name": "Cocacola",
+      "birthday": "2023-08-04",
+      "gender": "true",
+      "idCard": "200000000",
+      "phone": "0909876543",
+      "email": "admin@gmail.com",
+      "address": "59 Mỹ Khê 6, Sơn Trà, Đà Nẵng",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 10
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
       "id": 4,
-      "name": "Lê Khả Hân",
-      "birthday":"1993-09-06",
-      "gender": false,
-      "idCard": "205375983",
-      "phone": "0969264350",
-      "email": "hanlk@gmail.com",
-      "customerType": "Silver",
-      "address": "74 Trần Hưng Đạo, Đà Nẵng"
+      "name": "Silver"
     },
     {
       "id": 5,
-      "name": "Hoàng Văn Bách",
-      "birthday":"1995-08-02",
-      "gender": true,
-      "idCard": "205113932",
-      "phone": "0958745327",
-      "email": "bachhv@gmail.com",
-      "customerType": "Member",
-      "address": "45 Lương Nhữ Hộc, Đà Nẵng"
+      "name": "Member"
     }
   ]
 }

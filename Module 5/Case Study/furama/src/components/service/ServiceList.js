@@ -1,18 +1,32 @@
 import { React, useState, useEffect } from "react";
-import { getAll } from "../../services/FacilityService";
+import { deleteFacility, getAll } from "../../services/FacilityService";
+import Header from "../Header";
+import Footer from "../Footer";
+import SlideCarousel from "../SlideCarousel";
+import { Link } from "react-router-dom";
 
 function ServiceList() {
   const [facilities, setFacilities] = useState([]);
+ 
   useEffect(() => {
     loadFacilitiesList();
   }, []);
+
   const loadFacilitiesList = async () => {
     const result = await getAll();
-    setFacilities((prev) => result);
+    setFacilities(result);
   };
+
+  const removeFacility= async(id) => {
+    const result = await deleteFacility(id);
+    loadFacilitiesList();
+    alert("Xóa dịch vụ thành công"); 
+  }
 
   return (
     <>
+      <h1>KHU NGHỈ DƯỠNG SANG TRỌNG BẬC NHẤT THẾ GIỚI FURAMA</h1>
+      <SlideCarousel />
       <div
         className="container-fluid d-flex justify-content-center row"
         style={{ marginTop: "5rem" }}
@@ -36,12 +50,12 @@ function ServiceList() {
                 Diện tích: {facility.area} m<sup>2</sup>
               </span>
               <span style={{ float: "right" }}>
-                <a href="#" className="btn btn-outline-primary me-2">
-                  Sửa
+                <a className="btn btn-outline-primary me-2">
+                  <Link to={`/facility/edit/${facility.id}`}>Sửa</Link>
                 </a>
-                <a href="#" className="btn btn-outline-danger">
+                <button onClick={() => removeFacility(facility.id)}  className="btn btn-outline-danger">
                   Xóa
-                </a>
+                </button>
               </span>
             </div>
           </div>

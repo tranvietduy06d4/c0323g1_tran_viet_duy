@@ -1,27 +1,85 @@
 import { React, useState, useEffect } from "react";
-import { getAll } from "../../services/CustomerService";
+import { getAll, getCustomerByName } from "../../services/CustomerService";
+import { deleteCustomer } from "../../services/CustomerService";
+import { Link } from "react-router-dom";
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState();
+  const [searchName, setSearchName] = useState("");
+
+  useEffect(() => {
+    loadCustomerList(page, searchName);
+  }, [page, searchName]);
+
+  const prevPage = () => {
+    if (page > 1) {
+      setPage((pre) => pre - 1);
+    }
+  };
+
+  const nextPage = () => {
+    console.log(page);
+    console.log(totalPage);
+    if (page < totalPage) {
+      setPage((pre) => pre + 1);
+    }
+  };
+
+  const makeSearchName = () => {
+    const newSearchName = document.getElementById("searchName").value;
+    setSearchName(newSearchName);
+    setPage(1);
+  };
 
   const loadCustomerList = async () => {
-    const result = await getAll();
-    setCustomers(result);
+    const result = await getCustomerByName(page, searchName);
+    setTotalPage(Math.ceil(result.headers["x-total-count"] / 3));
+    setCustomers(result.data);
   };
-  useEffect(() => {
+
+  const removeCustomer = async (id) => {
+    const result = await deleteCustomer(id);
     loadCustomerList();
-  }, []);
+    alert("Xóa khách hàng thành công");
+  };
+
+  if (customers.length === 0) {
+    return null;
+  }
+
   return (
     <>
       <div style={{ minHeight: "28rem", marginTop: "5rem" }}>
         <h1 style={{ textAlign: "center" }}>Danh sách khách hàng</h1>
-        <a
-          href="#"
-          className="btn btn-outline-success"
-          style={{ float: "right", marginRight: "2rem" }}
-        >
-          Thêm mới
-        </a>
+
+        <div className="d-flex justify-content-end mb-1">
+          <div className="d-flex">
+            <input type="text" className="form-control mx-2" id="searchName" />
+
+            <button
+              onClick={() => makeSearchName()}
+              className="btn btn-outline-warning me-2"
+              type="button"
+            >
+              <i className="fa-solid fa-magnifying-glass" />
+            </button>
+
+            <Link
+              to={"/customer/create"}
+              className="btn btn-outline-primary"
+              style={{
+                textDecoration: "none",
+                marginRight: "2rem",
+                width: "10rem",
+              }}
+            >
+              Thêm mới
+            </Link>
+          </div>
+        </div>
+
         <table className="table table-striped table-hover mt-2">
           <thead>
             <tr>
@@ -38,37 +96,68 @@ function CustomerList() {
           </thead>
           <tbody>
             {customers.map((customer) => (
-              <tr key= {customer.id}>
+              <tr key={customer.id}>
                 <td>{customer.name}</td>
                 <td>{customer.birthday}</td>
-                <td>{customer.gender?"Nam":"Nữ"}</td>
+                <td>{customer.gender ? "Nam" : "Nữ"}</td>
                 <td>{customer.idCard}</td>
                 <td>{customer.phone}</td>
                 <td>{customer.email}</td>
-                <td>{customer.customerType}</td>
+                <td>{customer.customerType.name}</td>
                 <td>{customer.address}</td>
                 <td>
-                  <a
-                    className="btn btn-outline-primary border border-dark"
-                    href="#"
-                  >
-                    Sửa
+                  <a className="btn btn-outline-primary border border-dark">
+                    <Link
+                      to={`/customer/${customer.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      Sửa
+                    </Link>
                   </a>
                 </td>
                 <td>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
+                    onClick={() => removeCustomer(`${customer.id}`)}
                     className="btn btn-outline-danger btn-square border-dark"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop1"
+                    // data-bs-toggle="modal"
+                    // data-bs-target="#staticBackdrop1"
                   >
                     Xóa
-                  </a>
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+
+        <nav className="d-flex justify-content-center">
+          <ul className="pagination">
+            <li className="page-item">
+              <button
+                type="button"
+                className="page-link"
+                onClick={() => prevPage()}
+              >
+                Prev
+              </button>
+            </li>
+            <li className="page-item active" aria-current="page">
+              <a className="page-link" href="#">
+                {page}
+              </a>
+            </li>
+            <li className="page-item">
+              <button
+                type="button"
+                className="page-link"
+                onClick={() => nextPage()}
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
         {/*modal-delete*/}
         <div
           className="modal fade"

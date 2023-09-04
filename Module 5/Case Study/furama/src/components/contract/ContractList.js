@@ -54,6 +54,6 @@ function ContractList() {
     </>
   );
 }
-export default CustomerList;
+export default ContractList;
 
 

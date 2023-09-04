@@ -150,4 +150,4 @@ function ContractCreate() {
     </>
   );
 }
-export default CustomerCreate;
+export default ContractCreate;
