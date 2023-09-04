@@ -21,7 +21,7 @@ function UserList() {
   }
   useEffect(() => {
    getAll();
-  }, [])
+  }, [dispatch])
   return (
     <div>
         <button>Get users</button>

@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 const UserReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_USERS_SUCCESS:
-      return { ...state, users: action.payload };
+      return { users: action.payload };
     default:
       return state;
   }

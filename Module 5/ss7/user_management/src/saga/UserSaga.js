@@ -24,9 +24,6 @@ function* removeUser(action) {
   yield put({
     type: GET_ALL_USER,
   });
-  if (result.status) {
-    alert("Respone status" + result.status);
-  }
 }
 
 export default function* rootSaga() {
