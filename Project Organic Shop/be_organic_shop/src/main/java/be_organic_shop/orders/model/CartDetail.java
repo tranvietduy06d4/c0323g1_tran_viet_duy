@@ -1,7 +1,7 @@
 package be_organic_shop.orders.model;
 
 import be_organic_shop.product.model.Product;
-import be_organic_shop.user.model.AppUser;
+import be_organic_shop.user.model.Users;
 
 import javax.persistence.*;
 
@@ -12,8 +12,8 @@ public class CartDetail {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "app_user_id", referencedColumnName = "id")
-    private AppUser appUser;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Users users;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
@@ -24,9 +24,9 @@ public class CartDetail {
     public CartDetail() {
     }
 
-    public CartDetail(Long id, AppUser appUser, Product product, Integer quantity) {
+    public CartDetail(Long id, Users users, Product product, Integer quantity) {
         this.id = id;
-        this.appUser = appUser;
+        this.users = users;
         this.product = product;
         this.quantity = quantity;
     }
@@ -39,12 +39,12 @@ public class CartDetail {
         this.id = id;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
+    public Users getAppUser() {
+        return users;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setAppUser(Users users) {
+        this.users = users;
     }
 
     public Product getProduct() {

@@ -1,6 +1,6 @@
 package be_organic_shop.orders.model;
 
-import be_organic_shop.user.model.AppUser;
+import be_organic_shop.user.model.Users;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -21,19 +21,19 @@ public class Orders {
     private String note;
 
     @ManyToOne
-    @JoinColumn(name = "app_user_id",referencedColumnName = "id")
-    private AppUser appUser;
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private Users users;
 
     public Orders() {
     }
 
-    public Orders(Long id, String code, LocalDateTime dateTime, Boolean flagDeleted, String note, AppUser appUser) {
+    public Orders(Long id, String code, LocalDateTime dateTime, Boolean flagDeleted, String note, Users users) {
         this.id = id;
         this.code = code;
         this.dateTime = dateTime;
         this.flagDeleted = flagDeleted;
         this.note = note;
-        this.appUser = appUser;
+        this.users = users;
     }
 
     public Long getId() {
@@ -76,11 +76,11 @@ public class Orders {
         this.note = note;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
+    public Users getAppUser() {
+        return users;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setAppUser(Users users) {
+        this.users = users;
     }
 }
