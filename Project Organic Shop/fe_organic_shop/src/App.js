@@ -1,17 +1,20 @@
 
 import './App.css';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
+import { Routes,Route,BrowserRouter } from 'react-router-dom';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
-import ProductDetail from './components/product/ProductDetail';
-import Cart from './components/order/Cart';
+
 function App() {
   return (
     <>
-    <Cart/>
+
+    <Routes>
+      <Route path='/' element={<Home />} ></Route>
+      <Route path='/home/login' element={<Login />} ></Route>
+    </Routes>
+
     </>
   );
 }

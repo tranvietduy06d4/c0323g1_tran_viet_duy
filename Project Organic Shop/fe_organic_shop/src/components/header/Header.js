@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SiGooglemaps } from "react-icons/si";
 import { FaRegEnvelope } from "react-icons/fa";
 import { BiLogoFacebook } from "react-icons/bi";
 import { BiLogoTwitter } from "react-icons/bi";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { BiLogoInstagramAlt } from "react-icons/bi";
-import {BiSearch} from "react-icons/bi";
-import {BiUser} from "react-icons/bi";
-import {BiShoppingBag} from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
+import { BiShoppingBag } from "react-icons/bi";
+import { Link, useNavigate } from "react-router-dom";
+import * as userService from "../../services/UserService"
 const Header = () => {
+  const navigate = useNavigate();
+  const [JwtToken, setJwtToken] = useState(localStorage.getItem("JWT"));
+  const [userName,setUserName] = useState("");
+
+  useEffect(() => {
+    getUsername();
+  }, []);
+
+  const getUsername = async () => {
+    const result = await userService.infoUserByJwtToken();
+    console.log(result);
+    setUserName(result.sub);
+  };
+
+  const logOut = () => {
+    localStorage.removeItem("JWT")
+  }
+
   return (
     <>
       <div className="container-fluid bg-gray-200 fixed-top">
@@ -58,14 +78,11 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto p-4 p-lg-0">
-              <a href="#" className="nav-item nav-link active">
+              <Link to={"/"} href="#" className="nav-item nav-link active">
                 Trang chủ
-              </a>
+              </Link>
               <a href="#" className="nav-item nav-link">
                 Giới thiệu
-              </a>
-              <a href="#" className="nav-item nav-link">
-                Sản phẩm
               </a>
               <div className="nav-item dropdown">
                 <a
@@ -73,20 +90,17 @@ const Header = () => {
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
                 >
-                  Trang
+                  Sản phẩm
                 </a>
                 <div className="dropdown-menu">
                   <a href="#" className="dropdown-item">
-                    Blog Grid
+                    Rau
                   </a>
                   <a href="#" className="dropdown-item">
-                    Our Features
+                    Củ quả
                   </a>
                   <a href="#" className="dropdown-item">
-                    Testimonial
-                  </a>
-                  <a href="#" className="dropdown-item">
-                    404 Page
+                    Trái cây
                   </a>
                 </div>
               </div>
@@ -94,23 +108,35 @@ const Header = () => {
                 Liên hệ
               </a>
             </div>
-            <div className="d-none d-lg-flex">
-              <a
-                className="btn"
-                href="#"
-              >
+            <div className="d-none d-lg-flex align-items-center">
+              <a className="btn" href="#">
                 <BiSearch />
               </a>
-              <a
+              <div className="nav-item dropdown d-flex ">
+                <span className="me-1 text-success">{userName ? userName:""}</span>
+                <a
+                  href="#"
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                >
+                  <BiUser />
+                </a>
+                <div className="dropdown-menu">
+                  <Link to={"/home/login"} className="dropdown-item">
+                    Đăng nhập
+                  </Link>
+                  <a type="button" onClick={() => logOut()} className="dropdown-item">
+                    Đăng xuất
+                  </a>
+                </div>
+              </div>
+              {/* <a
                 className="btn ms-1"
                 href="#"
               >
                 <BiUser />
-              </a>
-              <a
-                className="btn ms-1"
-                href="#"
-              >
+              </a> */}
+              <a className="btn ms-1" href="#">
                 <BiShoppingBag />
               </a>
             </div>
