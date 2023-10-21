@@ -10,23 +10,41 @@ import { BiUser } from "react-icons/bi";
 import { BiShoppingBag } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import * as userService from "../../services/UserService"
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCarts } from "../order/redux/cartAction";
+
+
 const Header = () => {
   const navigate = useNavigate();
-  const [JwtToken, setJwtToken] = useState(localStorage.getItem("JWT"));
+  const [JwtToken, setJwtToken] = useState("");
   const [userName,setUserName] = useState("");
+  const dispatch = useDispatch();
+  const carts = useSelector((state) => state.carts);
+ 
 
   useEffect(() => {
     getUsername();
   }, []);
 
+
+
   const getUsername = async () => {
+    
     const result = await userService.infoUserByJwtToken();
-    console.log(result);
-    setUserName(result.sub);
+    if(result != null) {
+      setUserName(result.sub);
+      const id = await userService.getUserIdByUserName(result.sub);
+      dispatch(getAllCarts(id.data));
+      
+    }
   };
 
-  const logOut = () => {
-    localStorage.removeItem("JWT")
+
+  const logOut = async() => {
+    // await userService.logout(localStorage.getItem("JWT"));
+    localStorage.removeItem("JWT");
+    setUserName("");
+    navigate("/");
   }
 
   return (
@@ -78,7 +96,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto p-4 p-lg-0">
-              <Link to={"/"} href="#" className="nav-item nav-link active">
+              <Link to={"/"} className="nav-item nav-link active">
                 Trang chủ
               </Link>
               <a href="#" className="nav-item nav-link">
@@ -113,7 +131,7 @@ const Header = () => {
                 <BiSearch />
               </a>
               <div className="nav-item dropdown d-flex ">
-                <span className="me-1 text-success">{userName ? userName:""}</span>
+                <span className="me-1 text-success">{ userName}</span>
                 <a
                   href="#"
                   className="nav-link dropdown-toggle"
@@ -122,23 +140,20 @@ const Header = () => {
                   <BiUser />
                 </a>
                 <div className="dropdown-menu">
-                  <Link to={"/home/login"} className="dropdown-item">
+                  {!userName? <Link to={"/login"} className="dropdown-item">
                     Đăng nhập
-                  </Link>
+                  </Link>: ""}
+                  
                   <a type="button" onClick={() => logOut()} className="dropdown-item">
                     Đăng xuất
                   </a>
                 </div>
               </div>
-              {/* <a
-                className="btn ms-1"
-                href="#"
-              >
-                <BiUser />
-              </a> */}
-              <a className="btn ms-1" href="#">
+
+              <Link to={"/cart"} className="btn ms-1" href="#">
                 <BiShoppingBag />
-              </a>
+                <span className="cart-number">{carts.length}</span>
+              </Link>
             </div>
           </div>
         </nav>

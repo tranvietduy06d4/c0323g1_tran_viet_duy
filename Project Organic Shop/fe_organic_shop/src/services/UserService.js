@@ -26,5 +26,21 @@ export const infoUserByJwtToken = () => {
   if (jwtToken) {
     const result = jwt_decode(jwtToken);
     return result;
+  }else {
+    return null;
   }
 };
+
+export const getUserIdByUserName = async (userName) => {
+  const id = await axios.get(
+    `http://localhost:8080/api/v1/users/get-user-id/${userName}`
+  );
+  return id;
+};
+
+export const logout = async(request) => {
+  await axios.post(
+    `http://localhost:8080/api/v1/auth/logout`,
+    request
+  );
+}
