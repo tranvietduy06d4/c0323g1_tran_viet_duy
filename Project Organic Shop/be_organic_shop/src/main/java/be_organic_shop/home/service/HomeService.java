@@ -1,4 +1,10 @@
 package be_organic_shop.home.service;
 
-public class HomeService {
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class HomeService implements IHomeService {
+
+
 }

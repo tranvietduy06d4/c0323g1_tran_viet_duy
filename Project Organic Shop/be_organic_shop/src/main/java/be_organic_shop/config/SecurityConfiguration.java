@@ -28,7 +28,12 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .antMatchers("/api/v1/auth/**")
+                .antMatchers("/api/v1/auth/**",
+                        "/api/v1/home/**",
+                        "/api/v1/products/detail/**",
+                        "/api/v1/users/get-user-id/{userName}",
+                        "/api/v1/carts/**"
+                )
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
